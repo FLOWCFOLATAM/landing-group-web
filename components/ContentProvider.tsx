@@ -45,7 +45,45 @@ function LiveContent({
 }) {
   const { data } = useTina(tina as never) as { data: { site?: unknown } };
   const value = data?.site
-    ? (withAssetPaths(data.site) as unknown as Content)
+    ? mergeOver(staticContent, withAssetPaths(data.site))
     : staticContent;
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;
+}
+
+/* Blindaje del contenido en vivo: Tina devuelve null en campos vacíos y,
+   mientras reindexa un esquema nuevo, puede traer la forma anterior. Se
+   superpone lo vivo sobre la forma estática: nunca falta un campo que un
+   componente espera. Las listas se toman tal cual (el cliente puede
+   reordenar/borrar); cada elemento se completa contra un molde VACÍO
+   (no contra otro elemento) para no mezclar contenidos entre sí. */
+function mergeOver<T>(base: T, live: unknown): T {
+  if (live === null || live === undefined) return base;
+  if (Array.isArray(base)) {
+    if (!Array.isArray(live)) return base;
+    const mold = base.length ? skeleton(base[0]) : undefined;
+    return live
+      .filter((item) => item !== null && item !== undefined)
+      .map((item) => (mold === undefined ? item : mergeOver(mold, item))) as T;
+  }
+  if (base && typeof base === "object") {
+    if (typeof live !== "object" || Array.isArray(live)) return base;
+    const out: Record<string, unknown> = {};
+    for (const [key, inner] of Object.entries(base as Record<string, unknown>)) {
+      out[key] = mergeOver(inner, (live as Record<string, unknown>)[key]);
+    }
+    return out as T;
+  }
+  return (typeof live === typeof base ? live : base) as T;
+}
+
+/* Molde vacío con la misma forma: textos "", listas [], objetos anidados. */
+function skeleton<T>(value: T): T {
+  if (Array.isArray(value)) return [] as T;
+  if (value && typeof value === "object") {
+    const out: Record<string, unknown> = {};
+    for (const [key, inner] of Object.entries(value as Record<string, unknown>)) out[key] = skeleton(inner);
+    return out as T;
+  }
+  if (typeof value === "string") return "" as T;
+  return value;
 }

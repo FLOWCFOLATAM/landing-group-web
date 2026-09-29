@@ -1,22 +1,14 @@
 import { defineConfig } from "tinacms";
 
 /* TinaCMS — edición visual del contenido de Landing Group.
-   - Local: `npm run dev` levanta Tina + Next; admin en /admin/index.html
+   - Local: `npm run dev` levanta Tina + Next; admin en /admin/
    - Producción: requiere proyecto en app.tina.io y los secretos
      NEXT_PUBLIC_TINA_CLIENT_ID / TINA_TOKEN en GitHub (ver README).
-   El contenido vive en content/site.json; las fotos, en public/brand. */
+   El contenido vive en content/site.json (tipado en brand/content.ts);
+   las fotos, en public/brand. Si cambia la forma del JSON, actualizar este
+   esquema, .pages.yml y brand/content.ts a la vez. */
 
 const basePath = (process.env.NEXT_PUBLIC_BASE_PATH ?? "").replace(/^\//, "");
-
-const link = (name: string, label: string) => ({
-  type: "object" as const,
-  name,
-  label,
-  fields: [
-    { type: "string" as const, name: "label", label: "Texto" },
-    { type: "string" as const, name: "href", label: "Destino (no cambiar sin apoyo técnico)" },
-  ],
-});
 
 export default defineConfig({
   branch:
@@ -69,21 +61,42 @@ export default defineConfig({
           },
           {
             type: "object",
+            name: "primaryCta",
+            label: "Botón principal del sitio (CTA único)",
+            description:
+              "Este texto y este destino se usan en TODOS los botones de acción del sitio: menú, portada, soluciones, casos y cierre.",
+            fields: [
+              { type: "string", name: "label", label: "Texto del botón" },
+              { type: "string", name: "href", label: "Destino (no cambiar sin apoyo técnico)" },
+            ],
+          },
+          {
+            type: "object",
             name: "nav",
             label: "Menú superior",
             fields: [
               {
                 type: "object",
                 name: "links",
-                label: "Enlaces del menú",
+                label: "Entradas del menú (máx. 4 + botón)",
                 list: true,
                 ui: { itemProps: (item) => ({ label: item?.label }) },
                 fields: [
                   { type: "string", name: "label", label: "Texto" },
                   { type: "string", name: "href", label: "Destino (no cambiar sin apoyo técnico)" },
+                  {
+                    type: "object",
+                    name: "children",
+                    label: "Submenú (opcional)",
+                    list: true,
+                    ui: { itemProps: (item) => ({ label: item?.label }) },
+                    fields: [
+                      { type: "string", name: "label", label: "Texto" },
+                      { type: "string", name: "href", label: "Destino (no cambiar sin apoyo técnico)" },
+                    ],
+                  },
                 ],
               },
-              link("cta", "Botón principal"),
             ],
           },
           {
@@ -101,8 +114,6 @@ export default defineConfig({
               },
               { type: "string", name: "script", label: "Frase manuscrita" },
               { type: "string", name: "sub", label: "Descripción", ui: { component: "textarea" } },
-              link("ctaPrimary", "Botón principal"),
-              link("ctaSecondary", "Enlace secundario"),
               {
                 type: "object",
                 name: "tiles",
@@ -124,68 +135,144 @@ export default defineConfig({
           },
           {
             type: "object",
-            name: "works",
-            label: "Trabajos realizados",
+            name: "solutions",
+            label: "Soluciones",
             fields: [
               { type: "string", name: "label", label: "Etiqueta de sección" },
               { type: "string", name: "title", label: "Título" },
               { type: "string", name: "intro", label: "Introducción", ui: { component: "textarea" } },
               {
                 type: "object",
-                name: "items",
-                label: "Piezas del catálogo",
-                list: true,
-                ui: { itemProps: (item) => ({ label: [item?.brand, item?.piece].filter(Boolean).join(" · ") }) },
+                name: "note",
+                label: "Franja de personalización (bajo las tarjetas)",
                 fields: [
-                  { type: "image", name: "src", label: "Foto" },
-                  { type: "string", name: "brand", label: "Marca cliente" },
-                  { type: "string", name: "piece", label: "Pieza" },
-                  { type: "string", name: "desc", label: "Descripción (hover)", ui: { component: "textarea" } },
+                  { type: "string", name: "text", label: "Texto", ui: { component: "textarea" } },
+                  { type: "string", name: "label", label: "Texto del enlace" },
+                  { type: "string", name: "href", label: "Destino (no cambiar sin apoyo técnico)" },
+                ],
+              },
+              {
+                type: "object",
+                name: "items",
+                label: "Soluciones y capacidades",
+                list: true,
+                ui: { itemProps: (item) => ({ label: item?.name }) },
+                fields: [
+                  { type: "string", name: "slug", label: "URL de la página (no cambiar sin apoyo técnico)" },
+                  {
+                    type: "string",
+                    name: "tier",
+                    label: "Tipo",
+                    options: [
+                      { value: "principal", label: "Solución principal (aparece en la portada)" },
+                      { value: "capacidad", label: "Capacidad transversal (página secundaria)" },
+                    ],
+                  },
+                  { type: "string", name: "name", label: "Nombre" },
+                  { type: "string", name: "promise", label: "Promesa (frase corta)" },
+                  { type: "string", name: "body", label: "Resumen (tarjeta)", ui: { component: "textarea" } },
+                  { type: "image", name: "photo", label: "Foto de cabecera" },
+                  {
+                    type: "string",
+                    name: "solves",
+                    label: "Qué resuelve (2–3 líneas)",
+                    ui: { component: "textarea" },
+                  },
+                  {
+                    type: "object",
+                    name: "includes",
+                    label: "Qué incluye (3–5)",
+                    list: true,
+                    ui: { itemProps: (item) => ({ label: item?.title }) },
+                    fields: [
+                      {
+                        type: "string",
+                        name: "icon",
+                        label: "Ícono",
+                        options: [
+                          { value: "textil", label: "Textil (prenda)" },
+                          { value: "accesorio", label: "Accesorio / credencial" },
+                          { value: "kit", label: "Kit / caja" },
+                          { value: "muestra", label: "Muestra aprobada" },
+                          { value: "activacion", label: "Activación (megáfono)" },
+                          { value: "montaje", label: "Montaje / stand" },
+                          { value: "granformato", label: "Gran formato (toldo)" },
+                          { value: "responsable", label: "Responsable único" },
+                          { value: "bordado", label: "Bordado" },
+                          { value: "serigrafia", label: "Serigrafía" },
+                          { value: "uv", label: "Impresión UV" },
+                          { value: "prueba", label: "Prueba documentada" },
+                        ],
+                      },
+                      { type: "string", name: "title", label: "Título" },
+                      { type: "string", name: "text", label: "Texto corto", ui: { component: "textarea" } },
+                    ],
+                  },
+                  {
+                    type: "object",
+                    name: "how",
+                    label: "Cómo lo hacemos (diferenciales conectados)",
+                    list: true,
+                    ui: { itemProps: (item) => ({ label: item?.title }) },
+                    fields: [
+                      { type: "string", name: "title", label: "Título" },
+                      { type: "string", name: "text", label: "Texto", ui: { component: "textarea" } },
+                      { type: "string", name: "href", label: "Destino (no cambiar sin apoyo técnico)" },
+                    ],
+                  },
+                  {
+                    type: "string",
+                    name: "cases",
+                    label: "Casos que se muestran (2–4)",
+                    list: true,
+                    description:
+                      "Escribe el identificador del caso: monster, tottus, amoramar, swan, tres-cruces, johnnie-walker, red-bull, heineken.",
+                  },
                 ],
               },
             ],
           },
           {
             type: "object",
-            name: "services",
-            label: "Servicios",
+            name: "howWeWork",
+            label: "Cómo lo hacemos (diferenciales)",
             fields: [
               { type: "string", name: "label", label: "Etiqueta de sección" },
-              { type: "string", name: "title", label: "Título" },
+              { type: "string", name: "title", label: "Título (portada)" },
+              { type: "string", name: "intro", label: "Introducción (portada)", ui: { component: "textarea" } },
+              { type: "string", name: "pageTitle", label: "Título (página Cómo lo hacemos)" },
+              { type: "string", name: "pageIntro", label: "Introducción (página)", ui: { component: "textarea" } },
               {
                 type: "object",
                 name: "items",
-                label: "Servicios (6)",
+                label: "Diferenciales (4)",
                 list: true,
-                ui: { itemProps: (item) => ({ label: [item?.n, item?.name].filter(Boolean).join(" · ") }) },
+                ui: { itemProps: (item) => ({ label: item?.name }) },
                 fields: [
-                  { type: "string", name: "n", label: "Número (01–06)" },
-                  { type: "string", name: "slug", label: "URL del servicio (no cambiar sin apoyo técnico)" },
+                  { type: "string", name: "id", label: "Identificador (no cambiar sin apoyo técnico)" },
                   { type: "string", name: "name", label: "Nombre" },
+                  { type: "string", name: "role", label: "Rol (Ejecución, Operación, Servicio…)" },
                   { type: "string", name: "body", label: "Resumen (tarjeta)", ui: { component: "textarea" } },
-                  { type: "image", name: "photo", label: "Foto de cabecera" },
+                  { type: "string", name: "href", label: "Destino (no cambiar sin apoyo técnico)" },
+                  { type: "image", name: "photo", label: "Foto" },
                   {
                     type: "object",
                     name: "detail",
-                    label: "Página de detalle",
+                    label: "Detalle en la página Cómo lo hacemos",
+                    description: "Si la frase principal queda vacía, el diferencial solo se enlaza (caso Personalización).",
                     fields: [
                       { type: "string", name: "claim", label: "Frase principal" },
                       { type: "string", name: "intro", label: "Introducción", ui: { component: "textarea" } },
-                      {
-                        type: "string",
-                        name: "bullets",
-                        label: "Qué incluye (viñetas)",
-                        list: true,
-                      },
+                      { type: "string", name: "bullets", label: "Viñetas", list: true },
                       {
                         type: "object",
                         name: "gallery",
-                        label: "Piezas reales (2 fotos)",
+                        label: "Fotos (2)",
                         list: true,
                         ui: { itemProps: (item) => ({ label: item?.alt }) },
                         fields: [
                           { type: "image", name: "src", label: "Foto" },
-                          { type: "string", name: "alt", label: "Pie de foto" },
+                          { type: "string", name: "alt", label: "Pie de foto / descripción" },
                         ],
                       },
                     ],
@@ -196,32 +283,73 @@ export default defineConfig({
           },
           {
             type: "object",
-            name: "stats",
-            label: "Nuestra operación",
+            name: "cases",
+            label: "Trabajos (casos)",
             fields: [
               { type: "string", name: "label", label: "Etiqueta de sección" },
               { type: "string", name: "title", label: "Título" },
+              { type: "string", name: "intro", label: "Introducción", ui: { component: "textarea" } },
               {
                 type: "object",
                 name: "items",
-                label: "Bloques (4)",
+                label: "Casos",
+                description: "Los primeros 6 casos aparecen en la portada; todos aparecen en /trabajos.",
                 list: true,
-                ui: { itemProps: (item) => ({ label: item?.value }) },
+                ui: { itemProps: (item) => ({ label: [item?.brand, item?.title].filter(Boolean).join(" · ") }) },
                 fields: [
-                  { type: "string", name: "value", label: "Dato grande" },
-                  { type: "string", name: "label", label: "Explicación" },
+                  { type: "string", name: "slug", label: "Identificador / URL (no cambiar sin apoyo técnico)" },
+                  { type: "string", name: "brand", label: "Marca cliente" },
+                  { type: "string", name: "category", label: "Categoría (etiqueta)" },
+                  {
+                    type: "string",
+                    name: "solution",
+                    label: "Solución relacionada",
+                    options: [
+                      { value: "merch-corporativo", label: "Merch corporativo" },
+                      { value: "eventos-btl", label: "Eventos & BTL" },
+                      { value: "personalizacion", label: "Personalización" },
+                    ],
+                  },
+                  { type: "string", name: "title", label: "Titular del caso" },
+                  { type: "string", name: "need", label: "Qué necesitaba", ui: { component: "textarea" } },
+                  { type: "string", name: "answer", label: "Qué hicimos", ui: { component: "textarea" } },
+                  { type: "string", name: "execution", label: "Cómo lo ejecutamos (pasos)", list: true },
+                  { type: "string", name: "pieces", label: "Piezas" },
+                  { type: "image", name: "cover", label: "Foto de la tarjeta" },
+                  {
+                    type: "object",
+                    name: "gallery",
+                    label: "Fotos de la ficha",
+                    list: true,
+                    ui: { itemProps: (item) => ({ label: item?.alt }) },
+                    fields: [
+                      { type: "image", name: "src", label: "Foto" },
+                      { type: "string", name: "alt", label: "Descripción de la foto" },
+                    ],
+                  },
                 ],
               },
             ],
           },
           {
             type: "object",
-            name: "statement",
-            label: "Frase editorial",
+            name: "works",
+            label: "Galería de piezas",
             fields: [
-              { type: "string", name: "small", label: "Etiqueta pequeña" },
-              { type: "string", name: "big", label: "Frase grande" },
-              { type: "string", name: "accents", label: "Palabras en verde", list: true },
+              { type: "string", name: "label", label: "Título de la galería" },
+              {
+                type: "object",
+                name: "items",
+                label: "Piezas",
+                list: true,
+                ui: { itemProps: (item) => ({ label: [item?.brand, item?.piece].filter(Boolean).join(" · ") }) },
+                fields: [
+                  { type: "image", name: "src", label: "Foto" },
+                  { type: "string", name: "brand", label: "Marca cliente" },
+                  { type: "string", name: "piece", label: "Pieza" },
+                  { type: "string", name: "desc", label: "Descripción (hover)", ui: { component: "textarea" } },
+                ],
+              },
             ],
           },
           {
@@ -247,25 +375,57 @@ export default defineConfig({
           },
           {
             type: "object",
-            name: "cta",
-            label: "Bloque final de contacto",
+            name: "stats",
+            label: "Nuestra operación",
             fields: [
+              { type: "string", name: "label", label: "Etiqueta de sección" },
               { type: "string", name: "title", label: "Título" },
-              { type: "string", name: "body", label: "Texto", ui: { component: "textarea" } },
-              link("button", "Botón"),
+              { type: "string", name: "intro", label: "Argumento comercial", ui: { component: "textarea" } },
+              {
+                type: "object",
+                name: "items",
+                label: "Bloques (4)",
+                list: true,
+                ui: { itemProps: (item) => ({ label: item?.value }) },
+                fields: [
+                  { type: "string", name: "value", label: "Dato grande" },
+                  { type: "string", name: "label", label: "Explicación" },
+                ],
+              },
             ],
           },
           {
             type: "object",
-            name: "agenda",
-            label: "Página de agenda",
+            name: "cta",
+            label: "Bloque final de contacto",
+            fields: [
+              { type: "string", name: "title", label: "Mensaje comercial" },
+              { type: "string", name: "body", label: "Texto", ui: { component: "textarea" } },
+              { type: "string", name: "contactLabel", label: "Etiqueta del contacto directo" },
+            ],
+          },
+          {
+            type: "object",
+            name: "contact",
+            label: "Página Hablemos (formulario)",
             fields: [
               { type: "string", name: "label", label: "Etiqueta" },
               { type: "string", name: "title", label: "Título" },
               { type: "string", name: "script", label: "Frase manuscrita" },
               { type: "string", name: "intro", label: "Introducción", ui: { component: "textarea" } },
+              { type: "string", name: "needs", label: "Opciones de «¿Qué necesita tu marca?»", list: true },
               { type: "string", name: "slots", label: "Horarios disponibles", list: true },
-              { type: "string", name: "email", label: "Correo que recibe las reuniones" },
+              { type: "string", name: "email", label: "Correo que recibe las solicitudes" },
+              {
+                type: "string",
+                name: "whatsapp",
+                label: "WhatsApp (opcional)",
+                description: "Número con código de país, solo dígitos (ej. 51999999999). Vacío = no se muestra.",
+              },
+              { type: "string", name: "instagram", label: "Instagram (URL)" },
+              { type: "string", name: "response", label: "Expectativa de respuesta" },
+              { type: "string", name: "confirmTitle", label: "Título de la confirmación" },
+              { type: "string", name: "confirmBody", label: "Texto de la confirmación", ui: { component: "textarea" } },
               { type: "string", name: "disclaimer", label: "Nota bajo el botón", ui: { component: "textarea" } },
             ],
           },

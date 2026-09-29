@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "dev:plain": "next dev -p 3010",
-    "build:vercel": "if [ -n \"$NEXT_PUBLIC_TINA_CLIENT_ID\" ]; then npx tinacms build --skip-cloud-checks; fi && next build"
+    "build:vercel": "if [ -n \"$NEXT_PUBLIC_TINA_CLIENT_ID\" ] && [ \"$VERCEL_ENV\" != \"preview\" ]; then npx tinacms build --skip-cloud-checks; fi && next build"
   },
   "dependencies": {
     "@tinacms/cli": "^2.5.5",

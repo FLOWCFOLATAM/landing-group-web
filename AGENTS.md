@@ -6,6 +6,11 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 # Convenciones del proyecto
 
+- **Arquitectura**: `docs/ux-arquitectura-2026-09.md` (home en 9 bloques,
+  soluciones, diferenciales, casos, CTA único). Leerlo antes de mover bloques.
+- **CTA único**: todo botón de conversión usa `components/PrimaryCta.tsx`
+  (texto/destino en `primaryCta`); enlaces que vienen del CMS con
+  `components/SmartLink.tsx`. Tipos del contenido en `brand/content.ts`.
 - **Contenido**: la fuente de verdad es `content/site.json` (lo edita el
   cliente vía TinaCMS — esquema en `tina/config.ts` — o Pages CMS con
   `.pages.yml`). Los componentes leen SIEMPRE vía `useContent()` de

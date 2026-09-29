@@ -63,7 +63,7 @@ export default function Process() {
   }, [steps.length]);
 
   return (
-    <section id="proceso" ref={section} className="mx-auto w-full max-w-[1200px] px-5 py-24 sm:px-8">
+    <section id="proceso" ref={section} className="mx-auto w-full max-w-[1200px] scroll-mt-24 px-5 py-24 sm:px-8">
       <Reveal>
         <p className="text-[12px] uppercase tracking-[0.2em] text-accent [font-weight:600]">{label}</p>
         <h2 className="display mt-4 max-w-2xl text-[clamp(2.6rem,5.4vw,4.4rem)] leading-[0.95]">

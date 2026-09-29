@@ -7,9 +7,10 @@ import Reveal from "./Reveal";
 
 export default function Stats() {
   const content = useContent();
-  const { label, title, items } = content.stats;
+  const { label, title, intro, items } = content.stats;
+  /* Bloque 07 — OPERACIÓN: prueba de capacidad junto al argumento comercial. */
   return (
-    <section id="resultados" className="mx-auto w-full max-w-[1200px] px-5 py-24 sm:px-8">
+    <section id="operacion" className="mx-auto w-full max-w-[1200px] scroll-mt-24 px-5 py-24 sm:px-8">
       <Reveal className="reveal-scale">
         <div className="relative overflow-hidden rounded-card bg-accent px-7 py-14 text-paper shadow-lift sm:px-12 sm:py-16">
           <Image
@@ -31,6 +32,9 @@ export default function Stats() {
             <h2 className="display mx-auto mt-4 max-w-2xl text-[clamp(2.6rem,5.4vw,4.4rem)] leading-[0.95]">
               {title}
             </h2>
+            <p className="mx-auto mt-5 max-w-xl text-[clamp(1rem,1.4vw,1.1rem)] leading-[1.55] text-paper/85">
+              {intro}
+            </p>
 
             <div className="mt-12 grid gap-px overflow-hidden rounded-card border border-paper/20 bg-paper/20 sm:grid-cols-2 lg:grid-cols-4">
               {items.map((item) => (

@@ -5,26 +5,80 @@
     "legal": "LANDING GROUP S.A.C.",
     "tagline": "You think it, we land it."
   },
+  "primaryCta": {
+    "label": "Agenda una reunión",
+    "href": "/hablemos/"
+  },
   "nav": {
     "links": [
-      { "label": "Servicios", "href": "/#servicios" },
-      { "label": "Operación", "href": "/#resultados" },
-      { "label": "Proceso", "href": "/#proceso" },
-      { "label": "Trabajos", "href": "/#casos" }
-    ],
-    "cta": { "label": "Hablemos", "href": "/agenda" }
+      {
+        "label": "Soluciones",
+        "href": "/#soluciones",
+        "children": [
+          {
+            "label": "Merch corporativo",
+            "href": "/soluciones/merch-corporativo/"
+          },
+          {
+            "label": "Eventos & BTL",
+            "href": "/soluciones/eventos-btl/"
+          },
+          {
+            "label": "Personalización",
+            "href": "/soluciones/personalizacion/"
+          }
+        ]
+      },
+      {
+        "label": "Cómo lo hacemos",
+        "href": "/#como-lo-hacemos",
+        "children": [
+          {
+            "label": "Producción bajo control",
+            "href": "/como-lo-hacemos/#produccion"
+          },
+          {
+            "label": "Logística y entregas",
+            "href": "/como-lo-hacemos/#logistica"
+          },
+          {
+            "label": "Acompañamiento",
+            "href": "/como-lo-hacemos/#acompanamiento"
+          }
+        ]
+      },
+      {
+        "label": "Trabajos",
+        "href": "/#trabajos",
+        "children": []
+      },
+      {
+        "label": "Proceso",
+        "href": "/#proceso",
+        "children": []
+      }
+    ]
   },
   "hero": {
     "title": "De la idea a la experiencia.",
-    "accents": ["experiencia."],
+    "accents": [
+      "experiencia."
+    ],
     "script": "You think it, we land it.",
     "sub": "Merch, BTL y eventos corporativos que llevan las ideas de marca al mundo real. Producción bajo control y entregas que representan tu marca.",
-    "ctaPrimary": { "label": "Conoce lo que hacemos", "href": "/#servicios" },
-    "ctaSecondary": { "label": "Hablemos", "href": "/agenda" },
     "tiles": [
-      { "label": "LA", "note": "You think it, we land it." },
-      { "label": "BTL", "note": "Eventos que se sienten" },
-      { "label": "Merch", "note": "Detalle que se ve" }
+      {
+        "label": "LA",
+        "note": "You think it, we land it."
+      },
+      {
+        "label": "BTL",
+        "note": "Eventos que se sienten"
+      },
+      {
+        "label": "Merch",
+        "note": "Detalle que se ve"
+      }
     ]
   },
   "marquee": [
@@ -35,10 +89,492 @@
     "Producción",
     "Entregas"
   ],
-  "works": {
-    "label": "Trabajos realizados",
+  "solutions": {
+    "label": "Soluciones",
+    "title": "Presencia tangible para tu marca.",
+    "intro": "Dos frentes, un mismo estándar: piezas que la gente conserva y experiencias que se pueden tocar.",
+    "note": {
+      "text": "La personalización atraviesa ambas: técnica, material y acabado según cada marca.",
+      "label": "Ver personalización",
+      "href": "/soluciones/personalizacion/"
+    },
+    "items": [
+      {
+        "slug": "merch-corporativo",
+        "tier": "principal",
+        "name": "Merch corporativo",
+        "promise": "Piezas que la gente conserva.",
+        "body": "Textiles, accesorios y kits de campaña con materiales y acabados bajo control.",
+        "photo": "/brand/svc-merch.webp",
+        "solves": "Tu equipo y tus clientes reciben piezas que usan a diario, no regalos que terminan en un cajón. Resolvemos qué producir, con qué calidad y para cuándo, dentro de tu presupuesto.",
+        "includes": [
+          {
+            "icon": "textil",
+            "title": "Textiles",
+            "text": "Polos, hoodies, gorras y uniformes con telas de gramaje real (220–320 g)."
+          },
+          {
+            "icon": "accesorio",
+            "title": "Accesorios y escritorio",
+            "text": "Lanyards, tarjeteros, drinkware, libretas y piezas de uso diario."
+          },
+          {
+            "icon": "kit",
+            "title": "Kits de campaña",
+            "text": "Piezas coordinadas para campañas, bienvenidas y fechas especiales."
+          },
+          {
+            "icon": "muestra",
+            "title": "Muestra antes de producir",
+            "text": "Apruebas tocando, no imaginando: muestra física antes de cada tiraje."
+          }
+        ],
+        "how": [
+          {
+            "title": "Personalización",
+            "text": "Elegimos la técnica según el material, el uso y el presupuesto.",
+            "href": "/soluciones/personalizacion/"
+          },
+          {
+            "title": "Producción bajo control",
+            "text": "Contramuestra aprobada y control de calidad pieza por pieza.",
+            "href": "/como-lo-hacemos/#produccion"
+          },
+          {
+            "title": "Logística y entregas",
+            "text": "Empaque individual o por kit y despachos a varias sedes.",
+            "href": "/como-lo-hacemos/#logistica"
+          },
+          {
+            "title": "Acompañamiento",
+            "text": "Un ejecutivo asignado, de la propuesta al despacho final.",
+            "href": "/como-lo-hacemos/#acompanamiento"
+          }
+        ],
+        "cases": [
+          "tottus",
+          "swan",
+          "red-bull",
+          "heineken"
+        ]
+      },
+      {
+        "slug": "eventos-btl",
+        "tier": "principal",
+        "name": "Eventos & BTL",
+        "promise": "La marca, en el mundo real.",
+        "body": "Activaciones, montajes y piezas de gran formato, coordinados de punta a punta.",
+        "photo": "/brand/svc-eventos.webp",
+        "solves": "Llevar la marca a un espacio físico exige coordinar piezas, proveedores y tiempos sin margen de error. Nos hacemos cargo del conjunto para que el día del evento solo pase lo planificado.",
+        "includes": [
+          {
+            "icon": "activacion",
+            "title": "Activaciones BTL",
+            "text": "Sampling, experiencias de marca y puntos de contacto en calle y retail."
+          },
+          {
+            "icon": "montaje",
+            "title": "Eventos corporativos",
+            "text": "Escenografía, mobiliario brandeado y señalética para el montaje."
+          },
+          {
+            "icon": "granformato",
+            "title": "Gran formato",
+            "text": "Toldos, banners, backings y sombrillas con lectura de marca a distancia."
+          },
+          {
+            "icon": "responsable",
+            "title": "Un solo responsable",
+            "text": "Coordinamos proveedores, tiempos y permisos: menos fricciones."
+          }
+        ],
+        "how": [
+          {
+            "title": "Producción bajo control",
+            "text": "Piezas de gran formato revisadas antes de llegar al montaje.",
+            "href": "/como-lo-hacemos/#produccion"
+          },
+          {
+            "title": "Logística y entregas",
+            "text": "Despachos simultáneos a tiendas, sedes y eventos, con cronograma compartido.",
+            "href": "/como-lo-hacemos/#logistica"
+          },
+          {
+            "title": "Personalización",
+            "text": "Gráfica aplicada según el soporte y la distancia de lectura.",
+            "href": "/soluciones/personalizacion/"
+          },
+          {
+            "title": "Acompañamiento",
+            "text": "Un interlocutor que coordina todo el día del evento.",
+            "href": "/como-lo-hacemos/#acompanamiento"
+          }
+        ],
+        "cases": [
+          "monster",
+          "tres-cruces",
+          "red-bull"
+        ]
+      },
+      {
+        "slug": "personalizacion",
+        "tier": "capacidad",
+        "name": "Personalización",
+        "promise": "La técnica correcta para cada pieza.",
+        "body": "Técnicas, materiales y formatos adaptados a cada marca, en merch y en BTL.",
+        "photo": "/brand/svc-personalizacion.webp",
+        "solves": "Cada material pide una técnica distinta. Definimos cómo aplicar tu marca para que se vea bien, dure y se mantenga fiel a tu identidad, en cualquier pieza de merch o BTL.",
+        "includes": [
+          {
+            "icon": "bordado",
+            "title": "Bordado plano y 3D",
+            "text": "Para textiles de uso intensivo que tienen que durar."
+          },
+          {
+            "icon": "serigrafia",
+            "title": "Serigrafía y sublimación",
+            "text": "Para tirajes grandes con color estable."
+          },
+          {
+            "icon": "uv",
+            "title": "Impresión UV directa",
+            "text": "Sobre rígidos: coolers, drinkware y acrílicos."
+          },
+          {
+            "icon": "prueba",
+            "title": "Pruebas documentadas",
+            "text": "Prueba de aplicación aprobada antes de cada tiraje."
+          }
+        ],
+        "how": [
+          {
+            "title": "Merch corporativo",
+            "text": "La técnica adecuada para cada textil, accesorio y kit.",
+            "href": "/soluciones/merch-corporativo/"
+          },
+          {
+            "title": "Eventos & BTL",
+            "text": "Gráfica para gran formato y piezas de activación.",
+            "href": "/soluciones/eventos-btl/"
+          },
+          {
+            "title": "Producción bajo control",
+            "text": "Cada aplicación se prueba y se revisa antes del tiraje.",
+            "href": "/como-lo-hacemos/#produccion"
+          }
+        ],
+        "cases": [
+          "amoramar",
+          "johnnie-walker",
+          "swan"
+        ]
+      }
+    ]
+  },
+  "howWeWork": {
+    "label": "Cómo lo hacemos",
+    "title": "Lo que sostiene cada entrega.",
+    "intro": "Cuatro capacidades que trabajan detrás de cada proyecto de merch o BTL.",
+    "pageTitle": "Lo que no dejamos al azar.",
+    "pageIntro": "Detrás de cada pieza y de cada activación hay tres cosas que no dejamos al azar: cómo se produce, cómo llega y quién responde. La personalización las atraviesa a todas.",
+    "items": [
+      {
+        "id": "personalizacion",
+        "name": "Personalización",
+        "role": "Transversal",
+        "body": "Técnicas, materiales y formatos adaptados a cada marca.",
+        "href": "/soluciones/personalizacion/",
+        "photo": "/brand/svc-personalizacion.webp",
+        "detail": {
+          "claim": "",
+          "intro": "",
+          "bullets": [],
+          "gallery": []
+        }
+      },
+      {
+        "id": "produccion",
+        "name": "Producción bajo control",
+        "role": "Ejecución",
+        "body": "Calidad supervisada pieza por pieza, antes de cada entrega.",
+        "href": "/como-lo-hacemos/#produccion",
+        "photo": "/brand/svc-produccion.webp",
+        "detail": {
+          "claim": "Calidad que se revisa, no se promete.",
+          "intro": "Producción bajo control significa exactamente eso: fichas técnicas, contramuestras y control de calidad pieza por pieza antes del empaque. Si algo no representa a tu marca, no sale.",
+          "bullets": [
+            "Ficha técnica y contramuestra aprobada antes de producir.",
+            "Control de calidad sobre el 100% de las piezas, no por muestreo.",
+            "Trazabilidad por lote: sabes qué se produjo, cuándo y con qué materiales.",
+            "Reposición ágil ante cualquier observación: respondemos, no discutimos."
+          ],
+          "gallery": [
+            {
+              "src": "/brand/work-delantal.webp",
+              "alt": "Delantal producido para Amoramar con la frase Sabemos amar"
+            },
+            {
+              "src": "/brand/work-swan-negro.webp",
+              "alt": "Hoodie producido para Swan"
+            }
+          ]
+        }
+      },
+      {
+        "id": "logistica",
+        "name": "Logística y entregas",
+        "role": "Operación",
+        "body": "Coordinación, tiempos y despacho. Tu marca llega donde debe, cuando debe.",
+        "href": "/como-lo-hacemos/#logistica",
+        "photo": "/brand/svc-logistica.webp",
+        "detail": {
+          "claim": "Tu marca llega donde debe.",
+          "intro": "La mejor pieza pierde si llega tarde o llega mal. Empacamos, consolidamos y despachamos con fechas comprometidas — a una oficina o a cuarenta puntos de venta.",
+          "bullets": [
+            "Empaque individual o por kit, listo para entregar.",
+            "Despachos multi-punto: tiendas, sedes y eventos en simultáneo.",
+            "Cronograma de entregas compartido y actualizado.",
+            "Cobertura nacional desde Lima, con seguimiento por lote."
+          ],
+          "gallery": [
+            {
+              "src": "/brand/work-trescruces.webp",
+              "alt": "Mochila cooler producida para Tres Cruces"
+            },
+            {
+              "src": "/brand/work-tottus-kit.webp",
+              "alt": "Kit playero producido para Tottus"
+            }
+          ]
+        }
+      },
+      {
+        "id": "acompanamiento",
+        "name": "Acompañamiento",
+        "role": "Servicio",
+        "body": "Servicio claro y responsable, de la propuesta comercial al despacho final.",
+        "href": "/como-lo-hacemos/#acompanamiento",
+        "photo": "/brand/svc-acompanamiento.webp",
+        "detail": {
+          "claim": "Un solo interlocutor, cero rodeos.",
+          "intro": "Trabajas con una persona que conoce tu proyecto de memoria: propone, cotiza claro, avisa a tiempo y responde. Seguridad sin exageración, claridad sin frialdad.",
+          "bullets": [
+            "Propuesta comercial con alcance, materiales y tiempos sin letra chica.",
+            "Un ejecutivo asignado durante todo el proyecto.",
+            "Avances con evidencia: fotos y muestras en cada hito.",
+            "Post-entrega: recogemos feedback y dejamos la reposición lista."
+          ],
+          "gallery": [
+            {
+              "src": "/brand/work-polos.webp",
+              "alt": "Polos producidos para Pollizos"
+            },
+            {
+              "src": "/brand/work-jackdaniels.webp",
+              "alt": "Lanyard producido para Jack Daniel's"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "cases": {
+    "label": "Trabajos",
     "title": "Marcas que se vuelven tangibles.",
-    "intro": "Una selección de piezas producidas para campañas, equipos y experiencias de marca.",
+    "intro": "Proyectos reales: qué necesitaba cada marca y cómo lo resolvimos.",
+    "items": [
+      {
+        "slug": "monster",
+        "brand": "Monster",
+        "category": "Eventos & BTL",
+        "solution": "eventos-btl",
+        "title": "Presencia de gran formato en exteriores",
+        "need": "Hacerse ver en activaciones y puntos de venta al aire libre, con una marca que se lea a distancia.",
+        "answer": "Toldo promocional y sombrilla de gran formato con la identidad aplicada para lectura a distancia.",
+        "execution": [
+          "Definición de estructura y formato según el uso en exteriores.",
+          "Aplicación gráfica pensada para leerse a distancia.",
+          "Piezas listas para montar en cada activación."
+        ],
+        "pieces": "Toldo promocional · Sombrilla",
+        "cover": "/brand/work-toldo.webp",
+        "gallery": [
+          {
+            "src": "/brand/work-toldo.webp",
+            "alt": "Toldo promocional producido para Monster"
+          },
+          {
+            "src": "/brand/work-monster.webp",
+            "alt": "Sombrilla producida para Monster"
+          }
+        ]
+      },
+      {
+        "slug": "tottus",
+        "brand": "Tottus",
+        "category": "Merch corporativo",
+        "solution": "merch-corporativo",
+        "title": "Kit coordinado para una campaña de verano",
+        "need": "Acompañar su campaña de verano con piezas que el cliente lleve a la playa.",
+        "answer": "Kit playero y toalla promocional, coordinados en color y gráfica con la campaña.",
+        "execution": [
+          "Desarrollo de piezas coordinadas con la gráfica de la campaña.",
+          "Producción por kit, lista para distribuir.",
+          "Control de calidad y empaque antes de la entrega."
+        ],
+        "pieces": "Kit playero · Toalla promocional",
+        "cover": "/brand/work-tottus-kit.webp",
+        "gallery": [
+          {
+            "src": "/brand/work-tottus-kit.webp",
+            "alt": "Kit playero producido para Tottus"
+          },
+          {
+            "src": "/brand/work-tottus-toalla.webp",
+            "alt": "Toalla promocional producida para Tottus"
+          }
+        ]
+      },
+      {
+        "slug": "amoramar",
+        "brand": "Amoramar",
+        "category": "Personalización",
+        "solution": "personalizacion",
+        "title": "Un uniforme con la filosofía de la marca",
+        "need": "Vestir al equipo con una pieza que transmita su forma de trabajar.",
+        "answer": "Delantal personalizado con la frase “Sabemos amar” como aplicación central.",
+        "execution": [
+          "Definición de la aplicación y su ubicación en la prenda.",
+          "Prueba de aplicación aprobada antes de producir.",
+          "Producción y entrega lista para el equipo."
+        ],
+        "pieces": "Delantal",
+        "cover": "/brand/work-delantal.webp",
+        "gallery": [
+          {
+            "src": "/brand/work-delantal.webp",
+            "alt": "Delantal producido para Amoramar con la frase Sabemos amar"
+          }
+        ]
+      },
+      {
+        "slug": "swan",
+        "brand": "Swan",
+        "category": "Merch corporativo",
+        "solution": "merch-corporativo",
+        "title": "Textil que extiende el sistema de marca",
+        "need": "Llevar su identidad a prendas de uso diario, con una estética sobria.",
+        "answer": "Hoodies en dos colores con aplicación gráfica cuidada en frente y espalda.",
+        "execution": [
+          "Selección de prenda y color para cada variante.",
+          "Aplicación gráfica según la pieza y la tela.",
+          "Control de calidad prenda por prenda."
+        ],
+        "pieces": "Hoodie negro · Hoodie marrón",
+        "cover": "/brand/work-swan-negro.webp",
+        "gallery": [
+          {
+            "src": "/brand/work-swan-negro.webp",
+            "alt": "Hoodie negro producido para Swan"
+          },
+          {
+            "src": "/brand/work-swan-marron.webp",
+            "alt": "Hoodie marrón producido para Swan"
+          }
+        ]
+      },
+      {
+        "slug": "tres-cruces",
+        "brand": "Tres Cruces",
+        "category": "Eventos & BTL",
+        "solution": "eventos-btl",
+        "title": "Merch funcional para consumo fuera de casa",
+        "need": "Acompañar activaciones y momentos de consumo al aire libre con una pieza útil.",
+        "answer": "Mochila cooler con la marca aplicada, pensada para activaciones y consumo fuera de casa.",
+        "execution": [
+          "Selección de formato y materiales según el uso.",
+          "Aplicación de marca visible en el frente.",
+          "Control de calidad antes del despacho."
+        ],
+        "pieces": "Mochila cooler",
+        "cover": "/brand/work-trescruces.webp",
+        "gallery": [
+          {
+            "src": "/brand/work-trescruces.webp",
+            "alt": "Mochila cooler producida para Tres Cruces"
+          }
+        ]
+      },
+      {
+        "slug": "johnnie-walker",
+        "brand": "Johnnie Walker",
+        "category": "Personalización",
+        "solution": "personalizacion",
+        "title": "Un objeto de marca para compartir",
+        "need": "Una pieza promocional que genere un momento de uso con la marca presente.",
+        "answer": "Set de cartas personalizado, concebido como objeto de marca y entretenimiento.",
+        "execution": [
+          "Diseño aplicado a cada carta del set.",
+          "Impresión con color controlado.",
+          "Revisión del set completo antes de la entrega."
+        ],
+        "pieces": "Set de cartas",
+        "cover": "/brand/work-johnniewalker.webp",
+        "gallery": [
+          {
+            "src": "/brand/work-johnniewalker.webp",
+            "alt": "Set de cartas producido para Johnnie Walker"
+          }
+        ]
+      },
+      {
+        "slug": "red-bull",
+        "brand": "Red Bull",
+        "category": "Merch corporativo",
+        "solution": "merch-corporativo",
+        "title": "Un cooler que también exhibe",
+        "need": "Una pieza útil que acompañe el consumo y mantenga la marca a la vista.",
+        "answer": "Cooler promocional que integra función, exhibición y recordación de marca.",
+        "execution": [
+          "Propuesta de formato según capacidad y uso.",
+          "Aplicación de identidad en las caras visibles.",
+          "Revisión de acabados antes de la entrega."
+        ],
+        "pieces": "Cooler",
+        "cover": "/brand/work-redbull.webp",
+        "gallery": [
+          {
+            "src": "/brand/work-redbull.webp",
+            "alt": "Cooler producido para Red Bull"
+          }
+        ]
+      },
+      {
+        "slug": "heineken",
+        "brand": "Heineken",
+        "category": "Merch corporativo",
+        "solution": "merch-corporativo",
+        "title": "Merch promocional con presencia inmediata",
+        "need": "Una pieza promocional que muestre la marca apenas se usa.",
+        "answer": "Bucket hat con aplicación de marca visible y consistente.",
+        "execution": [
+          "Selección de prenda y color alineados a la marca.",
+          "Aplicación del logo con acabado cuidado.",
+          "Control de calidad pieza por pieza."
+        ],
+        "pieces": "Bucket hat",
+        "cover": "/brand/work-heineken.webp",
+        "gallery": [
+          {
+            "src": "/brand/work-heineken.webp",
+            "alt": "Bucket hat producido para Heineken"
+          }
+        ]
+      }
+    ]
+  },
+  "works": {
+    "label": "Más piezas producidas",
     "items": [
       {
         "src": "/brand/work-heineken.webp",
@@ -132,160 +668,13 @@
       }
     ]
   },
-  "services": {
-    "label": "Servicios",
-    "title": "Presencia tangible para tu marca.",
-    "items": [
-      {
-        "n": "01",
-        "slug": "merch-corporativo",
-        "name": "Merch corporativo",
-        "body": "Textiles, drinkware y piezas que la gente conserva, con materiales y acabados bajo control.",
-        "photo": "/brand/svc-merch.webp",
-        "detail": {
-          "claim": "Piezas que la gente conserva.",
-          "intro": "El merch que funciona no es el más barato: es el que tu equipo y tus clientes usan a diario. Seleccionamos materiales, controlamos acabados y cuidamos que cada pieza represente a tu marca fuera de la oficina.",
-          "bullets": [
-            "Textiles: polos, hoodies, gorras y uniformes con telas de gramaje real (220–320 g).",
-            "Drinkware y escritorio: botellas térmicas, libretas, bolígrafos y kits de bienvenida.",
-            "Curaduría por presupuesto: proponemos el mix de piezas que maximiza uso y percepción.",
-            "Muestras físicas antes de producir: apruebas tocando, no imaginando."
-          ],
-          "gallery": [
-            { "src": "/brand/work-heineken.webp", "alt": "Bucket hat producido para Heineken" },
-            { "src": "/brand/work-redbull.webp", "alt": "Cooler producido para Red Bull" }
-          ]
-        }
-      },
-      {
-        "n": "02",
-        "slug": "eventos-btl",
-        "name": "Eventos y BTL",
-        "body": "Activaciones y montajes que llevan la marca al mundo real, coordinados de punta a punta.",
-        "photo": "/brand/svc-eventos.webp",
-        "detail": {
-          "claim": "La marca, en el mundo real.",
-          "intro": "Del plano al montaje: activaciones, stands y ambientaciones donde la marca se puede tocar. Coordinamos proveedores, tiempos y permisos para que el día del evento solo pase lo que planificamos.",
-          "bullets": [
-            "Activaciones BTL: sampling, experiencias de marca y puntos de contacto en calle y retail.",
-            "Montaje de eventos corporativos: escenografía, mobiliario brandeado y señalética.",
-            "Producción de piezas de gran formato: toldos, banners, backings y sombrillas.",
-            "Un solo responsable de punta a punta: menos proveedores, menos fricciones."
-          ],
-          "gallery": [
-            { "src": "/brand/work-toldo.webp", "alt": "Toldo producido para Monster" },
-            { "src": "/brand/work-monster.webp", "alt": "Sombrilla producida para Monster" }
-          ]
-        }
-      },
-      {
-        "n": "03",
-        "slug": "personalizacion",
-        "name": "Personalización",
-        "body": "Soluciones ajustadas a cada necesidad: técnicas, materiales y formatos según tu marca.",
-        "photo": "/brand/svc-personalizacion.webp",
-        "detail": {
-          "claim": "La técnica correcta para cada pieza.",
-          "intro": "No todas las marcas se aplican igual. Elegimos la técnica según el material, el uso y el presupuesto: lo que va bordado va bordado, lo que va serigrafiado va serigrafiado.",
-          "bullets": [
-            "Bordado plano y 3D para textiles de uso intensivo.",
-            "Serigrafía y sublimación para tirajes grandes con color estable.",
-            "Impresión UV directa sobre rígidos: coolers, drinkware y acrílicos.",
-            "Pruebas de aplicación documentadas antes de cada tiraje."
-          ],
-          "gallery": [
-            { "src": "/brand/tile-la.webp", "alt": "Bordado de alta densidad en proceso" },
-            { "src": "/brand/work-johnniewalker.webp", "alt": "Set de cartas producido para Johnnie Walker" }
-          ]
-        }
-      },
-      {
-        "n": "04",
-        "slug": "produccion",
-        "name": "Producción bajo control",
-        "body": "Calidad supervisada pieza por pieza, antes de cada entrega.",
-        "photo": "/brand/svc-produccion.webp",
-        "detail": {
-          "claim": "Calidad que se revisa, no se promete.",
-          "intro": "Producción bajo control significa exactamente eso: fichas técnicas, contramuestras y control de calidad pieza por pieza antes del empaque. Si algo no representa a tu marca, no sale.",
-          "bullets": [
-            "Ficha técnica y contramuestra aprobada antes de producir.",
-            "Control de calidad sobre el 100% de las piezas, no por muestreo.",
-            "Trazabilidad por lote: sabes qué se produjo, cuándo y con qué materiales.",
-            "Reposición ágil ante cualquier observación: respondemos, no discutimos."
-          ],
-          "gallery": [
-            { "src": "/brand/work-delantal.webp", "alt": "Delantal producido para Amoramar con la frase Sabemos amar" },
-            { "src": "/brand/work-swan-negro.webp", "alt": "Hoodie producido para Swan" }
-          ]
-        }
-      },
-      {
-        "n": "05",
-        "slug": "logistica",
-        "name": "Logística y entregas",
-        "body": "Coordinación, tiempos y despacho. Tu marca llega donde debe, cuando debe.",
-        "photo": "/brand/svc-logistica.webp",
-        "detail": {
-          "claim": "Tu marca llega donde debe.",
-          "intro": "La mejor pieza pierde si llega tarde o llega mal. Empacamos, consolidamos y despachamos con fechas comprometidas — a una oficina o a cuarenta puntos de venta.",
-          "bullets": [
-            "Empaque individual o por kit, listo para entregar.",
-            "Despachos multi-punto: tiendas, sedes y eventos en simultáneo.",
-            "Cronograma de entregas compartido y actualizado.",
-            "Cobertura nacional desde Lima, con seguimiento por lote."
-          ],
-          "gallery": [
-            { "src": "/brand/work-trescruces.webp", "alt": "Mochila cooler producida para Tres Cruces" },
-            { "src": "/brand/work-tottus-kit.webp", "alt": "Kit playero producido para Tottus" }
-          ]
-        }
-      },
-      {
-        "n": "06",
-        "slug": "acompanamiento",
-        "name": "Acompañamiento",
-        "body": "Servicio claro y responsable, de la propuesta comercial al despacho final.",
-        "photo": "/brand/svc-acompanamiento.webp",
-        "detail": {
-          "claim": "Un solo interlocutor, cero rodeos.",
-          "intro": "Trabajas con una persona que conoce tu proyecto de memoria: propone, cotiza claro, avisa a tiempo y responde. Seguridad sin exageración, claridad sin frialdad.",
-          "bullets": [
-            "Propuesta comercial con alcance, materiales y tiempos sin letra chica.",
-            "Un ejecutivo asignado durante todo el proyecto.",
-            "Avances con evidencia: fotos y muestras en cada hito.",
-            "Post-entrega: recogemos feedback y dejamos la reposición lista."
-          ],
-          "gallery": [
-            { "src": "/brand/work-polos.webp", "alt": "Polos producidos para Pollizos" },
-            { "src": "/brand/work-jackdaniels.webp", "alt": "Lanyard producido para Jack Daniel's" }
-          ]
-        }
-      }
-    ]
-  },
-  "stats": {
-    "label": "Nuestra operación",
-    "title": "Diseñada para marcas exigentes.",
-    "items": [
-      { "value": "B2B", "label": "Soluciones para empresas medianas y grandes" },
-      { "value": "Perú", "label": "Ejecución desde Lima con cobertura nacional" },
-      { "value": "End to end", "label": "Propuesta, producción, control y entrega" },
-      { "value": "A medida", "label": "Merch, textil, BTL y eventos corporativos" }
-    ]
-  },
-  "statement": {
-    "small": "Lo que creemos",
-    "big": "Las grandes marcas nacen de los detalles.",
-    "accents": ["detalles."]
-  },
   "process": {
     "label": "Proceso",
     "title": "De la propuesta a la entrega.",
     "steps": [
       {
         "n": "01",
-        "title": "Propuesta comercial",
+        "title": "Propuesta",
         "body": "Claridad para decidir: alcance, materiales y tiempos, sin rodeos."
       },
       {
@@ -305,45 +694,129 @@
       }
     ]
   },
-  "cta": {
-    "title": "You think it, we land it.",
-    "body": "Cuéntanos qué necesita tu marca y te enviamos una propuesta clara: alcance, materiales y tiempos.",
-    "button": { "label": "Agenda una reunión", "href": "/agenda" }
+  "stats": {
+    "label": "Nuestra operación",
+    "title": "Capacidad para marcas exigentes.",
+    "intro": "Una sola operación de punta a punta: la misma responsabilidad desde la propuesta hasta la entrega.",
+    "items": [
+      {
+        "value": "B2B",
+        "label": "Soluciones para empresas medianas y grandes"
+      },
+      {
+        "value": "Perú",
+        "label": "Ejecución desde Lima con cobertura nacional"
+      },
+      {
+        "value": "End to end",
+        "label": "Propuesta, producción, control y entrega"
+      },
+      {
+        "value": "A medida",
+        "label": "Merch, textil, BTL y eventos corporativos"
+      }
+    ]
   },
-  "agenda": {
-    "label": "Agenda",
-    "title": "Reservemos 30 minutos.",
+  "cta": {
+    "title": "Cuéntanos qué necesita tu marca.",
+    "body": "Te enviamos una propuesta clara —alcance, materiales y tiempos— y agendamos 30 minutos para revisarla contigo.",
+    "contactLabel": "¿Prefieres escribirnos?"
+  },
+  "contact": {
+    "label": "Hablemos",
+    "title": "Agenda una reunión.",
     "script": "You think it, we land it.",
-    "intro": "Cuéntanos qué necesita tu marca. En la reunión revisamos alcance, materiales y tiempos, y sales con los siguientes pasos claros.",
-    "slots": ["09:00", "10:00", "11:00", "12:00", "15:00", "16:00", "17:00"],
+    "intro": "Cuéntanos qué necesita tu marca. En 30 minutos revisamos alcance, materiales y tiempos, y sales con los siguientes pasos claros.",
+    "needs": [
+      "Merch corporativo",
+      "Eventos & BTL",
+      "Personalización",
+      "Otro"
+    ],
+    "slots": [
+      "09:00",
+      "10:00",
+      "11:00",
+      "12:00",
+      "15:00",
+      "16:00",
+      "17:00"
+    ],
     "email": "marketing@grupolanding.pe",
-    "disclaimer": "Al confirmar se abrirá tu correo con los datos de la reunión listos para enviar. Te respondemos el mismo día hábil."
+    "whatsapp": "",
+    "instagram": "https://www.instagram.com/somoslanding/",
+    "response": "Te respondemos el mismo día hábil.",
+    "confirmTitle": "Solicitud lista.",
+    "confirmBody": "Se abrió tu correo con la solicitud completa. Envíala y te confirmamos la reunión el mismo día hábil.",
+    "disclaimer": "Al enviar se abrirá tu correo con los datos listos. Solo usamos tu información para responder a esta solicitud."
   },
   "footer": {
     "columns": [
       {
-        "title": "Agencia",
+        "title": "Soluciones",
         "links": [
-          { "label": "Servicios", "href": "/#servicios" },
-          { "label": "Proceso", "href": "/#proceso" }
+          {
+            "label": "Merch corporativo",
+            "href": "/soluciones/merch-corporativo/"
+          },
+          {
+            "label": "Eventos & BTL",
+            "href": "/soluciones/eventos-btl/"
+          },
+          {
+            "label": "Personalización",
+            "href": "/soluciones/personalizacion/"
+          }
         ]
       },
       {
-        "title": "Trabajo",
+        "title": "Cómo lo hacemos",
         "links": [
-          { "label": "Trabajos realizados", "href": "/#casos" },
-          { "label": "Nuestra operación", "href": "/#resultados" }
+          {
+            "label": "Producción bajo control",
+            "href": "/como-lo-hacemos/#produccion"
+          },
+          {
+            "label": "Logística y entregas",
+            "href": "/como-lo-hacemos/#logistica"
+          },
+          {
+            "label": "Acompañamiento",
+            "href": "/como-lo-hacemos/#acompanamiento"
+          }
+        ]
+      },
+      {
+        "title": "Landing",
+        "links": [
+          {
+            "label": "Trabajos",
+            "href": "/trabajos/"
+          },
+          {
+            "label": "Proceso",
+            "href": "/#proceso"
+          },
+          {
+            "label": "Hablemos",
+            "href": "/hablemos/"
+          }
         ]
       },
       {
         "title": "Contacto",
         "links": [
-          { "label": "Instagram", "href": "https://www.instagram.com/somoslanding/" },
-          { "label": "Correo", "href": "mailto:marketing@grupolanding.pe" }
+          {
+            "label": "marketing@grupolanding.pe",
+            "href": "mailto:marketing@grupolanding.pe"
+          },
+          {
+            "label": "Instagram",
+            "href": "https://www.instagram.com/somoslanding/"
+          }
         ]
       }
     ],
     "note": "Lima, Perú. Entregas a todo el país."
   }
 }
-

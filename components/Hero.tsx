@@ -1,17 +1,14 @@
 "use client";
 
-import Link from "next/link";
 import { useContent } from "@/components/ContentProvider";
-import { plainHref } from "@/brand/paths";
 import HeroHeadline from "./HeroHeadline";
-import Magnetic from "./Magnetic";
 import HeroTiles from "./HeroTiles";
-import RollText from "./RollText";
 import MarkerStroke from "./MarkerStroke";
 import BrandStar from "./BrandStar";
+import PrimaryCta from "./PrimaryCta";
 
-/* Hero fijado ("el pliego cede"). Composición compacta: firma pegada al
-   titular, descripción y CTAs cerca, tiles grandes a la derecha. */
+/* Hero fijado ("el pliego cede"), bloque 02 de la home: titular, firma,
+   descripción y UN solo CTA; tiles grandes a la derecha. */
 export default function Hero() {
   const content = useContent();
   return (
@@ -41,27 +38,10 @@ export default function Hero() {
               {content.hero.sub}
             </p>
 
-            <div className="mt-7 flex flex-wrap items-center gap-6">
-              <span data-choreo className="[--beat:950ms]">
-                <Magnetic>
-                  <a
-                    href={plainHref(content.hero.ctaPrimary.href)}
-                    className="btn-fill group inline-block rounded-button bg-accent px-7 py-4 text-[12px] uppercase tracking-[0.16em] text-accent-ink [--fill:var(--brand-ink)] [font-weight:600]"
-                  >
-                    <RollText text={content.hero.ctaPrimary.label} />
-                  </a>
-                </Magnetic>
-              </span>
-              <span data-choreo className="[--beat:1030ms]">
-                <Link
-                  href={content.hero.ctaSecondary.href}
-                  className="group inline-flex items-center gap-2 text-[12px] uppercase tracking-[0.16em] text-accent [font-weight:600]"
-                >
-                  <RollText text={content.hero.ctaSecondary.label} />
-                  <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1.5">
-                    →
-                  </span>
-                </Link>
+            {/* Un solo CTA (diagnóstico UX §8): el mismo del header y del cierre. */}
+            <div className="mt-7">
+              <span data-choreo className="inline-block [--beat:950ms]">
+                <PrimaryCta variant="solid" location="hero" magnetic={0.35} />
               </span>
             </div>
           </div>

@@ -15,17 +15,22 @@ export const SitePartsFragmentDoc = gql`
     legal
     tagline
   }
+  primaryCta {
+    __typename
+    label
+    href
+  }
   nav {
     __typename
     links {
       __typename
       label
       href
-    }
-    cta {
-      __typename
-      label
-      href
+      children {
+        __typename
+        label
+        href
+      }
     }
   }
   hero {
@@ -34,16 +39,6 @@ export const SitePartsFragmentDoc = gql`
     accents
     script
     sub
-    ctaPrimary {
-      __typename
-      label
-      href
-    }
-    ctaSecondary {
-      __typename
-      label
-      href
-    }
     tiles {
       __typename
       label
@@ -51,29 +46,55 @@ export const SitePartsFragmentDoc = gql`
     }
   }
   marquee
-  works {
+  solutions {
     __typename
     label
     title
     intro
+    note {
+      __typename
+      text
+      label
+      href
+    }
     items {
       __typename
-      src
-      brand
-      piece
-      desc
+      slug
+      tier
+      name
+      promise
+      body
+      photo
+      solves
+      includes {
+        __typename
+        icon
+        title
+        text
+      }
+      how {
+        __typename
+        title
+        text
+        href
+      }
+      cases
     }
   }
-  services {
+  howWeWork {
     __typename
     label
     title
+    intro
+    pageTitle
+    pageIntro
     items {
       __typename
-      n
-      slug
+      id
       name
+      role
       body
+      href
       photo
       detail {
         __typename
@@ -88,21 +109,40 @@ export const SitePartsFragmentDoc = gql`
       }
     }
   }
-  stats {
+  cases {
     __typename
     label
     title
+    intro
     items {
       __typename
-      value
-      label
+      slug
+      brand
+      category
+      solution
+      title
+      need
+      answer
+      execution
+      pieces
+      cover
+      gallery {
+        __typename
+        src
+        alt
+      }
     }
   }
-  statement {
+  works {
     __typename
-    small
-    big
-    accents
+    label
+    items {
+      __typename
+      src
+      brand
+      piece
+      desc
+    }
   }
   process {
     __typename
@@ -115,24 +155,37 @@ export const SitePartsFragmentDoc = gql`
       body
     }
   }
+  stats {
+    __typename
+    label
+    title
+    intro
+    items {
+      __typename
+      value
+      label
+    }
+  }
   cta {
     __typename
     title
     body
-    button {
-      __typename
-      label
-      href
-    }
+    contactLabel
   }
-  agenda {
+  contact {
     __typename
     label
     title
     script
     intro
+    needs
     slots
     email
+    whatsapp
+    instagram
+    response
+    confirmTitle
+    confirmBody
     disclaimer
   }
   footer {

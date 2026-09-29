@@ -173,34 +173,28 @@ export type SiteBrand = {
   tagline?: Maybe<Scalars['String']['output']>;
 };
 
-export type SiteNavLinks = {
-  __typename?: 'SiteNavLinks';
+export type SitePrimaryCta = {
+  __typename?: 'SitePrimaryCta';
   label?: Maybe<Scalars['String']['output']>;
   href?: Maybe<Scalars['String']['output']>;
 };
 
-export type SiteNavCta = {
-  __typename?: 'SiteNavCta';
+export type SiteNavLinksChildren = {
+  __typename?: 'SiteNavLinksChildren';
   label?: Maybe<Scalars['String']['output']>;
   href?: Maybe<Scalars['String']['output']>;
+};
+
+export type SiteNavLinks = {
+  __typename?: 'SiteNavLinks';
+  label?: Maybe<Scalars['String']['output']>;
+  href?: Maybe<Scalars['String']['output']>;
+  children?: Maybe<Array<Maybe<SiteNavLinksChildren>>>;
 };
 
 export type SiteNav = {
   __typename?: 'SiteNav';
   links?: Maybe<Array<Maybe<SiteNavLinks>>>;
-  cta?: Maybe<SiteNavCta>;
-};
-
-export type SiteHeroCtaPrimary = {
-  __typename?: 'SiteHeroCtaPrimary';
-  label?: Maybe<Scalars['String']['output']>;
-  href?: Maybe<Scalars['String']['output']>;
-};
-
-export type SiteHeroCtaSecondary = {
-  __typename?: 'SiteHeroCtaSecondary';
-  label?: Maybe<Scalars['String']['output']>;
-  href?: Maybe<Scalars['String']['output']>;
 };
 
 export type SiteHeroTiles = {
@@ -215,9 +209,115 @@ export type SiteHero = {
   accents?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   script?: Maybe<Scalars['String']['output']>;
   sub?: Maybe<Scalars['String']['output']>;
-  ctaPrimary?: Maybe<SiteHeroCtaPrimary>;
-  ctaSecondary?: Maybe<SiteHeroCtaSecondary>;
   tiles?: Maybe<Array<Maybe<SiteHeroTiles>>>;
+};
+
+export type SiteSolutionsNote = {
+  __typename?: 'SiteSolutionsNote';
+  text?: Maybe<Scalars['String']['output']>;
+  label?: Maybe<Scalars['String']['output']>;
+  href?: Maybe<Scalars['String']['output']>;
+};
+
+export type SiteSolutionsItemsIncludes = {
+  __typename?: 'SiteSolutionsItemsIncludes';
+  icon?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+  text?: Maybe<Scalars['String']['output']>;
+};
+
+export type SiteSolutionsItemsHow = {
+  __typename?: 'SiteSolutionsItemsHow';
+  title?: Maybe<Scalars['String']['output']>;
+  text?: Maybe<Scalars['String']['output']>;
+  href?: Maybe<Scalars['String']['output']>;
+};
+
+export type SiteSolutionsItems = {
+  __typename?: 'SiteSolutionsItems';
+  slug?: Maybe<Scalars['String']['output']>;
+  tier?: Maybe<Scalars['String']['output']>;
+  name?: Maybe<Scalars['String']['output']>;
+  promise?: Maybe<Scalars['String']['output']>;
+  body?: Maybe<Scalars['String']['output']>;
+  photo?: Maybe<Scalars['String']['output']>;
+  solves?: Maybe<Scalars['String']['output']>;
+  includes?: Maybe<Array<Maybe<SiteSolutionsItemsIncludes>>>;
+  how?: Maybe<Array<Maybe<SiteSolutionsItemsHow>>>;
+  cases?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+};
+
+export type SiteSolutions = {
+  __typename?: 'SiteSolutions';
+  label?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+  intro?: Maybe<Scalars['String']['output']>;
+  note?: Maybe<SiteSolutionsNote>;
+  items?: Maybe<Array<Maybe<SiteSolutionsItems>>>;
+};
+
+export type SiteHowWeWorkItemsDetailGallery = {
+  __typename?: 'SiteHowWeWorkItemsDetailGallery';
+  src?: Maybe<Scalars['String']['output']>;
+  alt?: Maybe<Scalars['String']['output']>;
+};
+
+export type SiteHowWeWorkItemsDetail = {
+  __typename?: 'SiteHowWeWorkItemsDetail';
+  claim?: Maybe<Scalars['String']['output']>;
+  intro?: Maybe<Scalars['String']['output']>;
+  bullets?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  gallery?: Maybe<Array<Maybe<SiteHowWeWorkItemsDetailGallery>>>;
+};
+
+export type SiteHowWeWorkItems = {
+  __typename?: 'SiteHowWeWorkItems';
+  id?: Maybe<Scalars['String']['output']>;
+  name?: Maybe<Scalars['String']['output']>;
+  role?: Maybe<Scalars['String']['output']>;
+  body?: Maybe<Scalars['String']['output']>;
+  href?: Maybe<Scalars['String']['output']>;
+  photo?: Maybe<Scalars['String']['output']>;
+  detail?: Maybe<SiteHowWeWorkItemsDetail>;
+};
+
+export type SiteHowWeWork = {
+  __typename?: 'SiteHowWeWork';
+  label?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+  intro?: Maybe<Scalars['String']['output']>;
+  pageTitle?: Maybe<Scalars['String']['output']>;
+  pageIntro?: Maybe<Scalars['String']['output']>;
+  items?: Maybe<Array<Maybe<SiteHowWeWorkItems>>>;
+};
+
+export type SiteCasesItemsGallery = {
+  __typename?: 'SiteCasesItemsGallery';
+  src?: Maybe<Scalars['String']['output']>;
+  alt?: Maybe<Scalars['String']['output']>;
+};
+
+export type SiteCasesItems = {
+  __typename?: 'SiteCasesItems';
+  slug?: Maybe<Scalars['String']['output']>;
+  brand?: Maybe<Scalars['String']['output']>;
+  category?: Maybe<Scalars['String']['output']>;
+  solution?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+  need?: Maybe<Scalars['String']['output']>;
+  answer?: Maybe<Scalars['String']['output']>;
+  execution?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  pieces?: Maybe<Scalars['String']['output']>;
+  cover?: Maybe<Scalars['String']['output']>;
+  gallery?: Maybe<Array<Maybe<SiteCasesItemsGallery>>>;
+};
+
+export type SiteCases = {
+  __typename?: 'SiteCases';
+  label?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+  intro?: Maybe<Scalars['String']['output']>;
+  items?: Maybe<Array<Maybe<SiteCasesItems>>>;
 };
 
 export type SiteWorksItems = {
@@ -231,60 +331,7 @@ export type SiteWorksItems = {
 export type SiteWorks = {
   __typename?: 'SiteWorks';
   label?: Maybe<Scalars['String']['output']>;
-  title?: Maybe<Scalars['String']['output']>;
-  intro?: Maybe<Scalars['String']['output']>;
   items?: Maybe<Array<Maybe<SiteWorksItems>>>;
-};
-
-export type SiteServicesItemsDetailGallery = {
-  __typename?: 'SiteServicesItemsDetailGallery';
-  src?: Maybe<Scalars['String']['output']>;
-  alt?: Maybe<Scalars['String']['output']>;
-};
-
-export type SiteServicesItemsDetail = {
-  __typename?: 'SiteServicesItemsDetail';
-  claim?: Maybe<Scalars['String']['output']>;
-  intro?: Maybe<Scalars['String']['output']>;
-  bullets?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-  gallery?: Maybe<Array<Maybe<SiteServicesItemsDetailGallery>>>;
-};
-
-export type SiteServicesItems = {
-  __typename?: 'SiteServicesItems';
-  n?: Maybe<Scalars['String']['output']>;
-  slug?: Maybe<Scalars['String']['output']>;
-  name?: Maybe<Scalars['String']['output']>;
-  body?: Maybe<Scalars['String']['output']>;
-  photo?: Maybe<Scalars['String']['output']>;
-  detail?: Maybe<SiteServicesItemsDetail>;
-};
-
-export type SiteServices = {
-  __typename?: 'SiteServices';
-  label?: Maybe<Scalars['String']['output']>;
-  title?: Maybe<Scalars['String']['output']>;
-  items?: Maybe<Array<Maybe<SiteServicesItems>>>;
-};
-
-export type SiteStatsItems = {
-  __typename?: 'SiteStatsItems';
-  value?: Maybe<Scalars['String']['output']>;
-  label?: Maybe<Scalars['String']['output']>;
-};
-
-export type SiteStats = {
-  __typename?: 'SiteStats';
-  label?: Maybe<Scalars['String']['output']>;
-  title?: Maybe<Scalars['String']['output']>;
-  items?: Maybe<Array<Maybe<SiteStatsItems>>>;
-};
-
-export type SiteStatement = {
-  __typename?: 'SiteStatement';
-  small?: Maybe<Scalars['String']['output']>;
-  big?: Maybe<Scalars['String']['output']>;
-  accents?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
 };
 
 export type SiteProcessSteps = {
@@ -301,27 +348,41 @@ export type SiteProcess = {
   steps?: Maybe<Array<Maybe<SiteProcessSteps>>>;
 };
 
-export type SiteCtaButton = {
-  __typename?: 'SiteCtaButton';
+export type SiteStatsItems = {
+  __typename?: 'SiteStatsItems';
+  value?: Maybe<Scalars['String']['output']>;
   label?: Maybe<Scalars['String']['output']>;
-  href?: Maybe<Scalars['String']['output']>;
+};
+
+export type SiteStats = {
+  __typename?: 'SiteStats';
+  label?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+  intro?: Maybe<Scalars['String']['output']>;
+  items?: Maybe<Array<Maybe<SiteStatsItems>>>;
 };
 
 export type SiteCta = {
   __typename?: 'SiteCta';
   title?: Maybe<Scalars['String']['output']>;
   body?: Maybe<Scalars['String']['output']>;
-  button?: Maybe<SiteCtaButton>;
+  contactLabel?: Maybe<Scalars['String']['output']>;
 };
 
-export type SiteAgenda = {
-  __typename?: 'SiteAgenda';
+export type SiteContact = {
+  __typename?: 'SiteContact';
   label?: Maybe<Scalars['String']['output']>;
   title?: Maybe<Scalars['String']['output']>;
   script?: Maybe<Scalars['String']['output']>;
   intro?: Maybe<Scalars['String']['output']>;
+  needs?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   slots?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   email?: Maybe<Scalars['String']['output']>;
+  whatsapp?: Maybe<Scalars['String']['output']>;
+  instagram?: Maybe<Scalars['String']['output']>;
+  response?: Maybe<Scalars['String']['output']>;
+  confirmTitle?: Maybe<Scalars['String']['output']>;
+  confirmBody?: Maybe<Scalars['String']['output']>;
   disclaimer?: Maybe<Scalars['String']['output']>;
 };
 
@@ -346,16 +407,18 @@ export type SiteFooter = {
 export type Site = Node & Document & {
   __typename?: 'Site';
   brand?: Maybe<SiteBrand>;
+  primaryCta?: Maybe<SitePrimaryCta>;
   nav?: Maybe<SiteNav>;
   hero?: Maybe<SiteHero>;
   marquee?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  solutions?: Maybe<SiteSolutions>;
+  howWeWork?: Maybe<SiteHowWeWork>;
+  cases?: Maybe<SiteCases>;
   works?: Maybe<SiteWorks>;
-  services?: Maybe<SiteServices>;
-  stats?: Maybe<SiteStats>;
-  statement?: Maybe<SiteStatement>;
   process?: Maybe<SiteProcess>;
+  stats?: Maybe<SiteStats>;
   cta?: Maybe<SiteCta>;
-  agenda?: Maybe<SiteAgenda>;
+  contact?: Maybe<SiteContact>;
   footer?: Maybe<SiteFooter>;
   id: Scalars['ID']['output'];
   _sys: SystemInfo;
@@ -376,29 +439,24 @@ export type SiteBrandFilter = {
   tagline?: InputMaybe<StringFilter>;
 };
 
-export type SiteNavLinksFilter = {
+export type SitePrimaryCtaFilter = {
   label?: InputMaybe<StringFilter>;
   href?: InputMaybe<StringFilter>;
 };
 
-export type SiteNavCtaFilter = {
+export type SiteNavLinksChildrenFilter = {
   label?: InputMaybe<StringFilter>;
   href?: InputMaybe<StringFilter>;
+};
+
+export type SiteNavLinksFilter = {
+  label?: InputMaybe<StringFilter>;
+  href?: InputMaybe<StringFilter>;
+  children?: InputMaybe<SiteNavLinksChildrenFilter>;
 };
 
 export type SiteNavFilter = {
   links?: InputMaybe<SiteNavLinksFilter>;
-  cta?: InputMaybe<SiteNavCtaFilter>;
-};
-
-export type SiteHeroCtaPrimaryFilter = {
-  label?: InputMaybe<StringFilter>;
-  href?: InputMaybe<StringFilter>;
-};
-
-export type SiteHeroCtaSecondaryFilter = {
-  label?: InputMaybe<StringFilter>;
-  href?: InputMaybe<StringFilter>;
 };
 
 export type SiteHeroTilesFilter = {
@@ -411,9 +469,13 @@ export type SiteHeroFilter = {
   accents?: InputMaybe<StringFilter>;
   script?: InputMaybe<StringFilter>;
   sub?: InputMaybe<StringFilter>;
-  ctaPrimary?: InputMaybe<SiteHeroCtaPrimaryFilter>;
-  ctaSecondary?: InputMaybe<SiteHeroCtaSecondaryFilter>;
   tiles?: InputMaybe<SiteHeroTilesFilter>;
+};
+
+export type SiteSolutionsNoteFilter = {
+  text?: InputMaybe<StringFilter>;
+  label?: InputMaybe<StringFilter>;
+  href?: InputMaybe<StringFilter>;
 };
 
 export type ImageFilter = {
@@ -421,6 +483,96 @@ export type ImageFilter = {
   eq?: InputMaybe<Scalars['String']['input']>;
   exists?: InputMaybe<Scalars['Boolean']['input']>;
   in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type SiteSolutionsItemsIncludesFilter = {
+  icon?: InputMaybe<StringFilter>;
+  title?: InputMaybe<StringFilter>;
+  text?: InputMaybe<StringFilter>;
+};
+
+export type SiteSolutionsItemsHowFilter = {
+  title?: InputMaybe<StringFilter>;
+  text?: InputMaybe<StringFilter>;
+  href?: InputMaybe<StringFilter>;
+};
+
+export type SiteSolutionsItemsFilter = {
+  slug?: InputMaybe<StringFilter>;
+  tier?: InputMaybe<StringFilter>;
+  name?: InputMaybe<StringFilter>;
+  promise?: InputMaybe<StringFilter>;
+  body?: InputMaybe<StringFilter>;
+  photo?: InputMaybe<ImageFilter>;
+  solves?: InputMaybe<StringFilter>;
+  includes?: InputMaybe<SiteSolutionsItemsIncludesFilter>;
+  how?: InputMaybe<SiteSolutionsItemsHowFilter>;
+  cases?: InputMaybe<StringFilter>;
+};
+
+export type SiteSolutionsFilter = {
+  label?: InputMaybe<StringFilter>;
+  title?: InputMaybe<StringFilter>;
+  intro?: InputMaybe<StringFilter>;
+  note?: InputMaybe<SiteSolutionsNoteFilter>;
+  items?: InputMaybe<SiteSolutionsItemsFilter>;
+};
+
+export type SiteHowWeWorkItemsDetailGalleryFilter = {
+  src?: InputMaybe<ImageFilter>;
+  alt?: InputMaybe<StringFilter>;
+};
+
+export type SiteHowWeWorkItemsDetailFilter = {
+  claim?: InputMaybe<StringFilter>;
+  intro?: InputMaybe<StringFilter>;
+  bullets?: InputMaybe<StringFilter>;
+  gallery?: InputMaybe<SiteHowWeWorkItemsDetailGalleryFilter>;
+};
+
+export type SiteHowWeWorkItemsFilter = {
+  id?: InputMaybe<StringFilter>;
+  name?: InputMaybe<StringFilter>;
+  role?: InputMaybe<StringFilter>;
+  body?: InputMaybe<StringFilter>;
+  href?: InputMaybe<StringFilter>;
+  photo?: InputMaybe<ImageFilter>;
+  detail?: InputMaybe<SiteHowWeWorkItemsDetailFilter>;
+};
+
+export type SiteHowWeWorkFilter = {
+  label?: InputMaybe<StringFilter>;
+  title?: InputMaybe<StringFilter>;
+  intro?: InputMaybe<StringFilter>;
+  pageTitle?: InputMaybe<StringFilter>;
+  pageIntro?: InputMaybe<StringFilter>;
+  items?: InputMaybe<SiteHowWeWorkItemsFilter>;
+};
+
+export type SiteCasesItemsGalleryFilter = {
+  src?: InputMaybe<ImageFilter>;
+  alt?: InputMaybe<StringFilter>;
+};
+
+export type SiteCasesItemsFilter = {
+  slug?: InputMaybe<StringFilter>;
+  brand?: InputMaybe<StringFilter>;
+  category?: InputMaybe<StringFilter>;
+  solution?: InputMaybe<StringFilter>;
+  title?: InputMaybe<StringFilter>;
+  need?: InputMaybe<StringFilter>;
+  answer?: InputMaybe<StringFilter>;
+  execution?: InputMaybe<StringFilter>;
+  pieces?: InputMaybe<StringFilter>;
+  cover?: InputMaybe<ImageFilter>;
+  gallery?: InputMaybe<SiteCasesItemsGalleryFilter>;
+};
+
+export type SiteCasesFilter = {
+  label?: InputMaybe<StringFilter>;
+  title?: InputMaybe<StringFilter>;
+  intro?: InputMaybe<StringFilter>;
+  items?: InputMaybe<SiteCasesItemsFilter>;
 };
 
 export type SiteWorksItemsFilter = {
@@ -432,53 +584,7 @@ export type SiteWorksItemsFilter = {
 
 export type SiteWorksFilter = {
   label?: InputMaybe<StringFilter>;
-  title?: InputMaybe<StringFilter>;
-  intro?: InputMaybe<StringFilter>;
   items?: InputMaybe<SiteWorksItemsFilter>;
-};
-
-export type SiteServicesItemsDetailGalleryFilter = {
-  src?: InputMaybe<ImageFilter>;
-  alt?: InputMaybe<StringFilter>;
-};
-
-export type SiteServicesItemsDetailFilter = {
-  claim?: InputMaybe<StringFilter>;
-  intro?: InputMaybe<StringFilter>;
-  bullets?: InputMaybe<StringFilter>;
-  gallery?: InputMaybe<SiteServicesItemsDetailGalleryFilter>;
-};
-
-export type SiteServicesItemsFilter = {
-  n?: InputMaybe<StringFilter>;
-  slug?: InputMaybe<StringFilter>;
-  name?: InputMaybe<StringFilter>;
-  body?: InputMaybe<StringFilter>;
-  photo?: InputMaybe<ImageFilter>;
-  detail?: InputMaybe<SiteServicesItemsDetailFilter>;
-};
-
-export type SiteServicesFilter = {
-  label?: InputMaybe<StringFilter>;
-  title?: InputMaybe<StringFilter>;
-  items?: InputMaybe<SiteServicesItemsFilter>;
-};
-
-export type SiteStatsItemsFilter = {
-  value?: InputMaybe<StringFilter>;
-  label?: InputMaybe<StringFilter>;
-};
-
-export type SiteStatsFilter = {
-  label?: InputMaybe<StringFilter>;
-  title?: InputMaybe<StringFilter>;
-  items?: InputMaybe<SiteStatsItemsFilter>;
-};
-
-export type SiteStatementFilter = {
-  small?: InputMaybe<StringFilter>;
-  big?: InputMaybe<StringFilter>;
-  accents?: InputMaybe<StringFilter>;
 };
 
 export type SiteProcessStepsFilter = {
@@ -493,24 +599,37 @@ export type SiteProcessFilter = {
   steps?: InputMaybe<SiteProcessStepsFilter>;
 };
 
-export type SiteCtaButtonFilter = {
+export type SiteStatsItemsFilter = {
+  value?: InputMaybe<StringFilter>;
   label?: InputMaybe<StringFilter>;
-  href?: InputMaybe<StringFilter>;
+};
+
+export type SiteStatsFilter = {
+  label?: InputMaybe<StringFilter>;
+  title?: InputMaybe<StringFilter>;
+  intro?: InputMaybe<StringFilter>;
+  items?: InputMaybe<SiteStatsItemsFilter>;
 };
 
 export type SiteCtaFilter = {
   title?: InputMaybe<StringFilter>;
   body?: InputMaybe<StringFilter>;
-  button?: InputMaybe<SiteCtaButtonFilter>;
+  contactLabel?: InputMaybe<StringFilter>;
 };
 
-export type SiteAgendaFilter = {
+export type SiteContactFilter = {
   label?: InputMaybe<StringFilter>;
   title?: InputMaybe<StringFilter>;
   script?: InputMaybe<StringFilter>;
   intro?: InputMaybe<StringFilter>;
+  needs?: InputMaybe<StringFilter>;
   slots?: InputMaybe<StringFilter>;
   email?: InputMaybe<StringFilter>;
+  whatsapp?: InputMaybe<StringFilter>;
+  instagram?: InputMaybe<StringFilter>;
+  response?: InputMaybe<StringFilter>;
+  confirmTitle?: InputMaybe<StringFilter>;
+  confirmBody?: InputMaybe<StringFilter>;
   disclaimer?: InputMaybe<StringFilter>;
 };
 
@@ -531,16 +650,18 @@ export type SiteFooterFilter = {
 
 export type SiteFilter = {
   brand?: InputMaybe<SiteBrandFilter>;
+  primaryCta?: InputMaybe<SitePrimaryCtaFilter>;
   nav?: InputMaybe<SiteNavFilter>;
   hero?: InputMaybe<SiteHeroFilter>;
   marquee?: InputMaybe<StringFilter>;
+  solutions?: InputMaybe<SiteSolutionsFilter>;
+  howWeWork?: InputMaybe<SiteHowWeWorkFilter>;
+  cases?: InputMaybe<SiteCasesFilter>;
   works?: InputMaybe<SiteWorksFilter>;
-  services?: InputMaybe<SiteServicesFilter>;
-  stats?: InputMaybe<SiteStatsFilter>;
-  statement?: InputMaybe<SiteStatementFilter>;
   process?: InputMaybe<SiteProcessFilter>;
+  stats?: InputMaybe<SiteStatsFilter>;
   cta?: InputMaybe<SiteCtaFilter>;
-  agenda?: InputMaybe<SiteAgendaFilter>;
+  contact?: InputMaybe<SiteContactFilter>;
   footer?: InputMaybe<SiteFooterFilter>;
 };
 
@@ -629,29 +750,24 @@ export type SiteBrandMutation = {
   tagline?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type SiteNavLinksMutation = {
+export type SitePrimaryCtaMutation = {
   label?: InputMaybe<Scalars['String']['input']>;
   href?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type SiteNavCtaMutation = {
+export type SiteNavLinksChildrenMutation = {
   label?: InputMaybe<Scalars['String']['input']>;
   href?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type SiteNavLinksMutation = {
+  label?: InputMaybe<Scalars['String']['input']>;
+  href?: InputMaybe<Scalars['String']['input']>;
+  children?: InputMaybe<Array<InputMaybe<SiteNavLinksChildrenMutation>>>;
 };
 
 export type SiteNavMutation = {
   links?: InputMaybe<Array<InputMaybe<SiteNavLinksMutation>>>;
-  cta?: InputMaybe<SiteNavCtaMutation>;
-};
-
-export type SiteHeroCtaPrimaryMutation = {
-  label?: InputMaybe<Scalars['String']['input']>;
-  href?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type SiteHeroCtaSecondaryMutation = {
-  label?: InputMaybe<Scalars['String']['input']>;
-  href?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type SiteHeroTilesMutation = {
@@ -664,9 +780,103 @@ export type SiteHeroMutation = {
   accents?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   script?: InputMaybe<Scalars['String']['input']>;
   sub?: InputMaybe<Scalars['String']['input']>;
-  ctaPrimary?: InputMaybe<SiteHeroCtaPrimaryMutation>;
-  ctaSecondary?: InputMaybe<SiteHeroCtaSecondaryMutation>;
   tiles?: InputMaybe<Array<InputMaybe<SiteHeroTilesMutation>>>;
+};
+
+export type SiteSolutionsNoteMutation = {
+  text?: InputMaybe<Scalars['String']['input']>;
+  label?: InputMaybe<Scalars['String']['input']>;
+  href?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type SiteSolutionsItemsIncludesMutation = {
+  icon?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  text?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type SiteSolutionsItemsHowMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  text?: InputMaybe<Scalars['String']['input']>;
+  href?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type SiteSolutionsItemsMutation = {
+  slug?: InputMaybe<Scalars['String']['input']>;
+  tier?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  promise?: InputMaybe<Scalars['String']['input']>;
+  body?: InputMaybe<Scalars['String']['input']>;
+  photo?: InputMaybe<Scalars['String']['input']>;
+  solves?: InputMaybe<Scalars['String']['input']>;
+  includes?: InputMaybe<Array<InputMaybe<SiteSolutionsItemsIncludesMutation>>>;
+  how?: InputMaybe<Array<InputMaybe<SiteSolutionsItemsHowMutation>>>;
+  cases?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type SiteSolutionsMutation = {
+  label?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  intro?: InputMaybe<Scalars['String']['input']>;
+  note?: InputMaybe<SiteSolutionsNoteMutation>;
+  items?: InputMaybe<Array<InputMaybe<SiteSolutionsItemsMutation>>>;
+};
+
+export type SiteHowWeWorkItemsDetailGalleryMutation = {
+  src?: InputMaybe<Scalars['String']['input']>;
+  alt?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type SiteHowWeWorkItemsDetailMutation = {
+  claim?: InputMaybe<Scalars['String']['input']>;
+  intro?: InputMaybe<Scalars['String']['input']>;
+  bullets?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  gallery?: InputMaybe<Array<InputMaybe<SiteHowWeWorkItemsDetailGalleryMutation>>>;
+};
+
+export type SiteHowWeWorkItemsMutation = {
+  id?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  role?: InputMaybe<Scalars['String']['input']>;
+  body?: InputMaybe<Scalars['String']['input']>;
+  href?: InputMaybe<Scalars['String']['input']>;
+  photo?: InputMaybe<Scalars['String']['input']>;
+  detail?: InputMaybe<SiteHowWeWorkItemsDetailMutation>;
+};
+
+export type SiteHowWeWorkMutation = {
+  label?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  intro?: InputMaybe<Scalars['String']['input']>;
+  pageTitle?: InputMaybe<Scalars['String']['input']>;
+  pageIntro?: InputMaybe<Scalars['String']['input']>;
+  items?: InputMaybe<Array<InputMaybe<SiteHowWeWorkItemsMutation>>>;
+};
+
+export type SiteCasesItemsGalleryMutation = {
+  src?: InputMaybe<Scalars['String']['input']>;
+  alt?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type SiteCasesItemsMutation = {
+  slug?: InputMaybe<Scalars['String']['input']>;
+  brand?: InputMaybe<Scalars['String']['input']>;
+  category?: InputMaybe<Scalars['String']['input']>;
+  solution?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  need?: InputMaybe<Scalars['String']['input']>;
+  answer?: InputMaybe<Scalars['String']['input']>;
+  execution?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  pieces?: InputMaybe<Scalars['String']['input']>;
+  cover?: InputMaybe<Scalars['String']['input']>;
+  gallery?: InputMaybe<Array<InputMaybe<SiteCasesItemsGalleryMutation>>>;
+};
+
+export type SiteCasesMutation = {
+  label?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  intro?: InputMaybe<Scalars['String']['input']>;
+  items?: InputMaybe<Array<InputMaybe<SiteCasesItemsMutation>>>;
 };
 
 export type SiteWorksItemsMutation = {
@@ -678,53 +888,7 @@ export type SiteWorksItemsMutation = {
 
 export type SiteWorksMutation = {
   label?: InputMaybe<Scalars['String']['input']>;
-  title?: InputMaybe<Scalars['String']['input']>;
-  intro?: InputMaybe<Scalars['String']['input']>;
   items?: InputMaybe<Array<InputMaybe<SiteWorksItemsMutation>>>;
-};
-
-export type SiteServicesItemsDetailGalleryMutation = {
-  src?: InputMaybe<Scalars['String']['input']>;
-  alt?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type SiteServicesItemsDetailMutation = {
-  claim?: InputMaybe<Scalars['String']['input']>;
-  intro?: InputMaybe<Scalars['String']['input']>;
-  bullets?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  gallery?: InputMaybe<Array<InputMaybe<SiteServicesItemsDetailGalleryMutation>>>;
-};
-
-export type SiteServicesItemsMutation = {
-  n?: InputMaybe<Scalars['String']['input']>;
-  slug?: InputMaybe<Scalars['String']['input']>;
-  name?: InputMaybe<Scalars['String']['input']>;
-  body?: InputMaybe<Scalars['String']['input']>;
-  photo?: InputMaybe<Scalars['String']['input']>;
-  detail?: InputMaybe<SiteServicesItemsDetailMutation>;
-};
-
-export type SiteServicesMutation = {
-  label?: InputMaybe<Scalars['String']['input']>;
-  title?: InputMaybe<Scalars['String']['input']>;
-  items?: InputMaybe<Array<InputMaybe<SiteServicesItemsMutation>>>;
-};
-
-export type SiteStatsItemsMutation = {
-  value?: InputMaybe<Scalars['String']['input']>;
-  label?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type SiteStatsMutation = {
-  label?: InputMaybe<Scalars['String']['input']>;
-  title?: InputMaybe<Scalars['String']['input']>;
-  items?: InputMaybe<Array<InputMaybe<SiteStatsItemsMutation>>>;
-};
-
-export type SiteStatementMutation = {
-  small?: InputMaybe<Scalars['String']['input']>;
-  big?: InputMaybe<Scalars['String']['input']>;
-  accents?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
 export type SiteProcessStepsMutation = {
@@ -739,24 +903,37 @@ export type SiteProcessMutation = {
   steps?: InputMaybe<Array<InputMaybe<SiteProcessStepsMutation>>>;
 };
 
-export type SiteCtaButtonMutation = {
+export type SiteStatsItemsMutation = {
+  value?: InputMaybe<Scalars['String']['input']>;
   label?: InputMaybe<Scalars['String']['input']>;
-  href?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type SiteStatsMutation = {
+  label?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  intro?: InputMaybe<Scalars['String']['input']>;
+  items?: InputMaybe<Array<InputMaybe<SiteStatsItemsMutation>>>;
 };
 
 export type SiteCtaMutation = {
   title?: InputMaybe<Scalars['String']['input']>;
   body?: InputMaybe<Scalars['String']['input']>;
-  button?: InputMaybe<SiteCtaButtonMutation>;
+  contactLabel?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type SiteAgendaMutation = {
+export type SiteContactMutation = {
   label?: InputMaybe<Scalars['String']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
   script?: InputMaybe<Scalars['String']['input']>;
   intro?: InputMaybe<Scalars['String']['input']>;
+  needs?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   slots?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   email?: InputMaybe<Scalars['String']['input']>;
+  whatsapp?: InputMaybe<Scalars['String']['input']>;
+  instagram?: InputMaybe<Scalars['String']['input']>;
+  response?: InputMaybe<Scalars['String']['input']>;
+  confirmTitle?: InputMaybe<Scalars['String']['input']>;
+  confirmBody?: InputMaybe<Scalars['String']['input']>;
   disclaimer?: InputMaybe<Scalars['String']['input']>;
 };
 
@@ -777,27 +954,29 @@ export type SiteFooterMutation = {
 
 export type SiteMutation = {
   brand?: InputMaybe<SiteBrandMutation>;
+  primaryCta?: InputMaybe<SitePrimaryCtaMutation>;
   nav?: InputMaybe<SiteNavMutation>;
   hero?: InputMaybe<SiteHeroMutation>;
   marquee?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  solutions?: InputMaybe<SiteSolutionsMutation>;
+  howWeWork?: InputMaybe<SiteHowWeWorkMutation>;
+  cases?: InputMaybe<SiteCasesMutation>;
   works?: InputMaybe<SiteWorksMutation>;
-  services?: InputMaybe<SiteServicesMutation>;
-  stats?: InputMaybe<SiteStatsMutation>;
-  statement?: InputMaybe<SiteStatementMutation>;
   process?: InputMaybe<SiteProcessMutation>;
+  stats?: InputMaybe<SiteStatsMutation>;
   cta?: InputMaybe<SiteCtaMutation>;
-  agenda?: InputMaybe<SiteAgendaMutation>;
+  contact?: InputMaybe<SiteContactMutation>;
   footer?: InputMaybe<SiteFooterMutation>;
 };
 
-export type SitePartsFragment = { __typename: 'Site', marquee?: Array<string | null> | null, brand?: { __typename: 'SiteBrand', name?: string | null, group?: string | null, legal?: string | null, tagline?: string | null } | null, nav?: { __typename: 'SiteNav', links?: Array<{ __typename: 'SiteNavLinks', label?: string | null, href?: string | null } | null> | null, cta?: { __typename: 'SiteNavCta', label?: string | null, href?: string | null } | null } | null, hero?: { __typename: 'SiteHero', title?: string | null, accents?: Array<string | null> | null, script?: string | null, sub?: string | null, ctaPrimary?: { __typename: 'SiteHeroCtaPrimary', label?: string | null, href?: string | null } | null, ctaSecondary?: { __typename: 'SiteHeroCtaSecondary', label?: string | null, href?: string | null } | null, tiles?: Array<{ __typename: 'SiteHeroTiles', label?: string | null, note?: string | null } | null> | null } | null, works?: { __typename: 'SiteWorks', label?: string | null, title?: string | null, intro?: string | null, items?: Array<{ __typename: 'SiteWorksItems', src?: string | null, brand?: string | null, piece?: string | null, desc?: string | null } | null> | null } | null, services?: { __typename: 'SiteServices', label?: string | null, title?: string | null, items?: Array<{ __typename: 'SiteServicesItems', n?: string | null, slug?: string | null, name?: string | null, body?: string | null, photo?: string | null, detail?: { __typename: 'SiteServicesItemsDetail', claim?: string | null, intro?: string | null, bullets?: Array<string | null> | null, gallery?: Array<{ __typename: 'SiteServicesItemsDetailGallery', src?: string | null, alt?: string | null } | null> | null } | null } | null> | null } | null, stats?: { __typename: 'SiteStats', label?: string | null, title?: string | null, items?: Array<{ __typename: 'SiteStatsItems', value?: string | null, label?: string | null } | null> | null } | null, statement?: { __typename: 'SiteStatement', small?: string | null, big?: string | null, accents?: Array<string | null> | null } | null, process?: { __typename: 'SiteProcess', label?: string | null, title?: string | null, steps?: Array<{ __typename: 'SiteProcessSteps', n?: string | null, title?: string | null, body?: string | null } | null> | null } | null, cta?: { __typename: 'SiteCta', title?: string | null, body?: string | null, button?: { __typename: 'SiteCtaButton', label?: string | null, href?: string | null } | null } | null, agenda?: { __typename: 'SiteAgenda', label?: string | null, title?: string | null, script?: string | null, intro?: string | null, slots?: Array<string | null> | null, email?: string | null, disclaimer?: string | null } | null, footer?: { __typename: 'SiteFooter', note?: string | null, columns?: Array<{ __typename: 'SiteFooterColumns', title?: string | null, links?: Array<{ __typename: 'SiteFooterColumnsLinks', label?: string | null, href?: string | null } | null> | null } | null> | null } | null };
+export type SitePartsFragment = { __typename: 'Site', marquee?: Array<string | null> | null, brand?: { __typename: 'SiteBrand', name?: string | null, group?: string | null, legal?: string | null, tagline?: string | null } | null, primaryCta?: { __typename: 'SitePrimaryCta', label?: string | null, href?: string | null } | null, nav?: { __typename: 'SiteNav', links?: Array<{ __typename: 'SiteNavLinks', label?: string | null, href?: string | null, children?: Array<{ __typename: 'SiteNavLinksChildren', label?: string | null, href?: string | null } | null> | null } | null> | null } | null, hero?: { __typename: 'SiteHero', title?: string | null, accents?: Array<string | null> | null, script?: string | null, sub?: string | null, tiles?: Array<{ __typename: 'SiteHeroTiles', label?: string | null, note?: string | null } | null> | null } | null, solutions?: { __typename: 'SiteSolutions', label?: string | null, title?: string | null, intro?: string | null, note?: { __typename: 'SiteSolutionsNote', text?: string | null, label?: string | null, href?: string | null } | null, items?: Array<{ __typename: 'SiteSolutionsItems', slug?: string | null, tier?: string | null, name?: string | null, promise?: string | null, body?: string | null, photo?: string | null, solves?: string | null, cases?: Array<string | null> | null, includes?: Array<{ __typename: 'SiteSolutionsItemsIncludes', icon?: string | null, title?: string | null, text?: string | null } | null> | null, how?: Array<{ __typename: 'SiteSolutionsItemsHow', title?: string | null, text?: string | null, href?: string | null } | null> | null } | null> | null } | null, howWeWork?: { __typename: 'SiteHowWeWork', label?: string | null, title?: string | null, intro?: string | null, pageTitle?: string | null, pageIntro?: string | null, items?: Array<{ __typename: 'SiteHowWeWorkItems', id?: string | null, name?: string | null, role?: string | null, body?: string | null, href?: string | null, photo?: string | null, detail?: { __typename: 'SiteHowWeWorkItemsDetail', claim?: string | null, intro?: string | null, bullets?: Array<string | null> | null, gallery?: Array<{ __typename: 'SiteHowWeWorkItemsDetailGallery', src?: string | null, alt?: string | null } | null> | null } | null } | null> | null } | null, cases?: { __typename: 'SiteCases', label?: string | null, title?: string | null, intro?: string | null, items?: Array<{ __typename: 'SiteCasesItems', slug?: string | null, brand?: string | null, category?: string | null, solution?: string | null, title?: string | null, need?: string | null, answer?: string | null, execution?: Array<string | null> | null, pieces?: string | null, cover?: string | null, gallery?: Array<{ __typename: 'SiteCasesItemsGallery', src?: string | null, alt?: string | null } | null> | null } | null> | null } | null, works?: { __typename: 'SiteWorks', label?: string | null, items?: Array<{ __typename: 'SiteWorksItems', src?: string | null, brand?: string | null, piece?: string | null, desc?: string | null } | null> | null } | null, process?: { __typename: 'SiteProcess', label?: string | null, title?: string | null, steps?: Array<{ __typename: 'SiteProcessSteps', n?: string | null, title?: string | null, body?: string | null } | null> | null } | null, stats?: { __typename: 'SiteStats', label?: string | null, title?: string | null, intro?: string | null, items?: Array<{ __typename: 'SiteStatsItems', value?: string | null, label?: string | null } | null> | null } | null, cta?: { __typename: 'SiteCta', title?: string | null, body?: string | null, contactLabel?: string | null } | null, contact?: { __typename: 'SiteContact', label?: string | null, title?: string | null, script?: string | null, intro?: string | null, needs?: Array<string | null> | null, slots?: Array<string | null> | null, email?: string | null, whatsapp?: string | null, instagram?: string | null, response?: string | null, confirmTitle?: string | null, confirmBody?: string | null, disclaimer?: string | null } | null, footer?: { __typename: 'SiteFooter', note?: string | null, columns?: Array<{ __typename: 'SiteFooterColumns', title?: string | null, links?: Array<{ __typename: 'SiteFooterColumnsLinks', label?: string | null, href?: string | null } | null> | null } | null> | null } | null };
 
 export type SiteQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
 }>;
 
 
-export type SiteQuery = { __typename?: 'Query', site: { __typename: 'Site', id: string, marquee?: Array<string | null> | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, brand?: { __typename: 'SiteBrand', name?: string | null, group?: string | null, legal?: string | null, tagline?: string | null } | null, nav?: { __typename: 'SiteNav', links?: Array<{ __typename: 'SiteNavLinks', label?: string | null, href?: string | null } | null> | null, cta?: { __typename: 'SiteNavCta', label?: string | null, href?: string | null } | null } | null, hero?: { __typename: 'SiteHero', title?: string | null, accents?: Array<string | null> | null, script?: string | null, sub?: string | null, ctaPrimary?: { __typename: 'SiteHeroCtaPrimary', label?: string | null, href?: string | null } | null, ctaSecondary?: { __typename: 'SiteHeroCtaSecondary', label?: string | null, href?: string | null } | null, tiles?: Array<{ __typename: 'SiteHeroTiles', label?: string | null, note?: string | null } | null> | null } | null, works?: { __typename: 'SiteWorks', label?: string | null, title?: string | null, intro?: string | null, items?: Array<{ __typename: 'SiteWorksItems', src?: string | null, brand?: string | null, piece?: string | null, desc?: string | null } | null> | null } | null, services?: { __typename: 'SiteServices', label?: string | null, title?: string | null, items?: Array<{ __typename: 'SiteServicesItems', n?: string | null, slug?: string | null, name?: string | null, body?: string | null, photo?: string | null, detail?: { __typename: 'SiteServicesItemsDetail', claim?: string | null, intro?: string | null, bullets?: Array<string | null> | null, gallery?: Array<{ __typename: 'SiteServicesItemsDetailGallery', src?: string | null, alt?: string | null } | null> | null } | null } | null> | null } | null, stats?: { __typename: 'SiteStats', label?: string | null, title?: string | null, items?: Array<{ __typename: 'SiteStatsItems', value?: string | null, label?: string | null } | null> | null } | null, statement?: { __typename: 'SiteStatement', small?: string | null, big?: string | null, accents?: Array<string | null> | null } | null, process?: { __typename: 'SiteProcess', label?: string | null, title?: string | null, steps?: Array<{ __typename: 'SiteProcessSteps', n?: string | null, title?: string | null, body?: string | null } | null> | null } | null, cta?: { __typename: 'SiteCta', title?: string | null, body?: string | null, button?: { __typename: 'SiteCtaButton', label?: string | null, href?: string | null } | null } | null, agenda?: { __typename: 'SiteAgenda', label?: string | null, title?: string | null, script?: string | null, intro?: string | null, slots?: Array<string | null> | null, email?: string | null, disclaimer?: string | null } | null, footer?: { __typename: 'SiteFooter', note?: string | null, columns?: Array<{ __typename: 'SiteFooterColumns', title?: string | null, links?: Array<{ __typename: 'SiteFooterColumnsLinks', label?: string | null, href?: string | null } | null> | null } | null> | null } | null } };
+export type SiteQuery = { __typename?: 'Query', site: { __typename: 'Site', id: string, marquee?: Array<string | null> | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, brand?: { __typename: 'SiteBrand', name?: string | null, group?: string | null, legal?: string | null, tagline?: string | null } | null, primaryCta?: { __typename: 'SitePrimaryCta', label?: string | null, href?: string | null } | null, nav?: { __typename: 'SiteNav', links?: Array<{ __typename: 'SiteNavLinks', label?: string | null, href?: string | null, children?: Array<{ __typename: 'SiteNavLinksChildren', label?: string | null, href?: string | null } | null> | null } | null> | null } | null, hero?: { __typename: 'SiteHero', title?: string | null, accents?: Array<string | null> | null, script?: string | null, sub?: string | null, tiles?: Array<{ __typename: 'SiteHeroTiles', label?: string | null, note?: string | null } | null> | null } | null, solutions?: { __typename: 'SiteSolutions', label?: string | null, title?: string | null, intro?: string | null, note?: { __typename: 'SiteSolutionsNote', text?: string | null, label?: string | null, href?: string | null } | null, items?: Array<{ __typename: 'SiteSolutionsItems', slug?: string | null, tier?: string | null, name?: string | null, promise?: string | null, body?: string | null, photo?: string | null, solves?: string | null, cases?: Array<string | null> | null, includes?: Array<{ __typename: 'SiteSolutionsItemsIncludes', icon?: string | null, title?: string | null, text?: string | null } | null> | null, how?: Array<{ __typename: 'SiteSolutionsItemsHow', title?: string | null, text?: string | null, href?: string | null } | null> | null } | null> | null } | null, howWeWork?: { __typename: 'SiteHowWeWork', label?: string | null, title?: string | null, intro?: string | null, pageTitle?: string | null, pageIntro?: string | null, items?: Array<{ __typename: 'SiteHowWeWorkItems', id?: string | null, name?: string | null, role?: string | null, body?: string | null, href?: string | null, photo?: string | null, detail?: { __typename: 'SiteHowWeWorkItemsDetail', claim?: string | null, intro?: string | null, bullets?: Array<string | null> | null, gallery?: Array<{ __typename: 'SiteHowWeWorkItemsDetailGallery', src?: string | null, alt?: string | null } | null> | null } | null } | null> | null } | null, cases?: { __typename: 'SiteCases', label?: string | null, title?: string | null, intro?: string | null, items?: Array<{ __typename: 'SiteCasesItems', slug?: string | null, brand?: string | null, category?: string | null, solution?: string | null, title?: string | null, need?: string | null, answer?: string | null, execution?: Array<string | null> | null, pieces?: string | null, cover?: string | null, gallery?: Array<{ __typename: 'SiteCasesItemsGallery', src?: string | null, alt?: string | null } | null> | null } | null> | null } | null, works?: { __typename: 'SiteWorks', label?: string | null, items?: Array<{ __typename: 'SiteWorksItems', src?: string | null, brand?: string | null, piece?: string | null, desc?: string | null } | null> | null } | null, process?: { __typename: 'SiteProcess', label?: string | null, title?: string | null, steps?: Array<{ __typename: 'SiteProcessSteps', n?: string | null, title?: string | null, body?: string | null } | null> | null } | null, stats?: { __typename: 'SiteStats', label?: string | null, title?: string | null, intro?: string | null, items?: Array<{ __typename: 'SiteStatsItems', value?: string | null, label?: string | null } | null> | null } | null, cta?: { __typename: 'SiteCta', title?: string | null, body?: string | null, contactLabel?: string | null } | null, contact?: { __typename: 'SiteContact', label?: string | null, title?: string | null, script?: string | null, intro?: string | null, needs?: Array<string | null> | null, slots?: Array<string | null> | null, email?: string | null, whatsapp?: string | null, instagram?: string | null, response?: string | null, confirmTitle?: string | null, confirmBody?: string | null, disclaimer?: string | null } | null, footer?: { __typename: 'SiteFooter', note?: string | null, columns?: Array<{ __typename: 'SiteFooterColumns', title?: string | null, links?: Array<{ __typename: 'SiteFooterColumnsLinks', label?: string | null, href?: string | null } | null> | null } | null> | null } | null } };
 
 export type SiteConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']['input']>;
@@ -809,7 +988,7 @@ export type SiteConnectionQueryVariables = Exact<{
 }>;
 
 
-export type SiteConnectionQuery = { __typename?: 'Query', siteConnection: { __typename?: 'SiteConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'SiteConnectionEdges', cursor: string, node?: { __typename: 'Site', id: string, marquee?: Array<string | null> | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, brand?: { __typename: 'SiteBrand', name?: string | null, group?: string | null, legal?: string | null, tagline?: string | null } | null, nav?: { __typename: 'SiteNav', links?: Array<{ __typename: 'SiteNavLinks', label?: string | null, href?: string | null } | null> | null, cta?: { __typename: 'SiteNavCta', label?: string | null, href?: string | null } | null } | null, hero?: { __typename: 'SiteHero', title?: string | null, accents?: Array<string | null> | null, script?: string | null, sub?: string | null, ctaPrimary?: { __typename: 'SiteHeroCtaPrimary', label?: string | null, href?: string | null } | null, ctaSecondary?: { __typename: 'SiteHeroCtaSecondary', label?: string | null, href?: string | null } | null, tiles?: Array<{ __typename: 'SiteHeroTiles', label?: string | null, note?: string | null } | null> | null } | null, works?: { __typename: 'SiteWorks', label?: string | null, title?: string | null, intro?: string | null, items?: Array<{ __typename: 'SiteWorksItems', src?: string | null, brand?: string | null, piece?: string | null, desc?: string | null } | null> | null } | null, services?: { __typename: 'SiteServices', label?: string | null, title?: string | null, items?: Array<{ __typename: 'SiteServicesItems', n?: string | null, slug?: string | null, name?: string | null, body?: string | null, photo?: string | null, detail?: { __typename: 'SiteServicesItemsDetail', claim?: string | null, intro?: string | null, bullets?: Array<string | null> | null, gallery?: Array<{ __typename: 'SiteServicesItemsDetailGallery', src?: string | null, alt?: string | null } | null> | null } | null } | null> | null } | null, stats?: { __typename: 'SiteStats', label?: string | null, title?: string | null, items?: Array<{ __typename: 'SiteStatsItems', value?: string | null, label?: string | null } | null> | null } | null, statement?: { __typename: 'SiteStatement', small?: string | null, big?: string | null, accents?: Array<string | null> | null } | null, process?: { __typename: 'SiteProcess', label?: string | null, title?: string | null, steps?: Array<{ __typename: 'SiteProcessSteps', n?: string | null, title?: string | null, body?: string | null } | null> | null } | null, cta?: { __typename: 'SiteCta', title?: string | null, body?: string | null, button?: { __typename: 'SiteCtaButton', label?: string | null, href?: string | null } | null } | null, agenda?: { __typename: 'SiteAgenda', label?: string | null, title?: string | null, script?: string | null, intro?: string | null, slots?: Array<string | null> | null, email?: string | null, disclaimer?: string | null } | null, footer?: { __typename: 'SiteFooter', note?: string | null, columns?: Array<{ __typename: 'SiteFooterColumns', title?: string | null, links?: Array<{ __typename: 'SiteFooterColumnsLinks', label?: string | null, href?: string | null } | null> | null } | null> | null } | null } | null } | null> | null } };
+export type SiteConnectionQuery = { __typename?: 'Query', siteConnection: { __typename?: 'SiteConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'SiteConnectionEdges', cursor: string, node?: { __typename: 'Site', id: string, marquee?: Array<string | null> | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, brand?: { __typename: 'SiteBrand', name?: string | null, group?: string | null, legal?: string | null, tagline?: string | null } | null, primaryCta?: { __typename: 'SitePrimaryCta', label?: string | null, href?: string | null } | null, nav?: { __typename: 'SiteNav', links?: Array<{ __typename: 'SiteNavLinks', label?: string | null, href?: string | null, children?: Array<{ __typename: 'SiteNavLinksChildren', label?: string | null, href?: string | null } | null> | null } | null> | null } | null, hero?: { __typename: 'SiteHero', title?: string | null, accents?: Array<string | null> | null, script?: string | null, sub?: string | null, tiles?: Array<{ __typename: 'SiteHeroTiles', label?: string | null, note?: string | null } | null> | null } | null, solutions?: { __typename: 'SiteSolutions', label?: string | null, title?: string | null, intro?: string | null, note?: { __typename: 'SiteSolutionsNote', text?: string | null, label?: string | null, href?: string | null } | null, items?: Array<{ __typename: 'SiteSolutionsItems', slug?: string | null, tier?: string | null, name?: string | null, promise?: string | null, body?: string | null, photo?: string | null, solves?: string | null, cases?: Array<string | null> | null, includes?: Array<{ __typename: 'SiteSolutionsItemsIncludes', icon?: string | null, title?: string | null, text?: string | null } | null> | null, how?: Array<{ __typename: 'SiteSolutionsItemsHow', title?: string | null, text?: string | null, href?: string | null } | null> | null } | null> | null } | null, howWeWork?: { __typename: 'SiteHowWeWork', label?: string | null, title?: string | null, intro?: string | null, pageTitle?: string | null, pageIntro?: string | null, items?: Array<{ __typename: 'SiteHowWeWorkItems', id?: string | null, name?: string | null, role?: string | null, body?: string | null, href?: string | null, photo?: string | null, detail?: { __typename: 'SiteHowWeWorkItemsDetail', claim?: string | null, intro?: string | null, bullets?: Array<string | null> | null, gallery?: Array<{ __typename: 'SiteHowWeWorkItemsDetailGallery', src?: string | null, alt?: string | null } | null> | null } | null } | null> | null } | null, cases?: { __typename: 'SiteCases', label?: string | null, title?: string | null, intro?: string | null, items?: Array<{ __typename: 'SiteCasesItems', slug?: string | null, brand?: string | null, category?: string | null, solution?: string | null, title?: string | null, need?: string | null, answer?: string | null, execution?: Array<string | null> | null, pieces?: string | null, cover?: string | null, gallery?: Array<{ __typename: 'SiteCasesItemsGallery', src?: string | null, alt?: string | null } | null> | null } | null> | null } | null, works?: { __typename: 'SiteWorks', label?: string | null, items?: Array<{ __typename: 'SiteWorksItems', src?: string | null, brand?: string | null, piece?: string | null, desc?: string | null } | null> | null } | null, process?: { __typename: 'SiteProcess', label?: string | null, title?: string | null, steps?: Array<{ __typename: 'SiteProcessSteps', n?: string | null, title?: string | null, body?: string | null } | null> | null } | null, stats?: { __typename: 'SiteStats', label?: string | null, title?: string | null, intro?: string | null, items?: Array<{ __typename: 'SiteStatsItems', value?: string | null, label?: string | null } | null> | null } | null, cta?: { __typename: 'SiteCta', title?: string | null, body?: string | null, contactLabel?: string | null } | null, contact?: { __typename: 'SiteContact', label?: string | null, title?: string | null, script?: string | null, intro?: string | null, needs?: Array<string | null> | null, slots?: Array<string | null> | null, email?: string | null, whatsapp?: string | null, instagram?: string | null, response?: string | null, confirmTitle?: string | null, confirmBody?: string | null, disclaimer?: string | null } | null, footer?: { __typename: 'SiteFooter', note?: string | null, columns?: Array<{ __typename: 'SiteFooterColumns', title?: string | null, links?: Array<{ __typename: 'SiteFooterColumnsLinks', label?: string | null, href?: string | null } | null> | null } | null> | null } | null } | null } | null> | null } };
 
 export const SitePartsFragmentDoc = gql`
     fragment SiteParts on Site {
@@ -821,17 +1000,22 @@ export const SitePartsFragmentDoc = gql`
     legal
     tagline
   }
+  primaryCta {
+    __typename
+    label
+    href
+  }
   nav {
     __typename
     links {
       __typename
       label
       href
-    }
-    cta {
-      __typename
-      label
-      href
+      children {
+        __typename
+        label
+        href
+      }
     }
   }
   hero {
@@ -840,16 +1024,6 @@ export const SitePartsFragmentDoc = gql`
     accents
     script
     sub
-    ctaPrimary {
-      __typename
-      label
-      href
-    }
-    ctaSecondary {
-      __typename
-      label
-      href
-    }
     tiles {
       __typename
       label
@@ -857,29 +1031,55 @@ export const SitePartsFragmentDoc = gql`
     }
   }
   marquee
-  works {
+  solutions {
     __typename
     label
     title
     intro
+    note {
+      __typename
+      text
+      label
+      href
+    }
     items {
       __typename
-      src
-      brand
-      piece
-      desc
+      slug
+      tier
+      name
+      promise
+      body
+      photo
+      solves
+      includes {
+        __typename
+        icon
+        title
+        text
+      }
+      how {
+        __typename
+        title
+        text
+        href
+      }
+      cases
     }
   }
-  services {
+  howWeWork {
     __typename
     label
     title
+    intro
+    pageTitle
+    pageIntro
     items {
       __typename
-      n
-      slug
+      id
       name
+      role
       body
+      href
       photo
       detail {
         __typename
@@ -894,21 +1094,40 @@ export const SitePartsFragmentDoc = gql`
       }
     }
   }
-  stats {
+  cases {
     __typename
     label
     title
+    intro
     items {
       __typename
-      value
-      label
+      slug
+      brand
+      category
+      solution
+      title
+      need
+      answer
+      execution
+      pieces
+      cover
+      gallery {
+        __typename
+        src
+        alt
+      }
     }
   }
-  statement {
+  works {
     __typename
-    small
-    big
-    accents
+    label
+    items {
+      __typename
+      src
+      brand
+      piece
+      desc
+    }
   }
   process {
     __typename
@@ -921,24 +1140,37 @@ export const SitePartsFragmentDoc = gql`
       body
     }
   }
+  stats {
+    __typename
+    label
+    title
+    intro
+    items {
+      __typename
+      value
+      label
+    }
+  }
   cta {
     __typename
     title
     body
-    button {
-      __typename
-      label
-      href
-    }
+    contactLabel
   }
-  agenda {
+  contact {
     __typename
     label
     title
     script
     intro
+    needs
     slots
     email
+    whatsapp
+    instagram
+    response
+    confirmTitle
+    confirmBody
     disclaimer
   }
   footer {

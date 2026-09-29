@@ -1,7 +1,6 @@
-# Esquema de Pages CMS (https://pagescms.org)
-# Permite a Landing Group editar el contenido del sitio con formularios
-# amigables, sin tocar código: cada guardado hace commit a main y
-# GitHub Pages republica el sitio automáticamente (~2 min).
+# Esquema de Pages CMS (https://pagescms.org) — espejo del esquema de Tina
+# (tina/config.ts). Generado a partir de ese archivo: si cambia la forma de
+# content/site.json, actualizar tina/config.ts, brand/content.ts y este archivo.
 
 media:
   input: public/brand
@@ -14,203 +13,482 @@ content:
     type: file
     fields:
       - name: brand
-        label: Marca
+        label: "Marca"
         type: object
         fields:
-          - { name: name, label: Nombre, type: string }
-          - { name: group, label: Sufijo (GROUP), type: string }
-          - { name: legal, label: Razón social (pie de página), type: string }
-          - { name: tagline, label: Tagline, type: string }
-
+          - name: name
+            label: "Nombre"
+            type: string
+          - name: group
+            label: "Sufijo (GROUP)"
+            type: string
+          - name: legal
+            label: "Razón social (pie de página)"
+            type: string
+          - name: tagline
+            label: "Tagline"
+            type: string
+      - name: primaryCta
+        label: "Botón principal del sitio (CTA único)"
+        type: object
+        description: "Este texto y este destino se usan en TODOS los botones de acción del sitio: menú, portada, soluciones, casos y cierre."
+        fields:
+          - name: label
+            label: "Texto del botón"
+            type: string
+          - name: href
+            label: "Destino (no cambiar sin apoyo técnico)"
+            type: string
       - name: nav
-        label: Menú superior
+        label: "Menú superior"
         type: object
         fields:
           - name: links
-            label: Enlaces del menú
+            label: "Entradas del menú (máx. 4 + botón)"
             type: object
             list: true
             fields:
-              - { name: label, label: Texto, type: string }
-              - { name: href, label: Destino (no cambiar sin apoyo técnico), type: string }
-          - name: cta
-            label: Botón principal
-            type: object
-            fields:
-              - { name: label, label: Texto, type: string }
-              - { name: href, label: Destino, type: string }
-
-      - name: hero
-        label: Portada
-        type: object
-        fields:
-          - { name: title, label: Titular grande, type: string }
-          - name: accents
-            label: Palabras del titular en verde
-            type: string
-            list: true
-            description: Deben escribirse exactamente como aparecen en el titular.
-          - { name: script, label: Frase manuscrita, type: string }
-          - { name: sub, label: Descripción, type: text }
-          - name: ctaPrimary
-            label: Botón principal
-            type: object
-            fields:
-              - { name: label, label: Texto, type: string }
-              - { name: href, label: Destino, type: string }
-          - name: ctaSecondary
-            label: Enlace secundario
-            type: object
-            fields:
-              - { name: label, label: Texto, type: string }
-              - { name: href, label: Destino, type: string }
-          - name: tiles
-            label: Tarjetas flotantes (3)
-            type: object
-            list: true
-            fields:
-              - { name: label, label: Etiqueta grande, type: string }
-              - { name: note, label: Nota pequeña, type: string }
-
-      - name: marquee
-        label: Cinta en movimiento (palabras)
-        type: string
-        list: true
-
-      - name: works
-        label: Trabajos realizados
-        type: object
-        fields:
-          - { name: label, label: Etiqueta de sección, type: string }
-          - { name: title, label: Título, type: string }
-          - { name: intro, label: Introducción, type: text }
-          - name: items
-            label: Piezas del catálogo
-            type: object
-            list: true
-            fields:
-              - { name: src, label: Foto, type: image }
-              - { name: brand, label: Marca cliente, type: string }
-              - { name: piece, label: Pieza, type: string }
-              - { name: desc, label: Descripción (aparece al pasar el mouse), type: text }
-
-      - name: services
-        label: Servicios
-        type: object
-        fields:
-          - { name: label, label: Etiqueta de sección, type: string }
-          - { name: title, label: Título, type: string }
-          - name: items
-            label: Servicios (6)
-            type: object
-            list: true
-            fields:
-              - { name: n, label: "Número (01–06)", type: string }
-              - { name: slug, label: URL del servicio (no cambiar sin apoyo técnico), type: string }
-              - { name: name, label: Nombre, type: string }
-              - { name: body, label: Resumen (tarjeta), type: text }
-              - { name: photo, label: Foto de cabecera, type: image }
-              - name: detail
-                label: Página de detalle
-                type: object
-                fields:
-                  - { name: claim, label: Frase principal, type: string }
-                  - { name: intro, label: Introducción, type: text }
-                  - name: bullets
-                    label: Qué incluye (viñetas)
-                    type: text
-                    list: true
-                  - name: gallery
-                    label: Piezas reales (2 fotos)
-                    type: object
-                    list: true
-                    fields:
-                      - { name: src, label: Foto, type: image }
-                      - { name: alt, label: Pie de foto, type: string }
-
-      - name: stats
-        label: Nuestra operación
-        type: object
-        fields:
-          - { name: label, label: Etiqueta de sección, type: string }
-          - { name: title, label: Título, type: string }
-          - name: items
-            label: Bloques (4)
-            type: object
-            list: true
-            fields:
-              - { name: value, label: Dato grande, type: string }
-              - { name: label, label: Explicación, type: string }
-
-      - name: statement
-        label: Frase editorial
-        type: object
-        fields:
-          - { name: small, label: Etiqueta pequeña, type: string }
-          - { name: big, label: Frase grande, type: string }
-          - name: accents
-            label: Palabras en verde
-            type: string
-            list: true
-
-      - name: process
-        label: Proceso
-        type: object
-        fields:
-          - { name: label, label: Etiqueta de sección, type: string }
-          - { name: title, label: Título, type: string }
-          - name: steps
-            label: Pasos (4)
-            type: object
-            list: true
-            fields:
-              - { name: n, label: "Número (01–04)", type: string }
-              - { name: title, label: Título del paso, type: string }
-              - { name: body, label: Descripción, type: text }
-
-      - name: cta
-        label: Bloque final de contacto
-        type: object
-        fields:
-          - { name: title, label: Título, type: string }
-          - { name: body, label: Texto, type: text }
-          - name: button
-            label: Botón
-            type: object
-            fields:
-              - { name: label, label: Texto, type: string }
-              - { name: href, label: Destino, type: string }
-
-      - name: agenda
-        label: Página de agenda
-        type: object
-        fields:
-          - { name: label, label: Etiqueta, type: string }
-          - { name: title, label: Título, type: string }
-          - { name: script, label: Frase manuscrita, type: string }
-          - { name: intro, label: Introducción, type: text }
-          - name: slots
-            label: Horarios disponibles
-            type: string
-            list: true
-          - { name: email, label: Correo que recibe las reuniones, type: string }
-          - { name: disclaimer, label: Nota bajo el botón, type: text }
-
-      - name: footer
-        label: Pie de página
-        type: object
-        fields:
-          - name: columns
-            label: Columnas de enlaces
-            type: object
-            list: true
-            fields:
-              - { name: title, label: Título de columna, type: string }
-              - name: links
-                label: Enlaces
+              - name: label
+                label: "Texto"
+                type: string
+              - name: href
+                label: "Destino (no cambiar sin apoyo técnico)"
+                type: string
+              - name: children
+                label: "Submenú (opcional)"
                 type: object
                 list: true
                 fields:
-                  - { name: label, label: Texto, type: string }
-                  - { name: href, label: Destino, type: string }
-          - { name: note, label: Nota final, type: string }
+                  - name: label
+                    label: "Texto"
+                    type: string
+                  - name: href
+                    label: "Destino (no cambiar sin apoyo técnico)"
+                    type: string
+      - name: hero
+        label: "Portada"
+        type: object
+        fields:
+          - name: title
+            label: "Titular grande"
+            type: string
+          - name: accents
+            label: "Palabras del titular en verde"
+            type: string
+            list: true
+            description: "Escribirlas exactamente como aparecen en el titular."
+          - name: script
+            label: "Frase manuscrita"
+            type: string
+          - name: sub
+            label: "Descripción"
+            type: text
+          - name: tiles
+            label: "Tarjetas flotantes (3)"
+            type: object
+            list: true
+            fields:
+              - name: label
+                label: "Etiqueta grande"
+                type: string
+              - name: note
+                label: "Nota pequeña"
+                type: string
+      - name: marquee
+        label: "Cinta en movimiento (palabras)"
+        type: string
+        list: true
+      - name: solutions
+        label: "Soluciones"
+        type: object
+        fields:
+          - name: label
+            label: "Etiqueta de sección"
+            type: string
+          - name: title
+            label: "Título"
+            type: string
+          - name: intro
+            label: "Introducción"
+            type: text
+          - name: note
+            label: "Franja de personalización (bajo las tarjetas)"
+            type: object
+            fields:
+              - name: text
+                label: "Texto"
+                type: text
+              - name: label
+                label: "Texto del enlace"
+                type: string
+              - name: href
+                label: "Destino (no cambiar sin apoyo técnico)"
+                type: string
+          - name: items
+            label: "Soluciones y capacidades"
+            type: object
+            list: true
+            fields:
+              - name: slug
+                label: "URL de la página (no cambiar sin apoyo técnico)"
+                type: string
+              - name: tier
+                label: "Tipo"
+                type: select
+                options:
+                  values:
+                    - { value: "principal", label: "Solución principal (aparece en la portada)" }
+                    - { value: "capacidad", label: "Capacidad transversal (página secundaria)" }
+              - name: name
+                label: "Nombre"
+                type: string
+              - name: promise
+                label: "Promesa (frase corta)"
+                type: string
+              - name: body
+                label: "Resumen (tarjeta)"
+                type: text
+              - name: photo
+                label: "Foto de cabecera"
+                type: image
+              - name: solves
+                label: "Qué resuelve (2–3 líneas)"
+                type: text
+              - name: includes
+                label: "Qué incluye (3–5)"
+                type: object
+                list: true
+                fields:
+                  - name: icon
+                    label: "Ícono"
+                    type: select
+                    options:
+                      values:
+                        - { value: "textil", label: "Textil (prenda)" }
+                        - { value: "accesorio", label: "Accesorio / credencial" }
+                        - { value: "kit", label: "Kit / caja" }
+                        - { value: "muestra", label: "Muestra aprobada" }
+                        - { value: "activacion", label: "Activación (megáfono)" }
+                        - { value: "montaje", label: "Montaje / stand" }
+                        - { value: "granformato", label: "Gran formato (toldo)" }
+                        - { value: "responsable", label: "Responsable único" }
+                        - { value: "bordado", label: "Bordado" }
+                        - { value: "serigrafia", label: "Serigrafía" }
+                        - { value: "uv", label: "Impresión UV" }
+                        - { value: "prueba", label: "Prueba documentada" }
+                  - name: title
+                    label: "Título"
+                    type: string
+                  - name: text
+                    label: "Texto corto"
+                    type: text
+              - name: how
+                label: "Cómo lo hacemos (diferenciales conectados)"
+                type: object
+                list: true
+                fields:
+                  - name: title
+                    label: "Título"
+                    type: string
+                  - name: text
+                    label: "Texto"
+                    type: text
+                  - name: href
+                    label: "Destino (no cambiar sin apoyo técnico)"
+                    type: string
+              - name: cases
+                label: "Casos que se muestran (2–4)"
+                type: string
+                list: true
+                description: "Escribe el identificador del caso: monster, tottus, amoramar, swan, tres-cruces, johnnie-walker, red-bull, heineken."
+      - name: howWeWork
+        label: "Cómo lo hacemos (diferenciales)"
+        type: object
+        fields:
+          - name: label
+            label: "Etiqueta de sección"
+            type: string
+          - name: title
+            label: "Título (portada)"
+            type: string
+          - name: intro
+            label: "Introducción (portada)"
+            type: text
+          - name: pageTitle
+            label: "Título (página Cómo lo hacemos)"
+            type: string
+          - name: pageIntro
+            label: "Introducción (página)"
+            type: text
+          - name: items
+            label: "Diferenciales (4)"
+            type: object
+            list: true
+            fields:
+              - name: id
+                label: "Identificador (no cambiar sin apoyo técnico)"
+                type: string
+              - name: name
+                label: "Nombre"
+                type: string
+              - name: role
+                label: "Rol (Ejecución, Operación, Servicio…)"
+                type: string
+              - name: body
+                label: "Resumen (tarjeta)"
+                type: text
+              - name: href
+                label: "Destino (no cambiar sin apoyo técnico)"
+                type: string
+              - name: photo
+                label: "Foto"
+                type: image
+              - name: detail
+                label: "Detalle en la página Cómo lo hacemos"
+                type: object
+                description: "Si la frase principal queda vacía, el diferencial solo se enlaza (caso Personalización)."
+                fields:
+                  - name: claim
+                    label: "Frase principal"
+                    type: string
+                  - name: intro
+                    label: "Introducción"
+                    type: text
+                  - name: bullets
+                    label: "Viñetas"
+                    type: string
+                    list: true
+                  - name: gallery
+                    label: "Fotos (2)"
+                    type: object
+                    list: true
+                    fields:
+                      - name: src
+                        label: "Foto"
+                        type: image
+                      - name: alt
+                        label: "Pie de foto / descripción"
+                        type: string
+      - name: cases
+        label: "Trabajos (casos)"
+        type: object
+        fields:
+          - name: label
+            label: "Etiqueta de sección"
+            type: string
+          - name: title
+            label: "Título"
+            type: string
+          - name: intro
+            label: "Introducción"
+            type: text
+          - name: items
+            label: "Casos"
+            type: object
+            list: true
+            description: "Los primeros 6 casos aparecen en la portada; todos aparecen en /trabajos."
+            fields:
+              - name: slug
+                label: "Identificador / URL (no cambiar sin apoyo técnico)"
+                type: string
+              - name: brand
+                label: "Marca cliente"
+                type: string
+              - name: category
+                label: "Categoría (etiqueta)"
+                type: string
+              - name: solution
+                label: "Solución relacionada"
+                type: select
+                options:
+                  values:
+                    - { value: "merch-corporativo", label: "Merch corporativo" }
+                    - { value: "eventos-btl", label: "Eventos & BTL" }
+                    - { value: "personalizacion", label: "Personalización" }
+              - name: title
+                label: "Titular del caso"
+                type: string
+              - name: need
+                label: "Qué necesitaba"
+                type: text
+              - name: answer
+                label: "Qué hicimos"
+                type: text
+              - name: execution
+                label: "Cómo lo ejecutamos (pasos)"
+                type: string
+                list: true
+              - name: pieces
+                label: "Piezas"
+                type: string
+              - name: cover
+                label: "Foto de la tarjeta"
+                type: image
+              - name: gallery
+                label: "Fotos de la ficha"
+                type: object
+                list: true
+                fields:
+                  - name: src
+                    label: "Foto"
+                    type: image
+                  - name: alt
+                    label: "Descripción de la foto"
+                    type: string
+      - name: works
+        label: "Galería de piezas"
+        type: object
+        fields:
+          - name: label
+            label: "Título de la galería"
+            type: string
+          - name: items
+            label: "Piezas"
+            type: object
+            list: true
+            fields:
+              - name: src
+                label: "Foto"
+                type: image
+              - name: brand
+                label: "Marca cliente"
+                type: string
+              - name: piece
+                label: "Pieza"
+                type: string
+              - name: desc
+                label: "Descripción (hover)"
+                type: text
+      - name: process
+        label: "Proceso"
+        type: object
+        fields:
+          - name: label
+            label: "Etiqueta de sección"
+            type: string
+          - name: title
+            label: "Título"
+            type: string
+          - name: steps
+            label: "Pasos (4)"
+            type: object
+            list: true
+            fields:
+              - name: n
+                label: "Número (01–04)"
+                type: string
+              - name: title
+                label: "Título del paso"
+                type: string
+              - name: body
+                label: "Descripción"
+                type: text
+      - name: stats
+        label: "Nuestra operación"
+        type: object
+        fields:
+          - name: label
+            label: "Etiqueta de sección"
+            type: string
+          - name: title
+            label: "Título"
+            type: string
+          - name: intro
+            label: "Argumento comercial"
+            type: text
+          - name: items
+            label: "Bloques (4)"
+            type: object
+            list: true
+            fields:
+              - name: value
+                label: "Dato grande"
+                type: string
+              - name: label
+                label: "Explicación"
+                type: string
+      - name: cta
+        label: "Bloque final de contacto"
+        type: object
+        fields:
+          - name: title
+            label: "Mensaje comercial"
+            type: string
+          - name: body
+            label: "Texto"
+            type: text
+          - name: contactLabel
+            label: "Etiqueta del contacto directo"
+            type: string
+      - name: contact
+        label: "Página Hablemos (formulario)"
+        type: object
+        fields:
+          - name: label
+            label: "Etiqueta"
+            type: string
+          - name: title
+            label: "Título"
+            type: string
+          - name: script
+            label: "Frase manuscrita"
+            type: string
+          - name: intro
+            label: "Introducción"
+            type: text
+          - name: needs
+            label: "Opciones de «¿Qué necesita tu marca?»"
+            type: string
+            list: true
+          - name: slots
+            label: "Horarios disponibles"
+            type: string
+            list: true
+          - name: email
+            label: "Correo que recibe las solicitudes"
+            type: string
+          - name: whatsapp
+            label: "WhatsApp (opcional)"
+            type: string
+            description: "Número con código de país, solo dígitos (ej. 51999999999). Vacío = no se muestra."
+          - name: instagram
+            label: "Instagram (URL)"
+            type: string
+          - name: response
+            label: "Expectativa de respuesta"
+            type: string
+          - name: confirmTitle
+            label: "Título de la confirmación"
+            type: string
+          - name: confirmBody
+            label: "Texto de la confirmación"
+            type: text
+          - name: disclaimer
+            label: "Nota bajo el botón"
+            type: text
+      - name: footer
+        label: "Pie de página"
+        type: object
+        fields:
+          - name: columns
+            label: "Columnas de enlaces"
+            type: object
+            list: true
+            fields:
+              - name: title
+                label: "Título de columna"
+                type: string
+              - name: links
+                label: "Enlaces"
+                type: object
+                list: true
+                fields:
+                  - name: label
+                    label: "Texto"
+                    type: string
+                  - name: href
+                    label: "Destino"
+                    type: string
+          - name: note
+            label: "Nota final"
+            type: string

@@ -1,4 +1,86 @@
 {
   "buildCommand": "npm run build:vercel",
-  "framework": "nextjs"
+  "framework": "nextjs",
+  "redirects": [
+    {
+      "source": "/agenda",
+      "destination": "/hablemos/",
+      "permanent": false
+    },
+    {
+      "source": "/agenda/",
+      "destination": "/hablemos/",
+      "permanent": false
+    },
+    {
+      "source": "/servicios/merch-corporativo",
+      "destination": "/soluciones/merch-corporativo/",
+      "permanent": false
+    },
+    {
+      "source": "/servicios/merch-corporativo/",
+      "destination": "/soluciones/merch-corporativo/",
+      "permanent": false
+    },
+    {
+      "source": "/servicios/eventos-btl",
+      "destination": "/soluciones/eventos-btl/",
+      "permanent": false
+    },
+    {
+      "source": "/servicios/eventos-btl/",
+      "destination": "/soluciones/eventos-btl/",
+      "permanent": false
+    },
+    {
+      "source": "/servicios/personalizacion",
+      "destination": "/soluciones/personalizacion/",
+      "permanent": false
+    },
+    {
+      "source": "/servicios/personalizacion/",
+      "destination": "/soluciones/personalizacion/",
+      "permanent": false
+    },
+    {
+      "source": "/servicios/produccion",
+      "destination": "/como-lo-hacemos/#produccion",
+      "permanent": false
+    },
+    {
+      "source": "/servicios/produccion/",
+      "destination": "/como-lo-hacemos/#produccion",
+      "permanent": false
+    },
+    {
+      "source": "/servicios/logistica",
+      "destination": "/como-lo-hacemos/#logistica",
+      "permanent": false
+    },
+    {
+      "source": "/servicios/logistica/",
+      "destination": "/como-lo-hacemos/#logistica",
+      "permanent": false
+    },
+    {
+      "source": "/servicios/acompanamiento",
+      "destination": "/como-lo-hacemos/#acompanamiento",
+      "permanent": false
+    },
+    {
+      "source": "/servicios/acompanamiento/",
+      "destination": "/como-lo-hacemos/#acompanamiento",
+      "permanent": false
+    },
+    {
+      "source": "/servicios",
+      "destination": "/#soluciones",
+      "permanent": false
+    },
+    {
+      "source": "/servicios/",
+      "destination": "/#soluciones",
+      "permanent": false
+    }
+  ]
 }

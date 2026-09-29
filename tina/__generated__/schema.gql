@@ -94,29 +94,24 @@ type SiteBrand {
   tagline: String
 }
 
-type SiteNavLinks {
+type SitePrimaryCta {
   label: String
   href: String
 }
 
-type SiteNavCta {
+type SiteNavLinksChildren {
   label: String
   href: String
+}
+
+type SiteNavLinks {
+  label: String
+  href: String
+  children: [SiteNavLinksChildren]
 }
 
 type SiteNav {
   links: [SiteNavLinks]
-  cta: SiteNavCta
-}
-
-type SiteHeroCtaPrimary {
-  label: String
-  href: String
-}
-
-type SiteHeroCtaSecondary {
-  label: String
-  href: String
 }
 
 type SiteHeroTiles {
@@ -129,9 +124,103 @@ type SiteHero {
   accents: [String]
   script: String
   sub: String
-  ctaPrimary: SiteHeroCtaPrimary
-  ctaSecondary: SiteHeroCtaSecondary
   tiles: [SiteHeroTiles]
+}
+
+type SiteSolutionsNote {
+  text: String
+  label: String
+  href: String
+}
+
+type SiteSolutionsItemsIncludes {
+  icon: String
+  title: String
+  text: String
+}
+
+type SiteSolutionsItemsHow {
+  title: String
+  text: String
+  href: String
+}
+
+type SiteSolutionsItems {
+  slug: String
+  tier: String
+  name: String
+  promise: String
+  body: String
+  photo: String
+  solves: String
+  includes: [SiteSolutionsItemsIncludes]
+  how: [SiteSolutionsItemsHow]
+  cases: [String]
+}
+
+type SiteSolutions {
+  label: String
+  title: String
+  intro: String
+  note: SiteSolutionsNote
+  items: [SiteSolutionsItems]
+}
+
+type SiteHowWeWorkItemsDetailGallery {
+  src: String
+  alt: String
+}
+
+type SiteHowWeWorkItemsDetail {
+  claim: String
+  intro: String
+  bullets: [String]
+  gallery: [SiteHowWeWorkItemsDetailGallery]
+}
+
+type SiteHowWeWorkItems {
+  id: String
+  name: String
+  role: String
+  body: String
+  href: String
+  photo: String
+  detail: SiteHowWeWorkItemsDetail
+}
+
+type SiteHowWeWork {
+  label: String
+  title: String
+  intro: String
+  pageTitle: String
+  pageIntro: String
+  items: [SiteHowWeWorkItems]
+}
+
+type SiteCasesItemsGallery {
+  src: String
+  alt: String
+}
+
+type SiteCasesItems {
+  slug: String
+  brand: String
+  category: String
+  solution: String
+  title: String
+  need: String
+  answer: String
+  execution: [String]
+  pieces: String
+  cover: String
+  gallery: [SiteCasesItemsGallery]
+}
+
+type SiteCases {
+  label: String
+  title: String
+  intro: String
+  items: [SiteCasesItems]
 }
 
 type SiteWorksItems {
@@ -143,53 +232,7 @@ type SiteWorksItems {
 
 type SiteWorks {
   label: String
-  title: String
-  intro: String
   items: [SiteWorksItems]
-}
-
-type SiteServicesItemsDetailGallery {
-  src: String
-  alt: String
-}
-
-type SiteServicesItemsDetail {
-  claim: String
-  intro: String
-  bullets: [String]
-  gallery: [SiteServicesItemsDetailGallery]
-}
-
-type SiteServicesItems {
-  n: String
-  slug: String
-  name: String
-  body: String
-  photo: String
-  detail: SiteServicesItemsDetail
-}
-
-type SiteServices {
-  label: String
-  title: String
-  items: [SiteServicesItems]
-}
-
-type SiteStatsItems {
-  value: String
-  label: String
-}
-
-type SiteStats {
-  label: String
-  title: String
-  items: [SiteStatsItems]
-}
-
-type SiteStatement {
-  small: String
-  big: String
-  accents: [String]
 }
 
 type SiteProcessSteps {
@@ -204,24 +247,37 @@ type SiteProcess {
   steps: [SiteProcessSteps]
 }
 
-type SiteCtaButton {
+type SiteStatsItems {
+  value: String
   label: String
-  href: String
+}
+
+type SiteStats {
+  label: String
+  title: String
+  intro: String
+  items: [SiteStatsItems]
 }
 
 type SiteCta {
   title: String
   body: String
-  button: SiteCtaButton
+  contactLabel: String
 }
 
-type SiteAgenda {
+type SiteContact {
   label: String
   title: String
   script: String
   intro: String
+  needs: [String]
   slots: [String]
   email: String
+  whatsapp: String
+  instagram: String
+  response: String
+  confirmTitle: String
+  confirmBody: String
   disclaimer: String
 }
 
@@ -242,16 +298,18 @@ type SiteFooter {
 
 type Site implements Node & Document {
   brand: SiteBrand
+  primaryCta: SitePrimaryCta
   nav: SiteNav
   hero: SiteHero
   marquee: [String]
+  solutions: SiteSolutions
+  howWeWork: SiteHowWeWork
+  cases: SiteCases
   works: SiteWorks
-  services: SiteServices
-  stats: SiteStats
-  statement: SiteStatement
   process: SiteProcess
+  stats: SiteStats
   cta: SiteCta
-  agenda: SiteAgenda
+  contact: SiteContact
   footer: SiteFooter
   id: ID!
   _sys: SystemInfo!
@@ -272,29 +330,24 @@ input SiteBrandFilter {
   tagline: StringFilter
 }
 
-input SiteNavLinksFilter {
+input SitePrimaryCtaFilter {
   label: StringFilter
   href: StringFilter
 }
 
-input SiteNavCtaFilter {
+input SiteNavLinksChildrenFilter {
   label: StringFilter
   href: StringFilter
+}
+
+input SiteNavLinksFilter {
+  label: StringFilter
+  href: StringFilter
+  children: SiteNavLinksChildrenFilter
 }
 
 input SiteNavFilter {
   links: SiteNavLinksFilter
-  cta: SiteNavCtaFilter
-}
-
-input SiteHeroCtaPrimaryFilter {
-  label: StringFilter
-  href: StringFilter
-}
-
-input SiteHeroCtaSecondaryFilter {
-  label: StringFilter
-  href: StringFilter
 }
 
 input SiteHeroTilesFilter {
@@ -307,9 +360,13 @@ input SiteHeroFilter {
   accents: StringFilter
   script: StringFilter
   sub: StringFilter
-  ctaPrimary: SiteHeroCtaPrimaryFilter
-  ctaSecondary: SiteHeroCtaSecondaryFilter
   tiles: SiteHeroTilesFilter
+}
+
+input SiteSolutionsNoteFilter {
+  text: StringFilter
+  label: StringFilter
+  href: StringFilter
 }
 
 input ImageFilter {
@@ -317,6 +374,96 @@ input ImageFilter {
   eq: String
   exists: Boolean
   in: [String]
+}
+
+input SiteSolutionsItemsIncludesFilter {
+  icon: StringFilter
+  title: StringFilter
+  text: StringFilter
+}
+
+input SiteSolutionsItemsHowFilter {
+  title: StringFilter
+  text: StringFilter
+  href: StringFilter
+}
+
+input SiteSolutionsItemsFilter {
+  slug: StringFilter
+  tier: StringFilter
+  name: StringFilter
+  promise: StringFilter
+  body: StringFilter
+  photo: ImageFilter
+  solves: StringFilter
+  includes: SiteSolutionsItemsIncludesFilter
+  how: SiteSolutionsItemsHowFilter
+  cases: StringFilter
+}
+
+input SiteSolutionsFilter {
+  label: StringFilter
+  title: StringFilter
+  intro: StringFilter
+  note: SiteSolutionsNoteFilter
+  items: SiteSolutionsItemsFilter
+}
+
+input SiteHowWeWorkItemsDetailGalleryFilter {
+  src: ImageFilter
+  alt: StringFilter
+}
+
+input SiteHowWeWorkItemsDetailFilter {
+  claim: StringFilter
+  intro: StringFilter
+  bullets: StringFilter
+  gallery: SiteHowWeWorkItemsDetailGalleryFilter
+}
+
+input SiteHowWeWorkItemsFilter {
+  id: StringFilter
+  name: StringFilter
+  role: StringFilter
+  body: StringFilter
+  href: StringFilter
+  photo: ImageFilter
+  detail: SiteHowWeWorkItemsDetailFilter
+}
+
+input SiteHowWeWorkFilter {
+  label: StringFilter
+  title: StringFilter
+  intro: StringFilter
+  pageTitle: StringFilter
+  pageIntro: StringFilter
+  items: SiteHowWeWorkItemsFilter
+}
+
+input SiteCasesItemsGalleryFilter {
+  src: ImageFilter
+  alt: StringFilter
+}
+
+input SiteCasesItemsFilter {
+  slug: StringFilter
+  brand: StringFilter
+  category: StringFilter
+  solution: StringFilter
+  title: StringFilter
+  need: StringFilter
+  answer: StringFilter
+  execution: StringFilter
+  pieces: StringFilter
+  cover: ImageFilter
+  gallery: SiteCasesItemsGalleryFilter
+}
+
+input SiteCasesFilter {
+  label: StringFilter
+  title: StringFilter
+  intro: StringFilter
+  items: SiteCasesItemsFilter
 }
 
 input SiteWorksItemsFilter {
@@ -328,53 +475,7 @@ input SiteWorksItemsFilter {
 
 input SiteWorksFilter {
   label: StringFilter
-  title: StringFilter
-  intro: StringFilter
   items: SiteWorksItemsFilter
-}
-
-input SiteServicesItemsDetailGalleryFilter {
-  src: ImageFilter
-  alt: StringFilter
-}
-
-input SiteServicesItemsDetailFilter {
-  claim: StringFilter
-  intro: StringFilter
-  bullets: StringFilter
-  gallery: SiteServicesItemsDetailGalleryFilter
-}
-
-input SiteServicesItemsFilter {
-  n: StringFilter
-  slug: StringFilter
-  name: StringFilter
-  body: StringFilter
-  photo: ImageFilter
-  detail: SiteServicesItemsDetailFilter
-}
-
-input SiteServicesFilter {
-  label: StringFilter
-  title: StringFilter
-  items: SiteServicesItemsFilter
-}
-
-input SiteStatsItemsFilter {
-  value: StringFilter
-  label: StringFilter
-}
-
-input SiteStatsFilter {
-  label: StringFilter
-  title: StringFilter
-  items: SiteStatsItemsFilter
-}
-
-input SiteStatementFilter {
-  small: StringFilter
-  big: StringFilter
-  accents: StringFilter
 }
 
 input SiteProcessStepsFilter {
@@ -389,24 +490,37 @@ input SiteProcessFilter {
   steps: SiteProcessStepsFilter
 }
 
-input SiteCtaButtonFilter {
+input SiteStatsItemsFilter {
+  value: StringFilter
   label: StringFilter
-  href: StringFilter
+}
+
+input SiteStatsFilter {
+  label: StringFilter
+  title: StringFilter
+  intro: StringFilter
+  items: SiteStatsItemsFilter
 }
 
 input SiteCtaFilter {
   title: StringFilter
   body: StringFilter
-  button: SiteCtaButtonFilter
+  contactLabel: StringFilter
 }
 
-input SiteAgendaFilter {
+input SiteContactFilter {
   label: StringFilter
   title: StringFilter
   script: StringFilter
   intro: StringFilter
+  needs: StringFilter
   slots: StringFilter
   email: StringFilter
+  whatsapp: StringFilter
+  instagram: StringFilter
+  response: StringFilter
+  confirmTitle: StringFilter
+  confirmBody: StringFilter
   disclaimer: StringFilter
 }
 
@@ -427,16 +541,18 @@ input SiteFooterFilter {
 
 input SiteFilter {
   brand: SiteBrandFilter
+  primaryCta: SitePrimaryCtaFilter
   nav: SiteNavFilter
   hero: SiteHeroFilter
   marquee: StringFilter
+  solutions: SiteSolutionsFilter
+  howWeWork: SiteHowWeWorkFilter
+  cases: SiteCasesFilter
   works: SiteWorksFilter
-  services: SiteServicesFilter
-  stats: SiteStatsFilter
-  statement: SiteStatementFilter
   process: SiteProcessFilter
+  stats: SiteStatsFilter
   cta: SiteCtaFilter
-  agenda: SiteAgendaFilter
+  contact: SiteContactFilter
   footer: SiteFooterFilter
 }
 
@@ -477,29 +593,24 @@ input SiteBrandMutation {
   tagline: String
 }
 
-input SiteNavLinksMutation {
+input SitePrimaryCtaMutation {
   label: String
   href: String
 }
 
-input SiteNavCtaMutation {
+input SiteNavLinksChildrenMutation {
   label: String
   href: String
+}
+
+input SiteNavLinksMutation {
+  label: String
+  href: String
+  children: [SiteNavLinksChildrenMutation]
 }
 
 input SiteNavMutation {
   links: [SiteNavLinksMutation]
-  cta: SiteNavCtaMutation
-}
-
-input SiteHeroCtaPrimaryMutation {
-  label: String
-  href: String
-}
-
-input SiteHeroCtaSecondaryMutation {
-  label: String
-  href: String
 }
 
 input SiteHeroTilesMutation {
@@ -512,9 +623,103 @@ input SiteHeroMutation {
   accents: [String]
   script: String
   sub: String
-  ctaPrimary: SiteHeroCtaPrimaryMutation
-  ctaSecondary: SiteHeroCtaSecondaryMutation
   tiles: [SiteHeroTilesMutation]
+}
+
+input SiteSolutionsNoteMutation {
+  text: String
+  label: String
+  href: String
+}
+
+input SiteSolutionsItemsIncludesMutation {
+  icon: String
+  title: String
+  text: String
+}
+
+input SiteSolutionsItemsHowMutation {
+  title: String
+  text: String
+  href: String
+}
+
+input SiteSolutionsItemsMutation {
+  slug: String
+  tier: String
+  name: String
+  promise: String
+  body: String
+  photo: String
+  solves: String
+  includes: [SiteSolutionsItemsIncludesMutation]
+  how: [SiteSolutionsItemsHowMutation]
+  cases: [String]
+}
+
+input SiteSolutionsMutation {
+  label: String
+  title: String
+  intro: String
+  note: SiteSolutionsNoteMutation
+  items: [SiteSolutionsItemsMutation]
+}
+
+input SiteHowWeWorkItemsDetailGalleryMutation {
+  src: String
+  alt: String
+}
+
+input SiteHowWeWorkItemsDetailMutation {
+  claim: String
+  intro: String
+  bullets: [String]
+  gallery: [SiteHowWeWorkItemsDetailGalleryMutation]
+}
+
+input SiteHowWeWorkItemsMutation {
+  id: String
+  name: String
+  role: String
+  body: String
+  href: String
+  photo: String
+  detail: SiteHowWeWorkItemsDetailMutation
+}
+
+input SiteHowWeWorkMutation {
+  label: String
+  title: String
+  intro: String
+  pageTitle: String
+  pageIntro: String
+  items: [SiteHowWeWorkItemsMutation]
+}
+
+input SiteCasesItemsGalleryMutation {
+  src: String
+  alt: String
+}
+
+input SiteCasesItemsMutation {
+  slug: String
+  brand: String
+  category: String
+  solution: String
+  title: String
+  need: String
+  answer: String
+  execution: [String]
+  pieces: String
+  cover: String
+  gallery: [SiteCasesItemsGalleryMutation]
+}
+
+input SiteCasesMutation {
+  label: String
+  title: String
+  intro: String
+  items: [SiteCasesItemsMutation]
 }
 
 input SiteWorksItemsMutation {
@@ -526,53 +731,7 @@ input SiteWorksItemsMutation {
 
 input SiteWorksMutation {
   label: String
-  title: String
-  intro: String
   items: [SiteWorksItemsMutation]
-}
-
-input SiteServicesItemsDetailGalleryMutation {
-  src: String
-  alt: String
-}
-
-input SiteServicesItemsDetailMutation {
-  claim: String
-  intro: String
-  bullets: [String]
-  gallery: [SiteServicesItemsDetailGalleryMutation]
-}
-
-input SiteServicesItemsMutation {
-  n: String
-  slug: String
-  name: String
-  body: String
-  photo: String
-  detail: SiteServicesItemsDetailMutation
-}
-
-input SiteServicesMutation {
-  label: String
-  title: String
-  items: [SiteServicesItemsMutation]
-}
-
-input SiteStatsItemsMutation {
-  value: String
-  label: String
-}
-
-input SiteStatsMutation {
-  label: String
-  title: String
-  items: [SiteStatsItemsMutation]
-}
-
-input SiteStatementMutation {
-  small: String
-  big: String
-  accents: [String]
 }
 
 input SiteProcessStepsMutation {
@@ -587,24 +746,37 @@ input SiteProcessMutation {
   steps: [SiteProcessStepsMutation]
 }
 
-input SiteCtaButtonMutation {
+input SiteStatsItemsMutation {
+  value: String
   label: String
-  href: String
+}
+
+input SiteStatsMutation {
+  label: String
+  title: String
+  intro: String
+  items: [SiteStatsItemsMutation]
 }
 
 input SiteCtaMutation {
   title: String
   body: String
-  button: SiteCtaButtonMutation
+  contactLabel: String
 }
 
-input SiteAgendaMutation {
+input SiteContactMutation {
   label: String
   title: String
   script: String
   intro: String
+  needs: [String]
   slots: [String]
   email: String
+  whatsapp: String
+  instagram: String
+  response: String
+  confirmTitle: String
+  confirmBody: String
   disclaimer: String
 }
 
@@ -625,16 +797,18 @@ input SiteFooterMutation {
 
 input SiteMutation {
   brand: SiteBrandMutation
+  primaryCta: SitePrimaryCtaMutation
   nav: SiteNavMutation
   hero: SiteHeroMutation
   marquee: [String]
+  solutions: SiteSolutionsMutation
+  howWeWork: SiteHowWeWorkMutation
+  cases: SiteCasesMutation
   works: SiteWorksMutation
-  services: SiteServicesMutation
-  stats: SiteStatsMutation
-  statement: SiteStatementMutation
   process: SiteProcessMutation
+  stats: SiteStatsMutation
   cta: SiteCtaMutation
-  agenda: SiteAgendaMutation
+  contact: SiteContactMutation
   footer: SiteFooterMutation
 }
 

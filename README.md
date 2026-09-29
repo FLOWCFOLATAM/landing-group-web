@@ -1,11 +1,25 @@
 # Landing Group
 
-Sitio comercial de Landing Group para presentar servicios de merch corporativo,
-eventos BTL, personalización, producción, logística y trabajos realizados.
+Sitio comercial de Landing Group. Arquitectura según el diagnóstico UX del
+28-09-2026 (detalle y decisiones en `docs/ux-arquitectura-2026-09.md`):
+
+- **Home en 9 bloques**: header · hero · soluciones · cómo lo hacemos ·
+  trabajos/casos · proceso · operación · CTA final · footer.
+- **Soluciones** (`/soluciones/[slug]/`): Merch corporativo y Eventos & BTL
+  como principales; Personalización como capacidad transversal. Plantilla
+  común de 7 bloques.
+- **Cómo lo hacemos** (`/como-lo-hacemos/`): producción, logística y
+  acompañamiento como diferenciales.
+- **Trabajos** (`/trabajos/` y `/trabajos/[slug]/`): casos con contexto
+  (marca → necesidad → solución → imagen) + galería de piezas.
+- **Hablemos** (`/hablemos/`): formulario comercial + agenda. Es el destino
+  del **CTA único** («Agenda una reunión»), definido una sola vez en
+  `primaryCta`.
 
 ## Sitio público
 
-[https://flow-2024-ai.github.io/landing-group-web/](https://flow-2024-ai.github.io/landing-group-web/)
+- Producción: [https://grupolanding.com](https://grupolanding.com) (Vercel, rama `main`).
+- Revisión: `preview.grupolanding.com` (espejo no indexable de la rama en revisión).
 
 ## Desarrollo local
 
@@ -46,8 +60,8 @@ guardar se hace commit y el sitio se republica solo.
 
 ## Editar el contenido con formularios (alternativa: Pages CMS)
 
-Todo el contenido editable del sitio (textos, servicios, trabajos, fotos,
-horarios de agenda, pie de página) vive en **`content/site.json`**, y el
+Todo el contenido editable del sitio (textos, soluciones, diferenciales,
+casos, galería, formulario, pie de página) vive en **`content/site.json`**, y el
 esquema **`.pages.yml`** lo expone como formularios amigables en
 [Pages CMS](https://pagescms.org).
 
@@ -67,6 +81,9 @@ esquema **`.pages.yml`** lo expone como formularios amigables en
    solo en ~2 minutos.
 
 Notas:
+- **Botón principal del sitio** (`primaryCta`): su texto y destino se usan en
+  todos los botones de acción; cambiarlo en un lugar lo cambia en todo el sitio.
+- **Casos**: los 6 primeros de la lista aparecen en la portada; todos en `/trabajos/`.
 - Los campos marcados "no cambiar sin apoyo técnico" (destinos `href`, `slug`)
   afectan enlaces y URLs; todo lo demás es libre.
 - Las fotos de catálogo lucen mejor con fondo blanco (pipeline de limpieza

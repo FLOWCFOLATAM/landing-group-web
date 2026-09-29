@@ -6,6 +6,9 @@ import PageDirector from "@/components/PageDirector";
 import "./globals.css";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://grupolanding.com";
+/* Espejo de revisión (preview.grupolanding.com): se sirve igual pero no se
+   indexa, para no duplicar el sitio en buscadores. */
+const isPreview = process.env.NEXT_PUBLIC_SITE_ENV === "preview";
 
 /* Tipografía oficial LANDING GROUP (brand book pág. 18):
    Barlow Condensed SemiBold para titulares, Inter para texto,
@@ -34,6 +37,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  ...(isPreview ? { robots: { index: false, follow: false } } : {}),
   keywords: [
     "merchandising corporativo",
     "merch Perú",
@@ -60,6 +64,20 @@ export const metadata: Metadata = {
   },
 };
 
+/* Datos estructurados de la organización (SEO técnico, segunda fase). */
+const organizationLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: `${content.brand.name} ${content.brand.group}`,
+  legalName: content.brand.legal,
+  url: siteUrl,
+  logo: `${siteUrl}/brand/logo-black.png`,
+  email: content.contact.email,
+  sameAs: [content.contact.instagram].filter(Boolean),
+  areaServed: "PE",
+  slogan: content.brand.tagline,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -77,6 +95,10 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: "document.documentElement.classList.add('js');",
           }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationLd) }}
         />
         {children}
         <Cursor />
