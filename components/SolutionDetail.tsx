@@ -134,7 +134,7 @@ export default function SolutionDetail({ slug }: { slug: string }) {
             {cases.map((c, i) => (
               <li key={c.slug} className="h-full">
                 <Reveal delay={(i % 4) * 90} className="h-full">
-                  <CaseCard item={c} index={i} />
+                  <CaseCard item={c} index={i} showCategory={false} />
                 </Reveal>
               </li>
             ))}

@@ -8,15 +8,19 @@ import PlateReveal from "./PlateReveal";
 /* Tarjeta de caso (diagnóstico UX §7): de "producto mostrado" a "proyecto
    demostrado". Orden literal de la card recomendada:
    Marca → necesidad/ocasión → solución → imagen → Ver proyecto.
-   La tarjeta completa es el enlace a la ficha del caso. */
+   La tarjeta completa es el enlace a la ficha del caso.
+   `showCategory={false}` oculta la etiqueta de categoría donde sobra: en la
+   página de una solución todos los casos son de esa misma solución. */
 export default function CaseCard({
   item,
   index = 0,
   headingLevel = "h3",
+  showCategory = true,
 }: {
   item: CaseItem;
   index?: number;
   headingLevel?: "h2" | "h3";
+  showCategory?: boolean;
 }) {
   const Heading = headingLevel;
   return (
@@ -29,9 +33,11 @@ export default function CaseCard({
       {/* Marca */}
       <div className="flex items-start justify-between gap-3 px-6 pt-6">
         <Heading className="display text-[clamp(1.6rem,2.2vw,1.95rem)] leading-[0.95] text-ink">{item.brand}</Heading>
-        <span className="mt-1 shrink-0 rounded-button bg-accent/[0.08] px-2.5 py-1 text-[10.5px] uppercase tracking-[0.12em] text-accent [font-weight:600]">
-          {item.category}
-        </span>
+        {showCategory && (
+          <span className="mt-1 shrink-0 rounded-button bg-accent/[0.08] px-2.5 py-1 text-[10.5px] uppercase tracking-[0.12em] text-accent [font-weight:600]">
+            {item.category}
+          </span>
+        )}
       </div>
 
       <dl className="px-6 pb-5 pt-4 text-[14px] leading-[1.5]">
