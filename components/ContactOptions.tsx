@@ -1,7 +1,7 @@
 "use client";
 
 import { useContent } from "@/components/ContentProvider";
-import { mailtoHref, whatsappDisplay, whatsappHref } from "@/brand/content";
+import { mailtoHref, whatsappHref } from "@/brand/content";
 import { MailIcon, WhatsAppIcon } from "./BrandIcons";
 
 /* Los dos canales de contacto directo (decisión de Landing, 29-sep-2026):
@@ -43,7 +43,7 @@ export default function ContactOptions({
           </span>
           <span className="min-w-0 flex-1">
             <span className="block text-[12px] uppercase tracking-[0.16em] [font-weight:600]">WhatsApp</span>
-            <span className="mt-0.5 block text-[16px] [font-weight:500]">{whatsappDisplay(contact)}</span>
+            <span className="mt-0.5 block text-[16px] [font-weight:500]">Escríbenos por chat</span>
           </span>
           <span aria-hidden className="shrink-0 text-lg transition-transform duration-300 group-hover:translate-x-1 max-[380px]:hidden">→</span>
         </a>

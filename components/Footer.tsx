@@ -6,6 +6,19 @@ import { assetPath } from "@/brand/paths";
 import SmartLink from "./SmartLink";
 import { InstagramIcon, LinkedInIcon, MailIcon, WhatsAppIcon } from "./BrandIcons";
 
+/* Un correo largo, si no cabe, corta después de la "@" y no a mitad de palabra. */
+function SoftBreak({ text }: { text: string }) {
+  const at = text.indexOf("@");
+  if (at < 0) return <span>{text}</span>;
+  return (
+    <span>
+      {text.slice(0, at + 1)}
+      <wbr />
+      {text.slice(at + 1)}
+    </span>
+  );
+}
+
 /* Ícono típico según el destino del enlace (redes y contacto). */
 function LinkIcon({ href }: { href: string }) {
   const cls = "h-4 w-4 shrink-0 opacity-80";
@@ -51,11 +64,11 @@ export default function Footer() {
                     <li key={link.label}>
                       <SmartLink
                         href={link.href}
-                        className="inline-flex min-h-[44px] items-center break-all text-[14px] sm:min-h-[32px] tracking-[0.02em] text-paper/85 transition-colors hover:text-sand sm:break-normal"
+                        className="inline-flex min-h-[44px] items-center text-[14px] [overflow-wrap:break-word] sm:min-h-[32px] tracking-[0.02em] text-paper/85 transition-colors hover:text-sand"
                       >
                         <span className="inline-flex items-center gap-2">
                           <LinkIcon href={link.href} />
-                          {link.label}
+                          <SoftBreak text={link.label} />
                         </span>
                       </SmartLink>
                     </li>

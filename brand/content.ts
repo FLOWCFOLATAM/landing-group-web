@@ -173,13 +173,6 @@ export function whatsappHref(c: Content["contact"]) {
   return `https://wa.me/${digits}${text ? `?text=${encodeURIComponent(text)}` : ""}`;
 }
 
-/* "51923290835" → "+51 923 290 835" (formato peruano; otros, tal cual). */
-export function whatsappDisplay(c: Content["contact"]) {
-  const d = c.whatsapp.replace(/\D/g, "");
-  if (d.length === 11 && d.startsWith("51")) return `+51 ${d.slice(2, 5)} ${d.slice(5, 8)} ${d.slice(8)}`;
-  return d ? `+${d}` : "";
-}
-
 export function mailtoHref(c: Content["contact"]) {
   const subject = c.emailSubject.trim();
   return `mailto:${c.email}${subject ? `?subject=${encodeURIComponent(subject)}` : ""}`;
