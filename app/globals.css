@@ -181,6 +181,9 @@ html.choreo-ready .star-pop {
 .plate-wrap {
   position: relative;
   overflow: hidden;
+  /* Safari: sin esto, al animar el zoom de la foto la placa redondeada deja
+     ver esquinas cuadradas por un instante */
+  isolation: isolate;
 }
 
 .plate-cover {

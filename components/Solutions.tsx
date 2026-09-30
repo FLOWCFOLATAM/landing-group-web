@@ -40,7 +40,7 @@ export default function Solutions() {
               >
                 <TiltCard className="group h-full" max={4}>
                   <article
-                    className="relative flex h-full flex-col overflow-hidden rounded-card"
+                    className="relative isolate flex h-full flex-col overflow-hidden rounded-card"
                     style={{ background: surface.bg }}
                   >
                     <span className="glare" aria-hidden />

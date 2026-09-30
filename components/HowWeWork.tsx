@@ -33,7 +33,7 @@ export default function HowWeWork() {
             <Reveal delay={(i % 4) * 90} className="h-full">
               <SmartLink
                 href={item.href}
-                className="group flex h-full flex-col overflow-hidden rounded-card bg-white shadow-lift transition-transform duration-500 hover:-translate-y-1.5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+                className="group isolate flex h-full flex-col overflow-hidden rounded-card bg-white shadow-lift transition-transform duration-500 hover:-translate-y-1.5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
               >
                 <div className="relative aspect-[4/3] shrink-0 overflow-hidden">
                   <Image

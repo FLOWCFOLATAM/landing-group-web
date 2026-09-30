@@ -36,16 +36,25 @@ export default function Stats() {
               {intro}
             </p>
 
-            <div className="mt-12 grid gap-px overflow-hidden rounded-card border border-paper/20 bg-paper/20 sm:grid-cols-2 lg:grid-cols-4">
-              {items.map((item) => (
+            {/* Separadores como BORDES (no huecos de 1 px): un hueco de 1 px puede
+                redondearse a 0 píxeles con la escala de Windows (125/150 %) y la
+                línea desaparece; un borde siempre pinta al menos 1 píxel. Sin
+                backdrop-blur: Chrome no recorta ese efecto con esquinas
+                redondeadas y asomaban «esquinitas» cuadradas. */}
+            <div className="mt-12 grid overflow-hidden rounded-card border border-paper/25 sm:grid-cols-2 lg:grid-cols-4">
+              {items.map((item, i) => (
                 <article
                   key={item.value}
-                  className="flex min-h-[190px] flex-col items-center justify-center bg-accent/80 p-6 text-center backdrop-blur-sm sm:p-7"
+                  className={`flex flex-col items-center border-paper/20 bg-accent/70 px-6 py-10 text-center sm:px-7 ${
+                    i > 0 ? "border-t" : ""
+                  } ${i % 2 === 1 ? "sm:border-l" : ""} ${i === 1 ? "sm:border-t-0" : ""} ${
+                    i > 0 ? "lg:border-l lg:border-t-0" : ""
+                  }`}
                 >
-                  <p className="display text-[clamp(2.2rem,3.8vw,3.4rem)] leading-[0.92] text-sand">
+                  <p className="display whitespace-nowrap text-[clamp(2rem,3vw,2.9rem)] leading-[0.92] text-sand">
                     {item.value}
                   </p>
-                  <p className="mx-auto mt-7 max-w-[15rem] text-[14px] leading-[1.45] tracking-[0.02em] text-paper/78">
+                  <p className="mx-auto mt-6 max-w-[15rem] text-[14px] leading-[1.45] tracking-[0.02em] text-paper/80">
                     {item.label}
                   </p>
                 </article>
