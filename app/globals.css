@@ -25,6 +25,11 @@
 
 html {
   scroll-behavior: smooth;
+  /* Sin esto, el overflow del body se "propaga" al viewport y el body deja
+     de recortar: las cintas diagonales y las cards que entran desde afuera
+     permitían correr la página 3–7 px de lado (visible en Windows). `clip`
+     no crea contenedor de scroll, así que el hero sticky sigue funcionando. */
+  overflow-x: clip;
 }
 
 body {
@@ -751,4 +756,48 @@ html[data-cursor-on] .cursor {
 
   .scrub-word { color: var(--brand-ink); }
   .scrub-word.is-accent { color: var(--brand-accent); }
+}
+
+/* ── Hero en pantallas bajas ────────────────────────────────────────────
+   En Windows con escala 125–150 % (o laptops de 768 px) la ventana útil de
+   Chrome queda en ~590–730 px de alto. El hero fijado mide 100svh y centraba
+   su contenido: si no cabía, se recortaba por ARRIBA, bajo el header.
+   - Centrado "seguro" con márgenes automáticos (funciona en todos los
+     navegadores, a diferencia de `safe center`): si cabe, queda centrado en
+     el espacio bajo el header; si no cabe, se ancla arriba y nunca recorta
+     el titular.
+   - En alturas bajas, titular y tarjetas escalan con el alto disponible. */
+@media (min-width: 1024px) {
+  .pliego-scale {
+    justify-content: flex-start;
+    padding-top: 64px; /* alto del header fijo */
+  }
+  .pliego-scale > * {
+    margin-block: auto;
+  }
+}
+
+@media (min-width: 1024px) and (max-height: 860px) {
+  #hero h1 {
+    font-size: clamp(3rem, min(9vw, 11.5svh), 7.6rem);
+  }
+  .hero-tiles {
+    height: min(470px, 50svh);
+    max-width: min(28rem, 52svh); /* conserva la proporción del grupo de tarjetas */
+  }
+  .hero-tile-card {
+    width: min(240px, 27svh);
+    height: min(240px, 27svh);
+  }
+}
+
+/* Formulario de /hablemos: la columna "Tus datos" (con el botón de envío)
+   solo se fija al hacer scroll si la pantalla es lo bastante alta para
+   mostrarla entera; en pantallas bajas fluye normal y el botón siempre se
+   alcanza. */
+@media (min-width: 1024px) and (min-height: 900px) {
+  .lead-aside {
+    position: sticky;
+    top: 6rem;
+  }
 }

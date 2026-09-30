@@ -347,7 +347,7 @@ export default function LeadForm() {
       </div>
 
       {/* 3 · Tus datos + envío */}
-      <fieldset className="h-fit rounded-card bg-white p-7 shadow-lift sm:p-9 lg:sticky lg:top-24">
+      <fieldset className="lead-aside h-fit rounded-card bg-white p-7 shadow-lift sm:p-9">
         <legend className="sr-only">Tus datos</legend>
         <p aria-hidden className={LEGEND}>3 · Tus datos</p>
         <div className="mt-5 space-y-4">

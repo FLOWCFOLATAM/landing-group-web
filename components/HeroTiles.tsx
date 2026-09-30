@@ -98,7 +98,7 @@ export default function HeroTiles() {
   }, []);
 
   return (
-    <div ref={wrap} className="relative mx-auto h-[430px] w-full max-w-md lg:h-[470px]" aria-hidden>
+    <div ref={wrap} className="hero-tiles relative mx-auto h-[430px] w-full max-w-md lg:h-[470px]" aria-hidden>
       {content.hero.tiles.map((tile, i) => (
         <div
           key={tile.label}

@@ -14,7 +14,7 @@ export default function Hero() {
   return (
     <section id="hero" className="pliego-hero">
       <div className="pliego-scale flex h-full flex-col justify-center">
-        <div className="mx-auto grid w-full max-w-[1200px] items-center gap-x-10 gap-y-8 px-5 pb-14 pt-24 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:pb-0 lg:pt-10">
+        <div className="mx-auto grid w-full max-w-[1200px] items-center gap-x-10 gap-y-8 px-5 pb-14 pt-24 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:pb-0 lg:pt-6">
           <div className="relative lg:col-span-2">
             <BrandStar className="star-pop absolute top-4 right-[11%] hidden w-10 sm:block [--beat:1700ms]" />
             <h1 className="display text-[clamp(3.2rem,9vw,7.6rem)] leading-[0.9]">
