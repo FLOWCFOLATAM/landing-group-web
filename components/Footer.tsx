@@ -4,6 +4,17 @@ import Image from "next/image";
 import { useContent } from "@/components/ContentProvider";
 import { assetPath } from "@/brand/paths";
 import SmartLink from "./SmartLink";
+import { InstagramIcon, LinkedInIcon, MailIcon, WhatsAppIcon } from "./BrandIcons";
+
+/* Ícono típico según el destino del enlace (redes y contacto). */
+function LinkIcon({ href }: { href: string }) {
+  const cls = "h-4 w-4 shrink-0 opacity-80";
+  if (href.includes("instagram.com")) return <InstagramIcon className={cls} />;
+  if (href.includes("linkedin.com")) return <LinkedInIcon className={cls} />;
+  if (href.includes("wa.me") || href.includes("whatsapp")) return <WhatsAppIcon className={cls} />;
+  if (href.startsWith("mailto:")) return <MailIcon className={cls} />;
+  return null;
+}
 
 /* Bloque 09 — FOOTER: logo/tagline + navegación + contacto + redes + datos
    legales. Siempre aparece inmediatamente después del CTA. */
@@ -42,7 +53,10 @@ export default function Footer() {
                         href={link.href}
                         className="inline-flex min-h-[44px] items-center break-all text-[14px] sm:min-h-[32px] tracking-[0.02em] text-paper/85 transition-colors hover:text-sand sm:break-normal"
                       >
-                        {link.label}
+                        <span className="inline-flex items-center gap-2">
+                          <LinkIcon href={link.href} />
+                          {link.label}
+                        </span>
                       </SmartLink>
                     </li>
                   ))}

@@ -790,3 +790,34 @@ html[data-cursor-on] .cursor {
     height: min(240px, 27svh);
   }
 }
+
+/* ── Globito flotante de WhatsApp ─────────────────────────────────────── */
+.wa-float {
+  opacity: 0;
+  transform: translateY(12px) scale(0.9);
+  pointer-events: none;
+  transition: opacity 0.45s ease, transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.wa-float.wa-float-in {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+/* dos pulsos suaves al aparecer, para que se note sin molestar */
+.wa-float-in .wa-float-ring::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: #25d366;
+  z-index: -1;
+  animation: wa-pulse 1.6s ease-out 0.6s 2;
+}
+@keyframes wa-pulse {
+  from { transform: scale(1); opacity: 0.55; }
+  to { transform: scale(1.7); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wa-float { transition: none; }
+  .wa-float-in .wa-float-ring::after { animation: none; }
+}

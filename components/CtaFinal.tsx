@@ -7,6 +7,7 @@ import Reveal from "./Reveal";
 import SplitWords from "./SplitWords";
 import MarkerStroke from "./MarkerStroke";
 import ContactOptions from "./ContactOptions";
+import { InstagramIcon, LinkedInIcon } from "./BrandIcons";
 
 /* Bloque 08 — CTA FINAL: mensaje comercial + contacto directo (WhatsApp y
    correo comercial, sin formularios).
@@ -41,8 +42,8 @@ export default function CtaFinal() {
             {(contact.instagram || contact.linkedin) && (
               <p className="mt-2 flex flex-wrap items-center justify-center gap-x-6 text-[14px] text-paper/80">
                 {[
-                  { label: "Instagram", href: contact.instagram },
-                  { label: "LinkedIn", href: contact.linkedin },
+                  { label: "Instagram", href: contact.instagram, Icon: InstagramIcon },
+                  { label: "LinkedIn", href: contact.linkedin, Icon: LinkedInIcon },
                 ]
                   .filter((s) => s.href)
                   .map((s) => (
@@ -51,8 +52,9 @@ export default function CtaFinal() {
                       href={s.href}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex min-h-[44px] items-center underline decoration-paper/30 underline-offset-4 transition-colors hover:text-sand hover:decoration-sand"
+                      className="inline-flex min-h-[44px] items-center gap-2 transition-colors hover:text-sand"
                     >
+                      <s.Icon className="h-[18px] w-[18px]" />
                       {s.label}
                     </a>
                   ))}

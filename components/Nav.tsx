@@ -106,6 +106,10 @@ export default function Nav() {
         </nav>
       </header>
 
+      {/* Globito de WhatsApp: listo en components/WhatsAppFloat.tsx, en espera
+          hasta que Landing lo apruebe. Para activarlo: importarlo aquí y
+          renderizar {!open && <WhatsAppFloat />}. */}
+
       {/* Menú compacto (móvil/tablet) */}
       <div
         id={panelId}
