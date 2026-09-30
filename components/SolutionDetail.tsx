@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useContent } from "@/components/ContentProvider";
-import { casesBySlug, principalSolutions } from "@/brand/content";
+import { casesBySlug } from "@/brand/content";
 import Reveal from "./Reveal";
 import SplitWords from "./SplitWords";
 import MarkerStroke from "./MarkerStroke";
@@ -21,10 +21,8 @@ export default function SolutionDetail({ slug }: { slug: string }) {
   const content = useContent();
   const item = content.solutions.items.find((s) => s.slug === slug);
   if (!item) return null;
-  const isCapacity = item.tier === "capacidad";
   const cases = casesBySlug(content, item.cases).slice(0, 4);
   const others = content.solutions.items.filter((s) => s.slug !== slug);
-  const principals = principalSolutions(content);
 
   return (
     <main className="telon-main">
@@ -45,7 +43,7 @@ export default function SolutionDetail({ slug }: { slug: string }) {
           <div className="absolute inset-0 bg-gradient-to-r from-ink/70 via-ink/25 to-transparent" aria-hidden />
           <div className="absolute inset-x-0 bottom-0 p-7 text-paper sm:p-12">
             <p className="text-[12px] uppercase tracking-[0.2em] text-sand [font-weight:600]">
-              {isCapacity ? "Capacidad transversal" : "Solución"}
+              Solución
             </p>
             <h1 className="display mt-3 max-w-3xl text-[clamp(2.8rem,7vw,5.6rem)] leading-[0.92]">
               <SplitWords text={item.name} step={70} />
@@ -55,23 +53,6 @@ export default function SolutionDetail({ slug }: { slug: string }) {
             </p>
             <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-4">
               <PrimaryCta variant="solid" location={`solucion-${item.slug}`} magnetic={0.35} />
-              {isCapacity && (
-                <p className="text-[13px] leading-[1.5] text-paper/85">
-                  Potencia{" "}
-                  {principals.map((p, i) => (
-                    <span key={p.slug}>
-                      {i > 0 && " y "}
-                      <Link
-                        href={`/soluciones/${p.slug}/`}
-                        className="underline decoration-paper/40 underline-offset-4 hover:text-sand hover:decoration-sand"
-                      >
-                        {p.name}
-                      </Link>
-                    </span>
-                  ))}
-                  .
-                </p>
-              )}
             </div>
           </div>
         </div>
@@ -116,7 +97,7 @@ export default function SolutionDetail({ slug }: { slug: string }) {
           <Reveal>
             <h2 className={H2}>Cómo lo hacemos</h2>
             <p className="display mt-4 max-w-2xl text-[clamp(2rem,4vw,3.2rem)] leading-[0.95]">
-              Detrás de cada {isCapacity ? "aplicación" : "entrega"}.
+              Detrás de cada entrega.
             </p>
           </Reveal>
           <ul className={`mt-10 grid gap-4 sm:grid-cols-2 ${item.how.length >= 4 ? "lg:grid-cols-4" : "lg:grid-cols-3"}`}>
@@ -183,7 +164,7 @@ export default function SolutionDetail({ slug }: { slug: string }) {
         <Reveal>
           <h2 className={H2}>Otras soluciones</h2>
         </Reveal>
-        <ul className="mt-6 grid gap-4 sm:grid-cols-2">
+        <ul className={`mt-6 grid gap-4 ${others.length > 1 ? "sm:grid-cols-2" : ""}`}>
           {others.map((o, i) => (
             <li key={o.slug}>
               <Reveal delay={i * 90}>
@@ -193,7 +174,7 @@ export default function SolutionDetail({ slug }: { slug: string }) {
                 >
                   <span>
                     <span className="block text-[11px] uppercase tracking-[0.16em] text-ink/60 [font-weight:600]">
-                      {o.tier === "capacidad" ? "Capacidad transversal" : "Solución"}
+                      Solución
                     </span>
                     <span className="display mt-1 block text-[clamp(1.5rem,2.2vw,1.9rem)] leading-[0.95]">{o.name}</span>
                     <span className="mt-1 block text-[14px] text-ink/70">{o.promise}</span>

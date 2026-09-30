@@ -3,15 +3,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useContent } from "@/components/ContentProvider";
-import { principalSolutions } from "@/brand/content";
 import Reveal from "./Reveal";
 import TiltCard from "./TiltCard";
-import BrandStar from "./BrandStar";
-import SmartLink from "./SmartLink";
 
-/* Bloque 03 — SOLUCIONES: dos soluciones principales (Merch corporativo,
-   Eventos & BTL). La Personalización no es una tercera tarjeta: se nombra
-   como capacidad transversal que potencia a ambas (diagnóstico UX §5). */
+/* Bloque 03 — SOLUCIONES: Merch corporativo y Eventos & BTL. La
+   Personalización vive en «Cómo lo hacemos» (decisión de Landing, 30-sep). */
 const SURFACE = [
   { bg: "color-mix(in srgb, var(--brand-accent) 8%, var(--brand-white))", accent: "var(--brand-accent)" },
   { bg: "color-mix(in srgb, var(--brand-sand) 45%, var(--brand-white))", accent: "var(--brand-ink)" },
@@ -19,8 +15,7 @@ const SURFACE = [
 
 export default function Solutions() {
   const content = useContent();
-  const { label, title, intro, note } = content.solutions;
-  const items = principalSolutions(content);
+  const { label, title, intro, items } = content.solutions;
 
   return (
     <section id="soluciones" className="mx-auto w-full max-w-[1200px] scroll-mt-24 px-5 py-24 sm:px-8">
@@ -94,25 +89,6 @@ export default function Solutions() {
           );
         })}
       </div>
-
-      {/* Personalización: capacidad transversal, no tercera solución. */}
-      <Reveal delay={150}>
-        <div className="mt-5 flex flex-col gap-4 rounded-card border border-line bg-white/60 px-6 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-8">
-          <p className="flex items-start gap-3 text-[15px] leading-[1.5] text-ink/75">
-            <BrandStar className="mt-0.5 w-5 shrink-0" />
-            <span>{note.text}</span>
-          </p>
-          <SmartLink
-            href={note.href}
-            className="group inline-flex min-h-[44px] shrink-0 items-center gap-2 text-[12px] uppercase tracking-[0.16em] text-accent [font-weight:600]"
-          >
-            {note.label}
-            <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1.5">
-              →
-            </span>
-          </SmartLink>
-        </div>
-      </Reveal>
     </section>
   );
 }

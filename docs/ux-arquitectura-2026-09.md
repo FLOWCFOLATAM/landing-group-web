@@ -9,12 +9,12 @@ rediseñar la identidad visual**. Rama: `ux-arquitectura`.
 | Tema | Decisión |
 |---|---|
 | CTA único | **«Contáctanos»** → `/contacto/` (cambio pedido por Landing el 29-09-2026: «agendar reunión» no servía a los objetivos comerciales). Mismo texto y destino en header, hero, soluciones, casos y cierre. Un solo campo del CMS (`primaryCta`) y un solo componente (`components/PrimaryCta.tsx`). |
-| Menú | Soluciones ▾ · Cómo lo hacemos ▾ · Trabajos · Proceso + CTA. Máx. 5 entradas. Móvil: menú compacto (hamburguesa) + CTA visible. |
-| Soluciones | 2 principales (Merch corporativo, Eventos & BTL) en la home. Personalización = capacidad transversal con página secundaria propia (`tier: "capacidad"`). |
-| Diferenciales | Producción bajo control, Logística y entregas, Acompañamiento (+ Personalización) → bloque 04 de la home y página `/como-lo-hacemos/` con el contenido de las antiguas páginas de servicio (no se elimina nada). |
+| Menú | Soluciones ▾ (Merch corporativo, Eventos & BTL) · Cómo lo hacemos ▾ (Personalización, Producción bajo control, Logística y entregas, Acompañamiento) · Trabajos · Proceso + CTA. Máx. 5 entradas. Móvil: menú compacto (hamburguesa) + CTA visible. |
+| Soluciones | Dos: Merch corporativo y Eventos & BTL (plantilla común, `/soluciones/[slug]/`). **Personalización se movió a «Cómo lo hacemos»** a pedido de Landing (30-09-2026); `/soluciones/personalizacion/` redirige a `/como-lo-hacemos/#personalizacion`. |
+| Diferenciales | Personalización, Producción bajo control, Logística y entregas y Acompañamiento → bloque 04 de la home y página `/como-lo-hacemos/`, una sección por diferencial (no se elimina contenido). |
 | Casos | 8 casos con contexto (marca → necesidad → solución → imagen → Ver proyecto). La home muestra los 6 primeros; `/trabajos/` muestra los 8 + la galería de 15 piezas. Cada caso tiene ficha breve en `/trabajos/[slug]/`. **Textos de casos redactados a partir de las descripciones existentes: Landing debe validarlos (editables en Tina).** |
 | Contacto | **Sin formularios ni agenda** (decisión de Landing, 29-09-2026). Dos canales directos: **WhatsApp +51 923 290 835** y **comercial@grupolanding.pe**, en `/contacto/` y en el cierre de la home (`components/ContactOptions.tsx`). Redes en el footer: Instagram y LinkedIn (sin Twitter por ahora). |
-| URLs viejas | `vercel.json` redirige (308, permanentes desde la aprobación del 29-09-2026) `/agenda` y `/hablemos` → `/contacto/`, y `/servicios/*` → su nuevo hogar. |
+| URLs viejas | `vercel.json` redirige (temporales hasta la aprobación final) `/agenda` y `/hablemos` → `/contacto/`, `/soluciones/personalizacion` → `/como-lo-hacemos/#personalizacion` y `/servicios/*` → su nuevo hogar. |
 | Retirado de la home | Frase editorial («Las grandes marcas nacen de los detalles») y la franja «Selección destacada»: no están en los 9 bloques. La cinta (marquee) queda como cierre visual del hero. |
 
 ## 2. Home — 9 bloques (orden exacto)
@@ -35,8 +35,8 @@ rediseñar la identidad visual**. Rama: `ux-arquitectura`.
 
 | Ruta | Contenido |
 |---|---|
-| `/soluciones/[slug]/` | Plantilla común: Hero (nombre + promesa + imagen + CTA) · Qué resuelve · Qué incluye (3–5, ícono + texto) · Cómo lo hacemos · Piezas/casos reales (2–4) · CTA · Otras soluciones |
-| `/como-lo-hacemos/` | Producción bajo control · Logística y entregas · Acompañamiento (+ enlace a Personalización) · CTA |
+| `/soluciones/[slug]/` | Merch corporativo y Eventos & BTL. Plantilla común: Hero (nombre + promesa + imagen + CTA) · Qué resuelve · Qué incluye (3–5, ícono + texto) · Cómo lo hacemos · Piezas/casos reales (2–4) · CTA · Otras soluciones |
+| `/como-lo-hacemos/` | Personalización · Producción bajo control · Logística y entregas · Acompañamiento · CTA |
 | `/trabajos/` | 8 casos + galería de 15 piezas · CTA |
 | `/trabajos/[slug]/` | Ficha: para quién, qué necesitaba, qué hizo Landing, cómo lo ejecutó, piezas, imágenes · CTA · otros casos |
 | `/contacto/` | Contáctanos: botones de WhatsApp y correo comercial + redes |

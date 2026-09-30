@@ -51,16 +51,9 @@ export const SitePartsFragmentDoc = gql`
     label
     title
     intro
-    note {
-      __typename
-      text
-      label
-      href
-    }
     items {
       __typename
       slug
-      tier
       name
       promise
       body

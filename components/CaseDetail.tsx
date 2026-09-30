@@ -10,6 +10,7 @@ import MarkerStroke from "./MarkerStroke";
 import PlateReveal from "./PlateReveal";
 import BrandStar from "./BrandStar";
 import CaseCard from "./CaseCard";
+import SmartLink from "./SmartLink";
 import PrimaryCta from "./PrimaryCta";
 
 /* Ficha breve de caso (diagnóstico UX §7): para quién, qué necesitaba,
@@ -21,6 +22,8 @@ export default function CaseDetail({ slug }: { slug: string }) {
   const item = items[index];
   if (!item) return null;
   const solution = content.solutions.items.find((s) => s.slug === item.solution);
+  /* si la categoría del caso es un diferencial (p. ej. Personalización), se enlaza */
+  const capability = content.howWeWork.items.find((h) => h.name === item.category);
   /* los 3 siguientes en la lista (circular), para seguir recorriendo */
   const others = [1, 2, 3].map((k) => items[(index + k) % items.length]).filter((c) => c.slug !== slug);
 
@@ -84,6 +87,20 @@ export default function CaseDetail({ slug }: { slug: string }) {
                     {solution.name}
                     <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">→</span>
                   </Link>
+                </dd>
+              </div>
+            )}
+            {capability && (
+              <div className="grid gap-2 py-5 last:pb-0 sm:grid-cols-[10rem_1fr] sm:gap-6">
+                <dt className="text-[11px] uppercase tracking-[0.16em] text-ink/60 [font-weight:600]">Cómo lo hacemos</dt>
+                <dd>
+                  <SmartLink
+                    href={capability.href}
+                    className="group inline-flex min-h-[44px] items-center gap-2 text-[13px] uppercase tracking-[0.14em] text-accent [font-weight:600]"
+                  >
+                    {capability.name}
+                    <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                  </SmartLink>
                 </dd>
               </div>
             )}

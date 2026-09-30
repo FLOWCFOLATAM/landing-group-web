@@ -111,34 +111,14 @@ content:
           - name: intro
             label: "Introducción"
             type: text
-          - name: note
-            label: "Franja de personalización (bajo las tarjetas)"
-            type: object
-            fields:
-              - name: text
-                label: "Texto"
-                type: text
-              - name: label
-                label: "Texto del enlace"
-                type: string
-              - name: href
-                label: "Destino (no cambiar sin apoyo técnico)"
-                type: string
           - name: items
-            label: "Soluciones y capacidades"
+            label: "Soluciones (aparecen en la portada)"
             type: object
             list: true
             fields:
               - name: slug
                 label: "URL de la página (no cambiar sin apoyo técnico)"
                 type: string
-              - name: tier
-                label: "Tipo"
-                type: select
-                options:
-                  values:
-                    - { value: "principal", label: "Solución principal (aparece en la portada)" }
-                    - { value: "capacidad", label: "Capacidad transversal (página secundaria)" }
               - name: name
                 label: "Nombre"
                 type: string
@@ -232,7 +212,7 @@ content:
                 label: "Nombre"
                 type: string
               - name: role
-                label: "Rol (Ejecución, Operación, Servicio…)"
+                label: "Rol (Técnica, Ejecución, Operación, Servicio…)"
                 type: string
               - name: body
                 label: "Resumen (tarjeta)"
@@ -246,7 +226,7 @@ content:
               - name: detail
                 label: "Detalle en la página Cómo lo hacemos"
                 type: object
-                description: "Si la frase principal queda vacía, el diferencial solo se enlaza (caso Personalización)."
+                description: "Aparece como sección en la página Cómo lo hacemos. Si la frase principal queda vacía, el diferencial solo se enlaza."
                 fields:
                   - name: claim
                     label: "Frase principal"
@@ -304,7 +284,6 @@ content:
                   values:
                     - { value: "merch-corporativo", label: "Merch corporativo" }
                     - { value: "eventos-btl", label: "Eventos & BTL" }
-                    - { value: "personalizacion", label: "Personalización" }
               - name: title
                 label: "Titular del caso"
                 type: string

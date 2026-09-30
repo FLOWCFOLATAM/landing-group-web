@@ -11,10 +11,11 @@ import SmartLink from "./SmartLink";
 import PrimaryCta from "./PrimaryCta";
 
 /* /como-lo-hacemos — los diferenciales en profundidad (diagnóstico UX §6):
-   Producción bajo control (ejecución), Logística y entregas (operación) y
-   Acompañamiento (servicio). Conservan el contenido de las antiguas
-   páginas de servicio: se reubicaron, no se eliminaron. La Personalización
-   vive en su propia página de solución y aquí se enlaza. */
+   Personalización (técnica; se movió aquí desde Soluciones a pedido de
+   Landing, 30-sep), Producción bajo control (ejecución), Logística y
+   entregas (operación) y Acompañamiento (servicio). Conservan el contenido
+   de las antiguas páginas: se reubicaron, no se eliminaron. Un diferencial
+   sin detalle (frase principal vacía en el CMS) solo se enlaza. */
 export default function HowWeWorkPage() {
   const content = useContent();
   const { label, pageTitle, pageIntro, items } = content.howWeWork;
@@ -98,9 +99,9 @@ export default function HowWeWorkPage() {
         </section>
       ))}
 
-      {/* Personalización (y cualquier capacidad sin detalle aquí): enlace a su página */}
+      {/* Diferenciales sin detalle (si los hay) + enlace al proceso */}
       <section className="mx-auto w-full max-w-[1200px] px-5 pb-10 pt-4 sm:px-8">
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className={`grid gap-4 ${linked.length ? "sm:grid-cols-2" : ""}`}>
           {linked.map((item) => (
             <Reveal key={item.id}>
               <SmartLink

@@ -5,11 +5,10 @@ Sitio comercial de Landing Group. Arquitectura según el diagnóstico UX del
 
 - **Home en 9 bloques**: header · hero · soluciones · cómo lo hacemos ·
   trabajos/casos · proceso · operación · CTA final · footer.
-- **Soluciones** (`/soluciones/[slug]/`): Merch corporativo y Eventos & BTL
-  como principales; Personalización como capacidad transversal. Plantilla
-  común de 7 bloques.
-- **Cómo lo hacemos** (`/como-lo-hacemos/`): producción, logística y
-  acompañamiento como diferenciales.
+- **Soluciones** (`/soluciones/[slug]/`): Merch corporativo y Eventos & BTL.
+  Plantilla común de 7 bloques.
+- **Cómo lo hacemos** (`/como-lo-hacemos/`): personalización, producción,
+  logística y acompañamiento como diferenciales.
 - **Trabajos** (`/trabajos/` y `/trabajos/[slug]/`): casos con contexto
   (marca → necesidad → solución → imagen) + galería de piezas.
 - **Contacto** (`/contacto/`): botones directos de WhatsApp y correo

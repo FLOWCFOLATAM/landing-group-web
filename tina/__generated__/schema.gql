@@ -127,12 +127,6 @@ type SiteHero {
   tiles: [SiteHeroTiles]
 }
 
-type SiteSolutionsNote {
-  text: String
-  label: String
-  href: String
-}
-
 type SiteSolutionsItemsIncludes {
   icon: String
   title: String
@@ -147,7 +141,6 @@ type SiteSolutionsItemsHow {
 
 type SiteSolutionsItems {
   slug: String
-  tier: String
   name: String
   promise: String
   body: String
@@ -162,7 +155,6 @@ type SiteSolutions {
   label: String
   title: String
   intro: String
-  note: SiteSolutionsNote
   items: [SiteSolutionsItems]
 }
 
@@ -360,12 +352,6 @@ input SiteHeroFilter {
   tiles: SiteHeroTilesFilter
 }
 
-input SiteSolutionsNoteFilter {
-  text: StringFilter
-  label: StringFilter
-  href: StringFilter
-}
-
 input ImageFilter {
   startsWith: String
   eq: String
@@ -387,7 +373,6 @@ input SiteSolutionsItemsHowFilter {
 
 input SiteSolutionsItemsFilter {
   slug: StringFilter
-  tier: StringFilter
   name: StringFilter
   promise: StringFilter
   body: StringFilter
@@ -402,7 +387,6 @@ input SiteSolutionsFilter {
   label: StringFilter
   title: StringFilter
   intro: StringFilter
-  note: SiteSolutionsNoteFilter
   items: SiteSolutionsItemsFilter
 }
 
@@ -620,12 +604,6 @@ input SiteHeroMutation {
   tiles: [SiteHeroTilesMutation]
 }
 
-input SiteSolutionsNoteMutation {
-  text: String
-  label: String
-  href: String
-}
-
 input SiteSolutionsItemsIncludesMutation {
   icon: String
   title: String
@@ -640,7 +618,6 @@ input SiteSolutionsItemsHowMutation {
 
 input SiteSolutionsItemsMutation {
   slug: String
-  tier: String
   name: String
   promise: String
   body: String
@@ -655,7 +632,6 @@ input SiteSolutionsMutation {
   label: String
   title: String
   intro: String
-  note: SiteSolutionsNoteMutation
   items: [SiteSolutionsItemsMutation]
 }
 

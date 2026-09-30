@@ -143,31 +143,12 @@ export default defineConfig({
               { type: "string", name: "intro", label: "Introducción", ui: { component: "textarea" } },
               {
                 type: "object",
-                name: "note",
-                label: "Franja de personalización (bajo las tarjetas)",
-                fields: [
-                  { type: "string", name: "text", label: "Texto", ui: { component: "textarea" } },
-                  { type: "string", name: "label", label: "Texto del enlace" },
-                  { type: "string", name: "href", label: "Destino (no cambiar sin apoyo técnico)" },
-                ],
-              },
-              {
-                type: "object",
                 name: "items",
-                label: "Soluciones y capacidades",
+                label: "Soluciones (aparecen en la portada)",
                 list: true,
                 ui: { itemProps: (item) => ({ label: item?.name }) },
                 fields: [
                   { type: "string", name: "slug", label: "URL de la página (no cambiar sin apoyo técnico)" },
-                  {
-                    type: "string",
-                    name: "tier",
-                    label: "Tipo",
-                    options: [
-                      { value: "principal", label: "Solución principal (aparece en la portada)" },
-                      { value: "capacidad", label: "Capacidad transversal (página secundaria)" },
-                    ],
-                  },
                   { type: "string", name: "name", label: "Nombre" },
                   { type: "string", name: "promise", label: "Promesa (frase corta)" },
                   { type: "string", name: "body", label: "Resumen (tarjeta)", ui: { component: "textarea" } },
@@ -251,7 +232,7 @@ export default defineConfig({
                 fields: [
                   { type: "string", name: "id", label: "Identificador (no cambiar sin apoyo técnico)" },
                   { type: "string", name: "name", label: "Nombre" },
-                  { type: "string", name: "role", label: "Rol (Ejecución, Operación, Servicio…)" },
+                  { type: "string", name: "role", label: "Rol (Técnica, Ejecución, Operación, Servicio…)" },
                   { type: "string", name: "body", label: "Resumen (tarjeta)", ui: { component: "textarea" } },
                   { type: "string", name: "href", label: "Destino (no cambiar sin apoyo técnico)" },
                   { type: "image", name: "photo", label: "Foto" },
@@ -259,7 +240,7 @@ export default defineConfig({
                     type: "object",
                     name: "detail",
                     label: "Detalle en la página Cómo lo hacemos",
-                    description: "Si la frase principal queda vacía, el diferencial solo se enlaza (caso Personalización).",
+                    description: "Aparece como sección en la página Cómo lo hacemos. Si la frase principal queda vacía, el diferencial solo se enlaza.",
                     fields: [
                       { type: "string", name: "claim", label: "Frase principal" },
                       { type: "string", name: "intro", label: "Introducción", ui: { component: "textarea" } },
@@ -307,7 +288,6 @@ export default defineConfig({
                     options: [
                       { value: "merch-corporativo", label: "Merch corporativo" },
                       { value: "eventos-btl", label: "Eventos & BTL" },
-                      { value: "personalizacion", label: "Personalización" },
                     ],
                   },
                   { type: "string", name: "title", label: "Titular del caso" },

@@ -6,9 +6,10 @@
   funcione igual en local y bajo el basePath de GitHub Pages.
 
   Arquitectura (diagnóstico UX 28-sep-2026):
-    Home en 9 bloques · Soluciones (2 principales + Personalización como
-    capacidad transversal) · Cómo lo hacemos (diferenciales) · Casos con
-    contexto · CTA único (primaryCta) repetido en todo el sitio.
+    Home en 9 bloques · Soluciones (Merch corporativo, Eventos & BTL) ·
+    Cómo lo hacemos (Personalización, Producción, Logística, Acompañamiento;
+    Personalización se movió aquí a pedido de Landing, 30-sep-2026) · Casos
+    con contexto · CTA único (primaryCta) repetido en todo el sitio.
 
   Voz del copy (brand book): clara, segura, específica y sobria.
   "Decimos: producción bajo control, personalización con propósito,
@@ -39,9 +40,6 @@ export type IncludeIcon =
 
 export type SolutionItem = {
   slug: string;
-  /* "principal" = card en la home (Merch, BTL); "capacidad" = página
-     secundaria transversal (Personalización). */
-  tier: "principal" | "capacidad";
   name: string;
   promise: string;
   body: string;
@@ -97,7 +95,6 @@ export type Content = {
     label: string;
     title: string;
     intro: string;
-    note: { text: string; label: string; href: string };
     items: SolutionItem[];
   };
   howWeWork: {
@@ -151,9 +148,6 @@ export function withAssetPaths<T>(value: T): T {
 }
 
 export const content: Content = withAssetPaths(site as Content);
-
-/* Soluciones principales (cards de la home) y capacidad transversal. */
-export const principalSolutions = (c: Content) => c.solutions.items.filter((s) => s.tier === "principal");
 
 /* Casos por slug, conservando el orden pedido (los que no existan se omiten). */
 export function casesBySlug(c: Content, slugs: string[]): CaseItem[] {

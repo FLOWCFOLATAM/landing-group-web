@@ -22,10 +22,6 @@
           {
             "label": "Eventos & BTL",
             "href": "/soluciones/eventos-btl/"
-          },
-          {
-            "label": "Personalización",
-            "href": "/soluciones/personalizacion/"
           }
         ]
       },
@@ -33,6 +29,10 @@
         "label": "Cómo lo hacemos",
         "href": "/#como-lo-hacemos",
         "children": [
+          {
+            "label": "Personalización",
+            "href": "/como-lo-hacemos/#personalizacion"
+          },
           {
             "label": "Producción bajo control",
             "href": "/como-lo-hacemos/#produccion"
@@ -93,15 +93,9 @@
     "label": "Soluciones",
     "title": "Presencia tangible para tu marca.",
     "intro": "Dos frentes, un mismo estándar: piezas que la gente conserva y experiencias que se pueden tocar.",
-    "note": {
-      "text": "La personalización atraviesa ambas: técnica, material y acabado según cada marca.",
-      "label": "Ver personalización",
-      "href": "/soluciones/personalizacion/"
-    },
     "items": [
       {
         "slug": "merch-corporativo",
-        "tier": "principal",
         "name": "Merch corporativo",
         "promise": "Piezas que la gente conserva.",
         "body": "Textiles, accesorios y kits de campaña con materiales y acabados bajo control.",
@@ -133,7 +127,7 @@
           {
             "title": "Personalización",
             "text": "Elegimos la técnica según el material, el uso y el presupuesto.",
-            "href": "/soluciones/personalizacion/"
+            "href": "/como-lo-hacemos/#personalizacion"
           },
           {
             "title": "Producción bajo control",
@@ -160,7 +154,6 @@
       },
       {
         "slug": "eventos-btl",
-        "tier": "principal",
         "name": "Eventos & BTL",
         "promise": "La marca, en el mundo real.",
         "body": "Activaciones, montajes y piezas de gran formato, coordinados de punta a punta.",
@@ -202,7 +195,7 @@
           {
             "title": "Personalización",
             "text": "Gráfica aplicada según el soporte y la distancia de lectura.",
-            "href": "/soluciones/personalizacion/"
+            "href": "/como-lo-hacemos/#personalizacion"
           },
           {
             "title": "Acompañamiento",
@@ -215,59 +208,6 @@
           "tres-cruces",
           "red-bull"
         ]
-      },
-      {
-        "slug": "personalizacion",
-        "tier": "capacidad",
-        "name": "Personalización",
-        "promise": "La técnica correcta para cada pieza.",
-        "body": "Técnicas, materiales y formatos adaptados a cada marca, en merch y en BTL.",
-        "photo": "/brand/svc-personalizacion.webp",
-        "solves": "Cada material pide una técnica distinta. Definimos cómo aplicar tu marca para que se vea bien, dure y se mantenga fiel a tu identidad, en cualquier pieza de merch o BTL.",
-        "includes": [
-          {
-            "icon": "bordado",
-            "title": "Bordado plano y 3D",
-            "text": "Para textiles de uso intensivo que tienen que durar."
-          },
-          {
-            "icon": "serigrafia",
-            "title": "Serigrafía y sublimación",
-            "text": "Para tirajes grandes con color estable."
-          },
-          {
-            "icon": "uv",
-            "title": "Impresión UV directa",
-            "text": "Sobre rígidos: coolers, drinkware y acrílicos."
-          },
-          {
-            "icon": "prueba",
-            "title": "Pruebas documentadas",
-            "text": "Prueba de aplicación aprobada antes de cada tiraje."
-          }
-        ],
-        "how": [
-          {
-            "title": "Merch corporativo",
-            "text": "La técnica adecuada para cada textil, accesorio y kit.",
-            "href": "/soluciones/merch-corporativo/"
-          },
-          {
-            "title": "Eventos & BTL",
-            "text": "Gráfica para gran formato y piezas de activación.",
-            "href": "/soluciones/eventos-btl/"
-          },
-          {
-            "title": "Producción bajo control",
-            "text": "Cada aplicación se prueba y se revisa antes del tiraje.",
-            "href": "/como-lo-hacemos/#produccion"
-          }
-        ],
-        "cases": [
-          "amoramar",
-          "johnnie-walker",
-          "swan"
-        ]
       }
     ]
   },
@@ -276,20 +216,34 @@
     "title": "Lo que sostiene cada entrega.",
     "intro": "Cuatro capacidades que trabajan detrás de cada proyecto de merch o BTL.",
     "pageTitle": "Lo que no dejamos al azar.",
-    "pageIntro": "Detrás de cada pieza y de cada activación hay tres cosas que no dejamos al azar: cómo se produce, cómo llega y quién responde. La personalización las atraviesa a todas.",
+    "pageIntro": "Detrás de cada pieza y de cada activación hay cuatro cosas que no dejamos al azar: cómo se aplica tu marca, cómo se produce, cómo llega y quién responde.",
     "items": [
       {
         "id": "personalizacion",
         "name": "Personalización",
-        "role": "Transversal",
+        "role": "Técnica",
         "body": "Técnicas, materiales y formatos adaptados a cada marca.",
-        "href": "/soluciones/personalizacion/",
+        "href": "/como-lo-hacemos/#personalizacion",
         "photo": "/brand/svc-personalizacion.webp",
         "detail": {
-          "claim": "",
-          "intro": "",
-          "bullets": [],
-          "gallery": []
+          "claim": "La técnica correcta para cada pieza.",
+          "intro": "No todas las marcas se aplican igual. Elegimos la técnica según el material, el uso y el presupuesto —lo que va bordado va bordado, lo que va serigrafiado va serigrafiado— en cada pieza de merch corporativo y de eventos & BTL.",
+          "bullets": [
+            "Bordado plano y 3D para textiles de uso intensivo.",
+            "Serigrafía y sublimación para tirajes grandes con color estable.",
+            "Impresión UV directa sobre rígidos: coolers, drinkware y acrílicos.",
+            "Prueba de aplicación aprobada antes de cada tiraje."
+          ],
+          "gallery": [
+            {
+              "src": "/brand/work-johnniewalker.webp",
+              "alt": "Set de cartas personalizado para Johnnie Walker"
+            },
+            {
+              "src": "/brand/work-heineken.webp",
+              "alt": "Bucket hat con aplicación de marca para Heineken"
+            }
+          ]
         }
       },
       {
@@ -439,7 +393,7 @@
         "slug": "amoramar",
         "brand": "Amoramar",
         "category": "Personalización",
-        "solution": "personalizacion",
+        "solution": "merch-corporativo",
         "title": "Un uniforme con la filosofía de la marca",
         "need": "Vestir al equipo con una pieza que transmita su forma de trabajar.",
         "answer": "Delantal personalizado con la frase “Sabemos amar” como aplicación central.",
@@ -509,7 +463,7 @@
         "slug": "johnnie-walker",
         "brand": "Johnnie Walker",
         "category": "Personalización",
-        "solution": "personalizacion",
+        "solution": "merch-corporativo",
         "title": "Un objeto de marca para compartir",
         "need": "Una pieza promocional que genere un momento de uso con la marca presente.",
         "answer": "Set de cartas personalizado, concebido como objeto de marca y entretenimiento.",
@@ -746,16 +700,16 @@
           {
             "label": "Eventos & BTL",
             "href": "/soluciones/eventos-btl/"
-          },
-          {
-            "label": "Personalización",
-            "href": "/soluciones/personalizacion/"
           }
         ]
       },
       {
         "title": "Cómo lo hacemos",
         "links": [
+          {
+            "label": "Personalización",
+            "href": "/como-lo-hacemos/#personalizacion"
+          },
           {
             "label": "Producción bajo control",
             "href": "/como-lo-hacemos/#produccion"
