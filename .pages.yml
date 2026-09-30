@@ -417,18 +417,16 @@ content:
           - name: body
             label: "Texto"
             type: text
-          - name: contactLabel
-            label: "Etiqueta del contacto directo"
-            type: string
       - name: contact
-        label: "Página Hablemos (formulario)"
+        label: "Contacto (WhatsApp, correo y redes)"
         type: object
+        description: "Estos datos alimentan los botones de WhatsApp y correo del cierre y de la página Contáctanos. Las redes del pie de página se editan en «Pie de página»."
         fields:
           - name: label
-            label: "Etiqueta"
+            label: "Etiqueta de la página"
             type: string
           - name: title
-            label: "Título"
+            label: "Título de la página"
             type: string
           - name: script
             label: "Frase manuscrita"
@@ -436,36 +434,29 @@ content:
           - name: intro
             label: "Introducción"
             type: text
-          - name: needs
-            label: "Opciones de «¿Qué necesita tu marca?»"
-            type: string
-            list: true
-          - name: slots
-            label: "Horarios disponibles"
-            type: string
-            list: true
-          - name: email
-            label: "Correo que recibe las solicitudes"
-            type: string
           - name: whatsapp
-            label: "WhatsApp (opcional)"
+            label: "WhatsApp comercial"
             type: string
-            description: "Número con código de país, solo dígitos (ej. 51999999999). Vacío = no se muestra."
+            description: "Número con código de país, solo dígitos (ej. 51923290835). Vacío = no se muestra el botón."
+          - name: whatsappMessage
+            label: "Mensaje inicial de WhatsApp"
+            type: text
+            description: "Texto que aparece escrito al abrir el chat (el cliente puede cambiarlo antes de enviar)."
+          - name: email
+            label: "Correo comercial"
+            type: string
+          - name: emailSubject
+            label: "Asunto sugerido del correo"
+            type: string
           - name: instagram
             label: "Instagram (URL)"
+            type: string
+          - name: linkedin
+            label: "LinkedIn (URL)"
             type: string
           - name: response
             label: "Expectativa de respuesta"
             type: string
-          - name: confirmTitle
-            label: "Título de la confirmación"
-            type: string
-          - name: confirmBody
-            label: "Texto de la confirmación"
-            type: text
-          - name: disclaimer
-            label: "Nota bajo el botón"
-            type: text
       - name: footer
         label: "Pie de página"
         type: object

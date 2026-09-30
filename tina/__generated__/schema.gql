@@ -262,7 +262,6 @@ type SiteStats {
 type SiteCta {
   title: String
   body: String
-  contactLabel: String
 }
 
 type SiteContact {
@@ -270,15 +269,13 @@ type SiteContact {
   title: String
   script: String
   intro: String
-  needs: [String]
-  slots: [String]
-  email: String
   whatsapp: String
+  whatsappMessage: String
+  email: String
+  emailSubject: String
   instagram: String
+  linkedin: String
   response: String
-  confirmTitle: String
-  confirmBody: String
-  disclaimer: String
 }
 
 type SiteFooterColumnsLinks {
@@ -505,7 +502,6 @@ input SiteStatsFilter {
 input SiteCtaFilter {
   title: StringFilter
   body: StringFilter
-  contactLabel: StringFilter
 }
 
 input SiteContactFilter {
@@ -513,15 +509,13 @@ input SiteContactFilter {
   title: StringFilter
   script: StringFilter
   intro: StringFilter
-  needs: StringFilter
-  slots: StringFilter
-  email: StringFilter
   whatsapp: StringFilter
+  whatsappMessage: StringFilter
+  email: StringFilter
+  emailSubject: StringFilter
   instagram: StringFilter
+  linkedin: StringFilter
   response: StringFilter
-  confirmTitle: StringFilter
-  confirmBody: StringFilter
-  disclaimer: StringFilter
 }
 
 input SiteFooterColumnsLinksFilter {
@@ -761,7 +755,6 @@ input SiteStatsMutation {
 input SiteCtaMutation {
   title: String
   body: String
-  contactLabel: String
 }
 
 input SiteContactMutation {
@@ -769,15 +762,13 @@ input SiteContactMutation {
   title: String
   script: String
   intro: String
-  needs: [String]
-  slots: [String]
-  email: String
   whatsapp: String
+  whatsappMessage: String
+  email: String
+  emailSubject: String
   instagram: String
+  linkedin: String
   response: String
-  confirmTitle: String
-  confirmBody: String
-  disclaimer: String
 }
 
 input SiteFooterColumnsLinksMutation {

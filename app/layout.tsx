@@ -73,7 +73,8 @@ const organizationLd = {
   url: siteUrl,
   logo: `${siteUrl}/brand/logo-black.png`,
   email: content.contact.email,
-  sameAs: [content.contact.instagram].filter(Boolean),
+  telephone: content.contact.whatsapp ? `+${content.contact.whatsapp.replace(/\D/g, "")}` : undefined,
+  sameAs: [content.contact.instagram, content.contact.linkedin].filter(Boolean),
   areaServed: "PE",
   slogan: content.brand.tagline,
 };

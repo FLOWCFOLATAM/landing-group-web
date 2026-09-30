@@ -383,33 +383,37 @@ var config_default = defineConfig({
             label: "Bloque final de contacto",
             fields: [
               { type: "string", name: "title", label: "Mensaje comercial" },
-              { type: "string", name: "body", label: "Texto", ui: { component: "textarea" } },
-              { type: "string", name: "contactLabel", label: "Etiqueta del contacto directo" }
+              { type: "string", name: "body", label: "Texto", ui: { component: "textarea" } }
             ]
           },
           {
             type: "object",
             name: "contact",
-            label: "P\xE1gina Hablemos (formulario)",
+            label: "Contacto (WhatsApp, correo y redes)",
+            description: "Estos datos alimentan los botones de WhatsApp y correo del cierre y de la p\xE1gina Cont\xE1ctanos. Las redes del pie de p\xE1gina se editan en \xABPie de p\xE1gina\xBB.",
             fields: [
-              { type: "string", name: "label", label: "Etiqueta" },
-              { type: "string", name: "title", label: "T\xEDtulo" },
+              { type: "string", name: "label", label: "Etiqueta de la p\xE1gina" },
+              { type: "string", name: "title", label: "T\xEDtulo de la p\xE1gina" },
               { type: "string", name: "script", label: "Frase manuscrita" },
               { type: "string", name: "intro", label: "Introducci\xF3n", ui: { component: "textarea" } },
-              { type: "string", name: "needs", label: "Opciones de \xAB\xBFQu\xE9 necesita tu marca?\xBB", list: true },
-              { type: "string", name: "slots", label: "Horarios disponibles", list: true },
-              { type: "string", name: "email", label: "Correo que recibe las solicitudes" },
               {
                 type: "string",
                 name: "whatsapp",
-                label: "WhatsApp (opcional)",
-                description: "N\xFAmero con c\xF3digo de pa\xEDs, solo d\xEDgitos (ej. 51999999999). Vac\xEDo = no se muestra."
+                label: "WhatsApp comercial",
+                description: "N\xFAmero con c\xF3digo de pa\xEDs, solo d\xEDgitos (ej. 51923290835). Vac\xEDo = no se muestra el bot\xF3n."
               },
+              {
+                type: "string",
+                name: "whatsappMessage",
+                label: "Mensaje inicial de WhatsApp",
+                description: "Texto que aparece escrito al abrir el chat (el cliente puede cambiarlo antes de enviar).",
+                ui: { component: "textarea" }
+              },
+              { type: "string", name: "email", label: "Correo comercial" },
+              { type: "string", name: "emailSubject", label: "Asunto sugerido del correo" },
               { type: "string", name: "instagram", label: "Instagram (URL)" },
-              { type: "string", name: "response", label: "Expectativa de respuesta" },
-              { type: "string", name: "confirmTitle", label: "T\xEDtulo de la confirmaci\xF3n" },
-              { type: "string", name: "confirmBody", label: "Texto de la confirmaci\xF3n", ui: { component: "textarea" } },
-              { type: "string", name: "disclaimer", label: "Nota bajo el bot\xF3n", ui: { component: "textarea" } }
+              { type: "string", name: "linkedin", label: "LinkedIn (URL)" },
+              { type: "string", name: "response", label: "Expectativa de respuesta" }
             ]
           },
           {

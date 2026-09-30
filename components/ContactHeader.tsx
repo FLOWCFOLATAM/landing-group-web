@@ -5,7 +5,7 @@ import Reveal from "./Reveal";
 import SplitWords from "./SplitWords";
 import MarkerStroke from "./MarkerStroke";
 
-/* Cabecera de /hablemos (lee el contenido en vivo del CMS). */
+/* Cabecera de /contacto (lee el contenido en vivo del CMS). */
 export default function ContactHeader() {
   const { contact } = useContent();
   return (

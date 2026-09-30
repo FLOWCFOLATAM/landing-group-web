@@ -790,14 +790,3 @@ html[data-cursor-on] .cursor {
     height: min(240px, 27svh);
   }
 }
-
-/* Formulario de /hablemos: la columna "Tus datos" (con el botón de envío)
-   solo se fija al hacer scroll si la pantalla es lo bastante alta para
-   mostrarla entera; en pantallas bajas fluye normal y el botón siempre se
-   alcanza. */
-@media (min-width: 1024px) and (min-height: 900px) {
-  .lead-aside {
-    position: sticky;
-    top: 6rem;
-  }
-}

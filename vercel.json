@@ -4,12 +4,22 @@
   "redirects": [
     {
       "source": "/agenda",
-      "destination": "/hablemos/",
+      "destination": "/contacto/",
       "permanent": false
     },
     {
       "source": "/agenda/",
-      "destination": "/hablemos/",
+      "destination": "/contacto/",
+      "permanent": false
+    },
+    {
+      "source": "/hablemos",
+      "destination": "/contacto/",
+      "permanent": false
+    },
+    {
+      "source": "/hablemos/",
+      "destination": "/contacto/",
       "permanent": false
     },
     {

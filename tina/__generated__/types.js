@@ -170,7 +170,6 @@ export const SitePartsFragmentDoc = gql`
     __typename
     title
     body
-    contactLabel
   }
   contact {
     __typename
@@ -178,15 +177,13 @@ export const SitePartsFragmentDoc = gql`
     title
     script
     intro
-    needs
-    slots
-    email
     whatsapp
+    whatsappMessage
+    email
+    emailSubject
     instagram
+    linkedin
     response
-    confirmTitle
-    confirmBody
-    disclaimer
   }
   footer {
     __typename

@@ -6,8 +6,8 @@
     "tagline": "You think it, we land it."
   },
   "primaryCta": {
-    "label": "Agenda una reunión",
-    "href": "/hablemos/"
+    "label": "Contáctanos",
+    "href": "/contacto/"
   },
   "nav": {
     "links": [
@@ -719,36 +719,20 @@
   },
   "cta": {
     "title": "Cuéntanos qué necesita tu marca.",
-    "body": "Te enviamos una propuesta clara —alcance, materiales y tiempos— y agendamos 30 minutos para revisarla contigo.",
-    "contactLabel": "¿Prefieres escribirnos?"
+    "body": "Escríbenos por WhatsApp o por correo y te enviamos una propuesta clara: alcance, materiales y tiempos."
   },
   "contact": {
-    "label": "Hablemos",
-    "title": "Agenda una reunión.",
+    "label": "Contacto",
+    "title": "Contáctanos.",
     "script": "You think it, we land it.",
-    "intro": "Cuéntanos qué necesita tu marca. En 30 minutos revisamos alcance, materiales y tiempos, y sales con los siguientes pasos claros.",
-    "needs": [
-      "Merch corporativo",
-      "Eventos & BTL",
-      "Personalización",
-      "Otro"
-    ],
-    "slots": [
-      "09:00",
-      "10:00",
-      "11:00",
-      "12:00",
-      "15:00",
-      "16:00",
-      "17:00"
-    ],
-    "email": "marketing@grupolanding.pe",
-    "whatsapp": "",
+    "intro": "Cuéntanos qué necesita tu marca: qué quieres producir, para cuándo y en qué volumen. Te respondemos con los siguientes pasos claros.",
+    "whatsapp": "51923290835",
+    "whatsappMessage": "Hola, Landing Group. Quiero conversar sobre un proyecto para mi marca.",
+    "email": "comercial@grupolanding.pe",
+    "emailSubject": "Proyecto para mi marca",
     "instagram": "https://www.instagram.com/somoslanding/",
-    "response": "Te respondemos el mismo día hábil.",
-    "confirmTitle": "Solicitud lista.",
-    "confirmBody": "Se abrió tu correo con la solicitud completa. Envíala y te confirmamos la reunión el mismo día hábil.",
-    "disclaimer": "Al enviar se abrirá tu correo con los datos listos. Solo usamos tu información para responder a esta solicitud."
+    "linkedin": "https://www.linkedin.com/company/grupolanding/",
+    "response": "Te respondemos el mismo día hábil."
   },
   "footer": {
     "columns": [
@@ -798,8 +782,8 @@
             "href": "/#proceso"
           },
           {
-            "label": "Hablemos",
-            "href": "/hablemos/"
+            "label": "Contacto",
+            "href": "/contacto/"
           }
         ]
       },
@@ -807,12 +791,20 @@
         "title": "Contacto",
         "links": [
           {
-            "label": "marketing@grupolanding.pe",
-            "href": "mailto:marketing@grupolanding.pe"
+            "label": "comercial@grupolanding.pe",
+            "href": "mailto:comercial@grupolanding.pe"
+          },
+          {
+            "label": "WhatsApp +51 923 290 835",
+            "href": "https://wa.me/51923290835"
           },
           {
             "label": "Instagram",
             "href": "https://www.instagram.com/somoslanding/"
+          },
+          {
+            "label": "LinkedIn",
+            "href": "https://www.linkedin.com/company/grupolanding/"
           }
         ]
       }

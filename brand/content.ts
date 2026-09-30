@@ -112,21 +112,21 @@ export type Content = {
   works: { label: string; items: WorkItem[] };
   process: { label: string; title: string; steps: { n: string; title: string; body: string }[] };
   stats: { label: string; title: string; intro: string; items: { value: string; label: string }[] };
-  cta: { title: string; body: string; contactLabel: string };
+  cta: { title: string; body: string };
+  /* Contacto directo (decisión de Landing, 29-sep-2026): sin formularios ni
+     agenda; dos canales — WhatsApp y correo comercial. */
   contact: {
     label: string;
     title: string;
     script: string;
     intro: string;
-    needs: string[];
-    slots: string[];
-    email: string;
     whatsapp: string;
+    whatsappMessage: string;
+    email: string;
+    emailSubject: string;
     instagram: string;
+    linkedin: string;
     response: string;
-    confirmTitle: string;
-    confirmBody: string;
-    disclaimer: string;
   };
   footer: { columns: { title: string; links: Link[] }[]; note: string };
 };
@@ -164,3 +164,23 @@ export function casesBySlug(c: Content, slugs: string[]): CaseItem[] {
 
 /* Cantidad de casos que muestra la home (los primeros de la lista). */
 export const HOME_CASES = 6;
+
+/* Enlaces de contacto directo, construidos desde el CMS. */
+export function whatsappHref(c: Content["contact"]) {
+  const digits = c.whatsapp.replace(/\D/g, "");
+  if (!digits) return "";
+  const text = c.whatsappMessage.trim();
+  return `https://wa.me/${digits}${text ? `?text=${encodeURIComponent(text)}` : ""}`;
+}
+
+/* "51923290835" → "+51 923 290 835" (formato peruano; otros, tal cual). */
+export function whatsappDisplay(c: Content["contact"]) {
+  const d = c.whatsapp.replace(/\D/g, "");
+  if (d.length === 11 && d.startsWith("51")) return `+51 ${d.slice(2, 5)} ${d.slice(5, 8)} ${d.slice(8)}`;
+  return d ? `+${d}` : "";
+}
+
+export function mailtoHref(c: Content["contact"]) {
+  const subject = c.emailSubject.trim();
+  return `mailto:${c.email}${subject ? `?subject=${encodeURIComponent(subject)}` : ""}`;
+}

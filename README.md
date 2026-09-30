@@ -12,9 +12,9 @@ Sitio comercial de Landing Group. Arquitectura según el diagnóstico UX del
   acompañamiento como diferenciales.
 - **Trabajos** (`/trabajos/` y `/trabajos/[slug]/`): casos con contexto
   (marca → necesidad → solución → imagen) + galería de piezas.
-- **Hablemos** (`/hablemos/`): formulario comercial + agenda. Es el destino
-  del **CTA único** («Agenda una reunión»), definido una sola vez en
-  `primaryCta`.
+- **Contacto** (`/contacto/`): botones directos de WhatsApp y correo
+  comercial (sin formularios ni agenda). Es el destino del **CTA único**
+  («Contáctanos»), definido una sola vez en `primaryCta`.
 
 ## Sitio público
 
@@ -61,7 +61,7 @@ guardar se hace commit y el sitio se republica solo.
 ## Editar el contenido con formularios (alternativa: Pages CMS)
 
 Todo el contenido editable del sitio (textos, soluciones, diferenciales,
-casos, galería, formulario, pie de página) vive en **`content/site.json`**, y el
+casos, galería, contacto, pie de página) vive en **`content/site.json`**, y el
 esquema **`.pages.yml`** lo expone como formularios amigables en
 [Pages CMS](https://pagescms.org).
 

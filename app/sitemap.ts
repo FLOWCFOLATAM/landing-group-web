@@ -13,7 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/como-lo-hacemos/",
     "/trabajos/",
     ...content.cases.items.map((c) => `/trabajos/${c.slug}/`),
-    "/hablemos/",
+    "/contacto/",
   ];
   return paths.map((path) => ({
     url: `${siteUrl}${path}`,

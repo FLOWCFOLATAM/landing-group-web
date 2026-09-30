@@ -162,7 +162,6 @@ fragment SiteParts on Site {
     __typename
     title
     body
-    contactLabel
   }
   contact {
     __typename
@@ -170,15 +169,13 @@ fragment SiteParts on Site {
     title
     script
     intro
-    needs
-    slots
-    email
     whatsapp
+    whatsappMessage
+    email
+    emailSubject
     instagram
+    linkedin
     response
-    confirmTitle
-    confirmBody
-    disclaimer
   }
   footer {
     __typename

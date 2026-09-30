@@ -3,18 +3,19 @@ import { content } from "@/brand/content";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import ContactHeader from "@/components/ContactHeader";
-import LeadForm from "@/components/LeadForm";
+import ContactPageBody from "@/components/ContactPageBody";
 import ContentProvider from "@/components/ContentProvider";
 import { getSiteTina } from "@/brand/tina";
 
 export const metadata: Metadata = {
-  title: "Agenda una reunión — LANDING GROUP",
+  title: "Contáctanos — LANDING GROUP",
   description: content.contact.intro,
-  alternates: { canonical: "/hablemos/" },
+  alternates: { canonical: "/contacto/" },
 };
 
-/* Destino del CTA único: formulario comercial + agenda + confirmación. */
-export default async function HablemosPage() {
+/* Destino del CTA único («Contáctanos»): contacto directo por WhatsApp o
+   correo comercial. Sin formularios ni agenda (decisión de Landing). */
+export default async function ContactoPage() {
   const tina = await getSiteTina();
   return (
     <ContentProvider tina={tina}>
@@ -22,9 +23,7 @@ export default async function HablemosPage() {
       <main className="telon-main">
         <section className="mx-auto w-full max-w-[1200px] px-5 pb-24 pt-32 sm:px-8">
           <ContactHeader />
-          <div className="mt-12">
-            <LeadForm />
-          </div>
+          <ContactPageBody />
         </section>
       </main>
       <Footer />
