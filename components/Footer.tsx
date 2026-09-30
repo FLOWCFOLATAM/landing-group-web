@@ -97,10 +97,10 @@ export default function Footer() {
           <span>{content.footer.note}</span>
         </div>
 
-        {/* Firma del creador: enlaza al sitio de Flow (el producto). */}
+        {/* Firma del creador: enlaza a Flow MKT (flow-mkt.com). */}
         <div className="mt-8 flex justify-center">
           <a
-            href="https://flow-cfo.com"
+            href="https://flow-mkt.com"
             target="_blank"
             rel="noreferrer"
             className="group inline-flex min-h-[44px] items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-paper/60 transition-colors hover:text-paper/90"

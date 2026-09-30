@@ -9,8 +9,8 @@ import TiltCard from "./TiltCard";
 /* Bloque 03 — SOLUCIONES: Merch corporativo y Eventos & BTL. La
    Personalización vive en «Cómo lo hacemos» (decisión de Landing, 30-sep). */
 const SURFACE = [
-  { bg: "color-mix(in srgb, var(--brand-accent) 8%, var(--brand-white))", accent: "var(--brand-accent)" },
-  { bg: "color-mix(in srgb, var(--brand-sand) 45%, var(--brand-white))", accent: "var(--brand-ink)" },
+  { bg: "color-mix(in srgb, var(--brand-accent) 8%, var(--brand-white))" },
+  { bg: "color-mix(in srgb, var(--brand-sand) 45%, var(--brand-white))" },
 ] as const;
 
 export default function Solutions() {
@@ -54,13 +54,7 @@ export default function Solutions() {
                       />
                     </div>
                     <div className="flex flex-1 flex-col p-7 sm:p-9">
-                      <span
-                        className="text-[12px] uppercase tracking-[0.2em] [font-weight:600]"
-                        style={{ color: surface.accent }}
-                      >
-                        Solución {String(i + 1).padStart(2, "0")}
-                      </span>
-                      <h3 className="display mt-3 text-[clamp(2.2rem,3.6vw,3rem)] leading-[0.92]">{item.name}</h3>
+                      <h3 className="display text-[clamp(2.2rem,3.6vw,3rem)] leading-[0.92]">{item.name}</h3>
                       <p className="display mt-2 text-[clamp(1.15rem,1.6vw,1.4rem)] leading-[1.05] text-accent">
                         {item.promise}
                       </p>
@@ -76,7 +70,7 @@ export default function Solutions() {
                         ))}
                       </ul>
                       <span className="mt-auto inline-flex items-center gap-2 pt-8 text-[12px] uppercase tracking-[0.16em] text-accent [font-weight:600]">
-                        Ver solución
+                        Más información
                         <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1.5">
                           →
                         </span>
