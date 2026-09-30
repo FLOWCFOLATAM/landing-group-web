@@ -14,7 +14,7 @@ rediseñar la identidad visual**. Rama: `ux-arquitectura`.
 | Diferenciales | Producción bajo control, Logística y entregas, Acompañamiento (+ Personalización) → bloque 04 de la home y página `/como-lo-hacemos/` con el contenido de las antiguas páginas de servicio (no se elimina nada). |
 | Casos | 8 casos con contexto (marca → necesidad → solución → imagen → Ver proyecto). La home muestra los 6 primeros; `/trabajos/` muestra los 8 + la galería de 15 piezas. Cada caso tiene ficha breve en `/trabajos/[slug]/`. **Textos de casos redactados a partir de las descripciones existentes: Landing debe validarlos (editables en Tina).** |
 | Contacto | **Sin formularios ni agenda** (decisión de Landing, 29-09-2026). Dos canales directos: **WhatsApp +51 923 290 835** y **comercial@grupolanding.pe**, en `/contacto/` y en el cierre de la home (`components/ContactOptions.tsx`). Redes en el footer: Instagram y LinkedIn (sin Twitter por ahora). |
-| URLs viejas | `vercel.json` redirige `/agenda` y `/hablemos` → `/contacto/`, y `/servicios/*` → su nuevo hogar. |
+| URLs viejas | `vercel.json` redirige (308, permanentes desde la aprobación del 29-09-2026) `/agenda` y `/hablemos` → `/contacto/`, y `/servicios/*` → su nuevo hogar. |
 | Retirado de la home | Frase editorial («Las grandes marcas nacen de los detalles») y la franja «Selección destacada»: no están en los 9 bloques. La cinta (marquee) queda como cierre visual del hero. |
 
 ## 2. Home — 9 bloques (orden exacto)
