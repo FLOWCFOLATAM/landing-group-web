@@ -142,7 +142,7 @@ export default function CaseDetail({ slug }: { slug: string }) {
         <Reveal>
           <h2 className="display text-[clamp(2rem,4vw,3.2rem)] leading-[0.95]">Otros proyectos</h2>
         </Reveal>
-        <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {others.map((other, i) => (
             <li key={other.slug} className="h-full">
               <Reveal delay={i * 90} className="h-full">

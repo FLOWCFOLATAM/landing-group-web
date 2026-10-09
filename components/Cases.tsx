@@ -38,7 +38,7 @@ export default function Cases() {
           </div>
         </Reveal>
 
-        <ul className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {items.slice(0, HOME_CASES).map((item, i) => (
             <li key={item.slug} className="h-full">
               <Reveal delay={(i % 3) * 90} className="h-full">
@@ -86,7 +86,7 @@ export function WorksPageBody() {
           <h2 className="mt-16 text-[12px] uppercase tracking-[0.2em] text-ink/70 [font-weight:600]">
             Casos · {items.length}
           </h2>
-          <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {items.map((item, i) => (
               <li key={item.slug} className="h-full">
                 <Reveal delay={(i % 3) * 90} className="h-full">
