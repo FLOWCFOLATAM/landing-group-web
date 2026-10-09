@@ -42,7 +42,7 @@ export default function SplitWords({
 
   return (
     <span ref={ref} className={`${className} ${visible ? "is-visible" : ""}`}>
-      {text.split(" ").map((word, i) => (
+      {text.split(" ").map((word, i, words) => (
         <span key={i} className="split-line">
           <span
             className={`split-word ${accentSet.has(normalized(word)) ? "text-accent" : ""}`}
@@ -50,6 +50,12 @@ export default function SplitWords({
           >
             {word}
           </span>
+          {/* Espacio real entre palabras para quien lee el HTML sin estilos
+              (buscadores, asistentes de IA, lectores de pantalla): «Merch
+              corporativo» y no «Merchcorporativo». Va al final de la línea
+              dentro del inline-block, donde el navegador lo colapsa: no ocupa
+              ancho, así que el diseño no cambia. */}
+          {i < words.length - 1 ? " " : null}
         </span>
       ))}
     </span>

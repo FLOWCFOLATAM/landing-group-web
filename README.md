@@ -34,8 +34,10 @@ npm run lint
 npm run build
 ```
 
-Cada actualización de `main` se compila y publica automáticamente mediante
-GitHub Pages.
+Cada actualización de `main` se compila y publica automáticamente en Vercel
+(proyecto `landing-group-web`, dominio `grupolanding.com`). GitHub Pages se
+retiró el 9-oct-2026: duplicaba el sitio y competía con el dominio real en los
+buscadores. SEO/GEO: ver `docs/seo-geo-2026-10.md`.
 
 ## Edición visual con TinaCMS (recomendada)
 
@@ -50,10 +52,11 @@ guardar se hace commit y el sitio se republica solo.
   1. Crear proyecto gratuito en [app.tina.io](https://app.tina.io) → *Connect
      to GitHub* → elegir `landing-group-web` (branch `main`).
   2. Copiar el **Client ID** y un **Read-only token** del proyecto.
-  3. En GitHub: Settings → Secrets and variables → Actions → agregar
-     `NEXT_PUBLIC_TINA_CLIENT_ID` y `TINA_TOKEN`.
-  4. Re-ejecutar el workflow de Pages. El editor queda vivo en
-     `https://flow-2024-ai.github.io/landing-group-web/admin/index.html`.
+  3. En Vercel (proyecto `landing-group-web` → Settings → Environment
+     Variables) agregar `NEXT_PUBLIC_TINA_CLIENT_ID` y `TINA_TOKEN`. El token
+     debe crearse con acceso a la rama `main`.
+  4. Redesplegar. El editor queda vivo en `https://grupolanding.com/admin/`
+     (con la barra final: `/admin`, sin barra, no abre).
   5. En app.tina.io → Project → Users, invitar al correo del cliente (tier
      gratuito: 2 usuarios). Entra con ese login, sin cuenta de GitHub.
 

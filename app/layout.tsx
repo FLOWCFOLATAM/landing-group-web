@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { Barlow_Condensed, Inter, Caveat } from "next/font/google";
 import { content } from "@/brand/content";
+import { SITE_URL, metaHome, siteGraph } from "@/brand/seo";
+import JsonLd from "@/components/JsonLd";
 import Cursor from "@/components/Cursor";
 import PageDirector from "@/components/PageDirector";
 import "./globals.css";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://grupolanding.com";
 /* Espejo de revisión (preview.grupolanding.com): se sirve igual pero no se
    indexa, para no duplicar el sitio en buscadores. */
 const isPreview = process.env.NEXT_PUBLIC_SITE_ENV === "preview";
@@ -31,13 +32,21 @@ const script = Caveat({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
-  title: `${content.brand.name} ${content.brand.group} — ${content.brand.tagline}`,
-  description: content.hero.sub,
+  metadataBase: new URL(SITE_URL),
+  title: metaHome.title,
+  description: metaHome.description,
   alternates: {
     canonical: "/",
   },
-  ...(isPreview ? { robots: { index: false, follow: false } } : {}),
+  /* Producción: se permiten vistas previas grandes y fragmentos sin límite
+     (buscadores y asistentes de IA pueden citar). El espejo de revisión no se indexa. */
+  robots: isPreview
+    ? { index: false, follow: false }
+    : {
+        index: true,
+        follow: true,
+        googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 },
+      },
   keywords: [
     "merchandising corporativo",
     "merch Perú",
@@ -64,20 +73,6 @@ export const metadata: Metadata = {
   },
 };
 
-/* Datos estructurados de la organización (SEO técnico, segunda fase). */
-const organizationLd = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: `${content.brand.name} ${content.brand.group}`,
-  legalName: content.brand.legal,
-  url: siteUrl,
-  logo: `${siteUrl}/brand/logo-black.png`,
-  email: content.contact.email,
-  sameAs: [content.contact.instagram, content.contact.linkedin].filter(Boolean),
-  areaServed: "PE",
-  slogan: content.brand.tagline,
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -85,7 +80,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="es"
+      lang="es-PE"
       suppressHydrationWarning
       className={`${display.variable} ${body.variable} ${script.variable} antialiased`}
     >
@@ -96,10 +91,7 @@ export default function RootLayout({
             __html: "document.documentElement.classList.add('js');",
           }}
         />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationLd) }}
-        />
+        <JsonLd data={siteGraph()} />
         {children}
         <Cursor />
         <PageDirector />

@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
-import { content } from "@/brand/content";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import ContentProvider from "@/components/ContentProvider";
 import { WorksPageBody } from "@/components/Cases";
 import { getSiteTina } from "@/brand/tina";
+import { metaWorks, worksGraph } from "@/brand/seo";
+import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Trabajos — LANDING GROUP",
-  description: content.cases.intro,
+  ...metaWorks,
   alternates: { canonical: "/trabajos/" },
 };
 
@@ -20,6 +20,7 @@ export default async function TrabajosPage() {
       <Nav />
       <WorksPageBody />
       <Footer />
+      <JsonLd data={worksGraph()} />
     </ContentProvider>
   );
 }

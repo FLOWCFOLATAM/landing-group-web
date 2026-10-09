@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
-import { content } from "@/brand/content";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import HowWeWorkPage from "@/components/HowWeWorkPage";
 import ContentProvider from "@/components/ContentProvider";
 import { getSiteTina } from "@/brand/tina";
+import { howWeWorkGraph, metaHowWeWork } from "@/brand/seo";
+import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Cómo lo hacemos — LANDING GROUP",
-  description: content.howWeWork.pageIntro,
+  ...metaHowWeWork,
   alternates: { canonical: "/como-lo-hacemos/" },
 };
 
-/* Diferenciales en profundidad: producción, logística y acompañamiento. */
+/* Diferenciales en profundidad: personalización, producción, logística y acompañamiento. */
 export default async function ComoLoHacemosPage() {
   const tina = await getSiteTina();
   return (
@@ -20,6 +20,7 @@ export default async function ComoLoHacemosPage() {
       <Nav />
       <HowWeWorkPage />
       <Footer />
+      <JsonLd data={howWeWorkGraph()} />
     </ContentProvider>
   );
 }

@@ -9,10 +9,13 @@ export default function Reveal({
   children,
   className = "",
   delay = 0,
+  as: Tag = "div",
 }: {
   children: ReactNode;
   className?: string;
   delay?: number;
+  /* "li" cuando el bloque es hijo directo de un <ul>/<ol> (lista bien formada) */
+  as?: "div" | "li";
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
@@ -34,12 +37,12 @@ export default function Reveal({
   }, []);
 
   return (
-    <div
-      ref={ref}
+    <Tag
+      ref={ref as never}
       className={`reveal ${className} ${visible ? "is-visible" : ""}`}
       style={{ transitionDelay: `${delay}ms` }}
     >
       {children}
-    </div>
+    </Tag>
   );
 }

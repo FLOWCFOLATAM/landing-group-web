@@ -6,8 +6,9 @@ const nextConfig: NextConfig = {
   // The black "N" is a development-only Next.js indicator, not part of
   // Landing Group's interface. Keep local previews visually clean.
   devIndicators: false,
-  // GitHub Pages serves project sites from /<repository>. Static export plus
-  // a configurable base path keeps the same code working locally and there.
+  // Static export (Vercel sirve /out). El basePath configurable queda por si
+  // algún día se publica bajo una subruta; GitHub Pages se retiró el 9-oct-2026
+  // (duplicaba el sitio y competía con grupolanding.com en los buscadores).
   output: "export",
   basePath,
   assetPrefix: basePath || undefined,

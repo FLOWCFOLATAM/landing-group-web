@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import { content } from "@/brand/content";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import ContactHeader from "@/components/ContactHeader";
 import ContactPageBody from "@/components/ContactPageBody";
 import ContentProvider from "@/components/ContentProvider";
 import { getSiteTina } from "@/brand/tina";
+import { contactGraph, metaContact } from "@/brand/seo";
+import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Contáctanos — LANDING GROUP",
-  description: content.contact.intro,
+  ...metaContact,
   alternates: { canonical: "/contacto/" },
 };
 
@@ -27,6 +27,7 @@ export default async function ContactoPage() {
         </section>
       </main>
       <Footer />
+      <JsonLd data={contactGraph()} />
     </ContentProvider>
   );
 }

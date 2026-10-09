@@ -91,23 +91,26 @@ export default function Process() {
 
         <ol className="grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
           {steps.map((step, i) => (
-            <Reveal key={step.n} delay={i * 110}>
-              <li className={`border-t-2 border-accent/70 pt-6 lg:border-t-0 lg:pt-8 ${reached > i ? "step-done" : ""}`}>
-                <span className="relative inline-block px-2 py-1">
-                  <span className="text-[12px] tracking-[0.2em] text-accent [font-weight:600]">
-                    {step.n}
-                  </span>
-                  <MarkerStroke
-                    shape="circle"
-                    drawn={reached > i}
-                    className="absolute -inset-x-2 -inset-y-1.5 h-[calc(100%+12px)] w-[calc(100%+16px)] text-accent"
-                  />
+            <Reveal
+              as="li"
+              key={step.n}
+              delay={i * 110}
+              className={`border-t-2 border-accent/70 pt-6 lg:border-t-0 lg:pt-8 ${reached > i ? "step-done" : ""}`}
+            >
+              <span className="relative inline-block px-2 py-1">
+                <span className="text-[12px] tracking-[0.2em] text-accent [font-weight:600]">
+                  {step.n}
                 </span>
-                <h3 className="display step-title mt-3 text-[clamp(1.7rem,2.4vw,2.1rem)] leading-[0.95]">
-                  {step.title}
-                </h3>
-                <p className="mt-3 text-[14px] leading-[1.5] tracking-[0.01em] text-ink/70">{step.body}</p>
-              </li>
+                <MarkerStroke
+                  shape="circle"
+                  drawn={reached > i}
+                  className="absolute -inset-x-2 -inset-y-1.5 h-[calc(100%+12px)] w-[calc(100%+16px)] text-accent"
+                />
+              </span>
+              <h3 className="display step-title mt-3 text-[clamp(1.7rem,2.4vw,2.1rem)] leading-[0.95]">
+                {step.title}
+              </h3>
+              <p className="mt-3 text-[14px] leading-[1.5] tracking-[0.01em] text-ink/70">{step.body}</p>
             </Reveal>
           ))}
         </ol>

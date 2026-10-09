@@ -3,104 +3,126 @@
   "framework": "nextjs",
   "redirects": [
     {
+      "source": "/:path(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.grupolanding.com"
+        }
+      ],
+      "destination": "https://grupolanding.com/:path",
+      "permanent": true
+    },
+    {
+      "source": "/:path(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "landing-group-web.vercel.app"
+        }
+      ],
+      "destination": "https://grupolanding.com/:path",
+      "permanent": true
+    },
+    {
       "source": "/agenda",
       "destination": "/contacto/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/agenda/",
       "destination": "/contacto/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/hablemos",
       "destination": "/contacto/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/hablemos/",
       "destination": "/contacto/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/servicios/merch-corporativo",
       "destination": "/soluciones/merch-corporativo/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/servicios/merch-corporativo/",
       "destination": "/soluciones/merch-corporativo/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/servicios/eventos-btl",
       "destination": "/soluciones/eventos-btl/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/servicios/eventos-btl/",
       "destination": "/soluciones/eventos-btl/",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/servicios/personalizacion",
       "destination": "/como-lo-hacemos/#personalizacion",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/servicios/personalizacion/",
       "destination": "/como-lo-hacemos/#personalizacion",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/servicios/produccion",
       "destination": "/como-lo-hacemos/#produccion",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/servicios/produccion/",
       "destination": "/como-lo-hacemos/#produccion",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/servicios/logistica",
       "destination": "/como-lo-hacemos/#logistica",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/servicios/logistica/",
       "destination": "/como-lo-hacemos/#logistica",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/servicios/acompanamiento",
       "destination": "/como-lo-hacemos/#acompanamiento",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/servicios/acompanamiento/",
       "destination": "/como-lo-hacemos/#acompanamiento",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/servicios",
       "destination": "/#soluciones",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/servicios/",
       "destination": "/#soluciones",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/soluciones/personalizacion",
       "destination": "/como-lo-hacemos/#personalizacion",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/soluciones/personalizacion/",
       "destination": "/como-lo-hacemos/#personalizacion",
-      "permanent": false
+      "permanent": true
     }
   ]
 }
