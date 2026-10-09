@@ -5,8 +5,9 @@
   REGLA (Landing, 9-oct-2026): nada de esto cambia el diseño ni el contenido
   visible de la web. Todo se DERIVA de content/site.json (lo que la página ya
   dice) para no afirmar nada que el visitante no pueda leer. El número de
-  WhatsApp no se publica aquí: la web no lo muestra (solo vive en el enlace
-  del botón y, a propósito, en Google Business Profile).
+  WhatsApp NO se muestra en la web ni va en /llms.txt; solo se declara como
+  teléfono de la organización en los datos estructurados, para que coincida
+  con Google Business Profile (decisión de Hugo, 9-oct-2026).
 */
 
 import { content, type CaseItem, type SolutionItem } from "./content";
@@ -20,6 +21,16 @@ const WEBSITE_ID = `${SITE_URL}/#website`;
 const COUNTRY = { "@type": "Country", name: "Perú" };
 
 type Json = Record<string, unknown>;
+
+/* "51923290835" → "+51 923 290 835" (formato peruano; otros: +dígitos). Solo para
+   datos estructurados: ningún componente visible lo usa. */
+const PHONE = (() => {
+  const d = content.contact.whatsapp.replace(/\D/g, "");
+  if (!d) return "";
+  return d.length === 11 && d.startsWith("51") ? `+51 ${d.slice(2, 5)} ${d.slice(5, 8)} ${d.slice(8)}` : `+${d}`;
+})();
+const withPhone = (): Json => (PHONE ? { telephone: PHONE } : {});
+
 type Crumb = { name: string; path: string };
 
 /* ── Título y descripción que ven los buscadores ─────────────────────── */
@@ -80,10 +91,11 @@ function organizationNode(): Json {
     description: hero.sub,
     slogan: brand.tagline,
     email: contact.email,
+    ...withPhone(),
     address: { "@type": "PostalAddress", addressLocality: "Lima", addressCountry: "PE" },
     areaServed: COUNTRY,
     contactPoint: [
-      { "@type": "ContactPoint", contactType: "sales", email: contact.email, areaServed: "PE", availableLanguage: "Spanish" },
+      { "@type": "ContactPoint", contactType: "sales", email: contact.email, ...withPhone(), areaServed: "PE", availableLanguage: "Spanish" },
     ],
     sameAs: [contact.instagram, contact.linkedin].filter(Boolean),
     knowsAbout: [...solutions.items.map((s) => s.name), ...howWeWork.items.map((h) => h.name)],

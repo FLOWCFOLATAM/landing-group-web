@@ -32,8 +32,9 @@ This version has breaking changes — APIs, conventions, and file structure may 
   mínima antes de commit: `npm run lint`, `npx tsc --noEmit` y `npm run build`.
 - **SEO/GEO**: `docs/seo-geo-2026-10.md`. Títulos, descripciones y JSON-LD viven
   en `brand/seo.ts` y se derivan del contenido visible. REGLA de Landing: no
-  cambiar diseño ni contenido visible. El número de WhatsApp no se publica en
-  JSON-LD ni en `/llms.txt` (la web no lo muestra).
+  cambiar diseño ni contenido visible. El número de WhatsApp no se muestra en la
+  web ni va en `/llms.txt`; solo está como `telephone` en el JSON-LD (para
+  coincidir con Google Business Profile).
 - **Motion**: sin librerías de animación; respetar `prefers-reduced-motion`,
   estados one-shot en estado React, solo transform/opacity/clip-path/color.
   El cursor cruz es constante (decisión cerrada del cliente).
